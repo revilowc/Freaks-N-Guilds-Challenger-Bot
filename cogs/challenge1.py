@@ -190,6 +190,8 @@ class FourView(discord.ui.View):
 async def intro_room(interaction, x, y, p, l):
     rockview = OneView("Go to rock")
 
+    await interaction.followup.send("...", ephemeral=True)
+    time.sleep(1)
     await interaction.followup.send("\n...", ephemeral=True)
     time.sleep(1)
     await interaction.followup.send("\nHuh? Are you dead…?", ephemeral=True)
@@ -248,10 +250,6 @@ async def intro_room(interaction, x, y, p, l):
 async def A1_room(interaction, x, y, p, l):
     pilferview = OneView("Pilfer")
 
-    await interaction.followup.send("\n...", ephemeral=True)
-    time.sleep(1)
-    await interaction.followup.send("\n...", ephemeral=True)
-    time.sleep(1)
     await interaction.followup.send(
         "\n\nYou approach the rock formation. The vitality inside you is getting stronger and your eyes have almost perfect night vision at this point. You climb down and around the rocks until you see a cave entrance.",
         ephemeral=True)
@@ -274,8 +272,6 @@ async def A1_room(interaction, x, y, p, l):
 async def A1P1_room(interaction, x, y, p, l):
     pilfermoreview = OneView("Pilfer more")
 
-    await interaction.followup.send("\n...", ephemeral=True)
-    time.sleep(1)
     await interaction.followup.send(
         "\n\nYou rummage through the treasure finding all sorts of interesting trinkets. Swords from long forgotten battles. Ruby encrusted armor with 4 arm holes, or what look like arm holes anyway. Helmets forged in volcanic pyres, glowing with elven magic. How do you know all of this, you wonder? The memories float in and out from times long ago. Continue pilfering?",
         view=pilfermoreview,
@@ -294,8 +290,6 @@ async def A1P1_room(interaction, x, y, p, l):
 async def A1P2_room(interaction, x, y, p, l):
     pilfermoreview2 = OneView("Pilfer more")
 
-    await interaction.followup.send("\n...", ephemeral=True)
-    time.sleep(1)
     await interaction.followup.send(
         "\n\nYou dive into another pile of treasure, right into a goopy pile of Ooze. Its weird texture envelops your arm and stimulates it, giving you a burst of energy. You wonder what else it could stimulate when all of a sudden, a low rumbling comes from within the planet, causing some rocks to fall from the ceiling. You leap out of the way as a giant boulder crashes down into the pile of treasure, splattering Ooze all over the trinkets and weapons. Rattled but unafraid, you continue rummaging, curious about what secrets this Guild’s Lair hides. Pilfer some more?",
         view=pilfermoreview2,
@@ -314,8 +308,6 @@ async def A1P2_room(interaction, x, y, p, l):
 async def A1P3_room(interaction, x, y, p, l):
     keepgoingview = OneView("Keep going")
 
-    await interaction.followup.send("\n...", ephemeral=True)
-    time.sleep(1)
     await interaction.followup.send(
         "\n\nYou grab a spiked club and consider using it. Nah, too top heavy. You grab a pair of glowing nunchuks and start to spin them like a drunken toddler. They start to warm as you spin faster and faster, and suddenly a burst of flame explodes out of the end illuminating the cave and searing your hair. Wow that smells awful, you think, dropping the scorching weapon as you extinguish your now burnt head. You hadn’t noticed before the burst of flame, but there was a reflection deeper in the cave. There’s something shiny back there… something… precious? My precious?",
         view=keepgoingview,
@@ -336,8 +328,6 @@ async def A1Final_room(interaction, x, y, p, l):
     A13choicesview = ThreeView("Pilfer more", "Climb on boulder",
                                "Go deeper into the lair")
 
-    await interaction.followup.send("\n...", ephemeral=True)
-    time.sleep(1)
     await interaction.followup.send(
         "\n\nYou’re near some mounds of treasure and the giant boulder. What will you do? You can pilfer some more, you can climb on top of the fallen boulder, or you can go deeper into the lair.",
         view=A13choicesview,
@@ -366,13 +356,10 @@ async def A1Final_room(interaction, x, y, p, l):
 async def A2_room(interaction, x, y, p, l):
     gobackview = OneView("Go back")
 
-    await interaction.followup.send("\n...", ephemeral=True)
-    time.sleep(1)
     await interaction.followup.send(
         "\n\nYou climb over the mound of treasure, making your way to the side of the cave. A skeleton of a freak is seen clinging to a broken, rusted machete. \n\nYou snag the machete and chop the head off, just to be sure.\n\nNever know how long that thing has been dead right? 'Double Tap' you scream aloud, as the skull rolls across the rocks.\n\nYou’re not sure why, but you felt compelled to yell it, as if it was second nature.",
         ephemeral=True)
-    await interaction.followup.send("\n...", ephemeral=True)
-    time.sleep(1)
+    time.sleep(5)
     await interaction.followup.send(
         "\n\nYou poke into the mound of treasure with the rusted machete. Gold coins spill onto your feet. Worthless, you think in contempt. It doesn’t look like anything here is worth taking or exploring. \n\nYou’ve reached a dead end.",
         view=gobackview,
@@ -392,8 +379,6 @@ async def A3P1_room(interaction, x, y, p, l):
     x = x + 3
     climbview = OneView("Climb ladder")
 
-    await interaction.followup.send("\n...", ephemeral=True)
-    time.sleep(1)
     await interaction.followup.send(
         "\n\nYou climb onto the fallen boulder, slipping on your way up, knocking your nose. Blood trickles down your face. You stare up towards the alcove from which it fell. You think you can reach it if you can just get close enough… You spot a convenient ladder amidst the rubble. \n\nYou prop it on top of the boulder, giving you access to the alcove. \n\nWant to climb the ladder?",
         view=climbview,
@@ -409,15 +394,9 @@ async def A3P1_room(interaction, x, y, p, l):
     A3P12choiceview = TwoView("Go back", "Swing staff")
 
     await interaction.followup.send(
-        "\n\nYou start climbing the ladder and it snaps, sending you down into the pile of treasure below.",
+        "\n\nYou start climbing the ladder and it snaps, sending you down into the pile of treasure below. Couldn’t be that easy you think. Ooze seeps around your feet.",
         ephemeral=True)
-    await interaction.followup.send("\n...", ephemeral=True)
-    time.sleep(1)
-    await interaction.followup.send(
-        "\n\nCouldn’t be that easy you think. Ooze seeps around your feet.",
-        ephemeral=True)
-    await interaction.followup.send("\n...", ephemeral=True)
-    time.sleep(1)
+    time.sleep(2)
     await interaction.followup.send(
         "\n\nYour nerves in your legs activate with intense energy and you try pushing off of them with all your force.",
         ephemeral=True)
@@ -425,47 +404,29 @@ async def A3P1_room(interaction, x, y, p, l):
     await interaction.followup.send(
         "\n\nYou shoot into the air 20 feet, bashing your poor nose once again, this time on the ceiling of the cave.",
         ephemeral=True)
-    await interaction.followup.send("\n...", ephemeral=True)
     time.sleep(1)
     await interaction.followup.send(
-        "\n\nMore blood falls down your chin as you flop back face down into the pile of Ooze on the floor.",
+        "\n\nMore blood falls down your chin as you flop back face down into the pile of Ooze on the floor. The blood stops. The pain subsides as you feel jolts of energy course through your body again.",
         ephemeral=True)
-    time.sleep(1)
-    await interaction.followup.send(
-        "\n\nThe blood stops. The pain subsides as you feel jolts of energy course through your body again.",
-        ephemeral=True)
-    await interaction.followup.send("\n...", ephemeral=True)
-    time.sleep(1)
+    time.sleep(2)
     await interaction.followup.send(
         "\n\nYou touch your nose and realize its completely healed! Determined and rejuvenated, you look to the alcove again.",
         ephemeral=True)
-    time.sleep(1)
     await interaction.followup.send(
         "\n\nYou leap towards it, easily sailing in!", ephemeral=True)
     time.sleep(1)
     await interaction.followup.send(
-        "\n\nIn front of you is what looks like a shimmering staff.",
+        "\n\nIn front of you is what looks like a shimmering staff. You swing the staff, loosing a blast of pure energy in front of you.",
         ephemeral=True)
-    await interaction.followup.send(
-        "\n\nYou swing the staff, loosing a blast of pure energy in front of you.",
-        ephemeral=True)
-    await interaction.followup.send("\n...", ephemeral=True)
-    time.sleep(1)
+    time.sleep(2)
     await interaction.followup.send(
         "\n\nThe energy ricochets, knocking you back down, smacking you into the boulder and sending you faceplanting once again into the pile of Ooze.",
         ephemeral=True)
-    await interaction.followup.send("\n...", ephemeral=True)
-    time.sleep(1)
+    time.sleep(2)
     await interaction.followup.send(
-        "\n\nUnder further inspection, the staff looks as if it’s covered in runes.",
+        "\n\nUnder further inspection, the staff looks as if it’s covered in runes. You wonder if swinging the staff again will cause the same effect.",
         ephemeral=True)
-    await interaction.followup.send("\n...", ephemeral=True)
-    time.sleep(1)
-    await interaction.followup.send(
-        "\n\nYou wonder if swinging the staff again will cause the same effect.",
-        ephemeral=True)
-    await interaction.followup.send("\n...", ephemeral=True)
-    time.sleep(1)
+    time.sleep(2)
     await interaction.followup.send(
         "\n\nDoesn't look like there is anything left to do on this boulder. I do have this sweet staff now though...",
         view=A3P12choiceview,
@@ -485,8 +446,6 @@ async def A3P1_room(interaction, x, y, p, l):
     elif A3P12choiceview.choice == 2:
         gobackview2 = OneView("Go back")
 
-        await interaction.followup.send("\n...", ephemeral=True)
-        time.sleep(1)
         await interaction.followup.send(
             "\nYou swing the staff, loosing a blast of energy directly in front of you. The blast sends treasure and copious amounts of weapons flying, but you don’t see any major changes in the cave. I should save this thing in case I need it later. \n probably should head back now",
             view=gobackview2,
@@ -504,8 +463,6 @@ async def A3P1_room(interaction, x, y, p, l):
 async def A3Z2_room(interaction, x, y, p, l):
     gobackview3 = OneView("Go back")
 
-    await interaction.followup.send("\n...", ephemeral=True)
-    time.sleep(1)
     await interaction.followup.send(
         "\n\nYou climb atop the boulder. That’s a niiiiice boulder. Looks like some pieces from the broken ladder, there’s nothing else interesting here.",
         view=gobackview3,
@@ -525,10 +482,6 @@ async def A5_room(interaction, x, y, p, l):
     # some prompts
     leftrightview = ThreeView("Left", "Right", "Go back")
 
-    await interaction.followup.send("\n...", ephemeral=True)
-    time.sleep(1)
-    await interaction.followup.send("\n...", ephemeral=True)
-    time.sleep(1)
     await interaction.followup.send(
         "\n\nYou delve further into the cave, climbing over rocks and disturbingly sharp weapons. \n\nYou reach a fork in the path. To your right you see a pile of loose rocks blocking a path. To your left you see a mirror of sorts, which must have been creating the shiny reflection you saw earlier in the cave! \n\nShould you go right or left...?",
         view=leftrightview,
@@ -558,10 +511,6 @@ async def A5back_room(interaction, x, y, p, l):
     # some prompts
     leftrightview2 = ThreeView("Left", "Right", "Go back")
 
-    await interaction.followup.send("\n...", ephemeral=True)
-    time.sleep(1)
-    await interaction.followup.send("\n...", ephemeral=True)
-    time.sleep(1)
     await interaction.followup.send(
         "\n\nYou’re deep in the cave at a fork in the path. Behind you are the piles of treasure you pilfered and the giant boulder. To your right you see a pile of loose rocks blocking a path. To your left you see a mirror of sorts. Should you right, left, or to the go back...?",
         view=leftrightview2,
@@ -593,27 +542,22 @@ async def A5back_room(interaction, x, y, p, l):
 async def A6_room(interaction, x, y, p, l):
     p = p + 3
     gobackview4 = OneView("Go back")
-    await interaction.followup.send("\n...", ephemeral=True)
-    time.sleep(1)
+
     await interaction.followup.send(
         "\n\nYou approach a giant mirror as you examine yourself for the first time. Damn, you’re a catch. You’re human, that’s for sure.",
         ephemeral=True)
-    await interaction.followup.send("\n...", ephemeral=True)
     time.sleep(1)
     await interaction.followup.send(
         "\n\n From the look of it, this mirror is the only thing down this path, besides some treasure and armor. You try some armor on for the fun of it. Damn, you look even better now.",
         ephemeral=True)
-    await interaction.followup.send("\n...", ephemeral=True)
-    time.sleep(1)
+    time.sleep(2)
     await interaction.followup.send(
         "\n\nYou decide to keep the armor because you’re here pilfering, and no one but you would look this good in it anyway.",
         ephemeral=True)
-    await interaction.followup.send("\n...", ephemeral=True)
     time.sleep(1)
     await interaction.followup.send(
         "\n\nThat’s enough, you think, you can’t just stare at yourself all day, you’ve got runes to find. Tendies to make. Gains for days.",
         ephemeral=True)
-    await interaction.followup.send("\n...", ephemeral=True)
     time.sleep(1)
     await interaction.followup.send(
         "\n\nYou should probably go back, or you can just stare at yourself some more...",
@@ -633,14 +577,9 @@ async def A6_room(interaction, x, y, p, l):
 async def A6back_room(interaction, x, y, p, l):
     gobackview5 = OneView("Go back")
 
-    await interaction.followup.send("\n...", ephemeral=True)
-    time.sleep(1)
     await interaction.followup.send(
-        "\n\nWoah who’s that you see? Oh yeah, it’s you in the mirror, check that out. Damn you look good in your armor. There doesn’t seem to be anything else here.",
+        "\n\nWoah who’s that you see? Oh yeah, it’s you in the mirror, check that out. Damn you look good in your armor. There doesn’t seem to be anything else here.", view=gobackview5,
         ephemeral=True)
-    await interaction.followup.send("\n...", ephemeral=True)
-    time.sleep(1)
-    await interaction.followup.send("\n...", view=gobackview5, ephemeral=True)
 
     await gobackview5.wait()
 
@@ -654,16 +593,12 @@ async def A6back_room(interaction, x, y, p, l):
 
 async def A7_room(interaction, x, y, p, l):
     # some prompts
-    await interaction.followup.send("\n...", ephemeral=True)
-    time.sleep(1)
     await interaction.followup.send(
         "\n\nYou approach the pile of loose rocks.", ephemeral=True)
     time.sleep(1)
-    await interaction.followup.send("\n...", ephemeral=True)
     await interaction.followup.send(
         "\n\nThere seems to be a pathway behind the rocks, but they’re too heavy to move. A blast of energy might help clear it.",
         ephemeral=True)
-    time.sleep(1)
 
     if x > 1:
         A7view = TwoView("Swing Staff", "Go back")
@@ -699,13 +634,9 @@ async def A7_room(interaction, x, y, p, l):
 
 async def A7back_room(interaction, x, y, p, l):
     A7backview = TwoView("Go back", "Crawl through")
-    await interaction.followup.send("\n...", ephemeral=True)
-    time.sleep(1)
     await interaction.followup.send(
-        "\n\nYou approach the small entrance. You can see a large room behind it. Will you crawl through, or go back to the fork in the cave?",
+        "\n\nYou approach the small entrance. You can see a large room behind it. Will you crawl through, or go back to the fork in the cave?",view=A7backview,
         ephemeral=True)
-    time.sleep(1)
-    await interaction.followup.send("\n...", view=A7backview, ephemeral=True)
 
     await A7backview.wait()
 
@@ -723,31 +654,25 @@ async def A8_room(interaction, x, y, p, l):
     l = l + 3
     # some prompts
     A8view = FourView("Chest", "Tapestry", "Sit in throne", "Go back")
-    await interaction.followup.send("\n...", ephemeral=True)
-    time.sleep(1)
     await interaction.followup.send(
         "\n\nYou swing the staff, loosing a blast of energy. The energy forcefully slams into the rocks, sending them flying through the cave, scraping you on the way by.",
         ephemeral=True)
-    await interaction.followup.send("\n...", ephemeral=True)
-    time.sleep(1)
+    time.sleep(2)
     await interaction.followup.send(
         "\n\n You stumble and fall back from the force. As the dust settles, you see that the pathway has been cleared enough to wriggle your way through.",
         ephemeral=True)
-    await interaction.followup.send("\n...", ephemeral=True)
-    time.sleep(1)
+    time.sleep(2)
     await interaction.followup.send(
         "\n\nYou crawl through the opening and find yourself in a large regal room. This must be where the guild met before they disappeared. A 6-foot round table sits in the middle, surrounded by chairs.\n\n You wonder how they got the table into the cave until you remember, “magic!” Makes sense.",
         ephemeral=True)
-    time.sleep(1)
+    time.sleep(3)
     await interaction.followup.send(
         "\n\nIn the corner you see a locked treasure chest. \n\nYou also notice a tapestry near where you entered the room, adorned with decorations and a tree behind several images of freaks. \n\nAt the opposite end of the room near the table is a gold throne. None of the other chairs are thrones, this one is clearly special.",
         ephemeral=True)
-    await interaction.followup.send("\n...", ephemeral=True)
-    time.sleep(1)
+    time.sleep(4)
     await interaction.followup.send(
-        "\n\nWhat will you do? You can approach the chest, examine the tapestry, or sit in the throne",
+        "\n\nWhat will you do? You can approach the chest, examine the tapestry, or sit in the throne",view=A8view,
         ephemeral=True)
-    await interaction.followup.send("\n...", view=A8view, ephemeral=True)
 
     await A8view.wait()
 
@@ -767,27 +692,21 @@ async def A8_room(interaction, x, y, p, l):
 
 async def A8back_room(interaction, x, y, p, l):
     A8backview = FourView("Chest", "Tapestry", "Sit in throne", "Go back")
-    await interaction.followup.send("\n...", ephemeral=True)
-    time.sleep(1)
     await interaction.followup.send(
         "\n\nYou’re in a large regal room. A 6-foot round table sits in the middle, surrounded by chairs. In the corner you see a locked treasure chest. ",
         ephemeral=True)
-    await interaction.followup.send("\n...", ephemeral=True)
-    time.sleep(1)
+    time.sleep(2)
     await interaction.followup.send(
         "\n\n You also notice a tapestry near where you entered the room, adorned with decorations and a tree behind several images of freaks. ",
         ephemeral=True)
-    await interaction.followup.send("\n...", ephemeral=True)
-    time.sleep(1)
+    time.sleep(2)
     await interaction.followup.send(
         "\n\n. At the opposite end of the room near the table is a gold throne. None of the other chairs are thrones, this one is clearly special.",
         ephemeral=True)
-    await interaction.followup.send("\n...", ephemeral=True)
-    time.sleep(1)
+    time.sleep(2)
     await interaction.followup.send(
-        "\n\nWhat will you do? You can approach the chest, examine the tapestry, or sit in the throne.",
+        "\n\nWhat will you do? You can approach the chest, examine the tapestry, or sit in the throne.",view=A8backview,
         ephemeral=True)
-    await interaction.followup.send("\n...", view=A8backview, ephemeral=True)
 
     await A8backview.wait()
 
@@ -808,32 +727,25 @@ async def A8back_room(interaction, x, y, p, l):
 async def A9_room(interaction, x, y, p, l):
     gobackview6 = OneView("Go back")
 
-    await interaction.followup.send("\n...", ephemeral=True)
-    time.sleep(1)
     await interaction.followup.send(
         "\n\nYou move closer to the tapestry. It looks almost like a family tree, except inscribed on the top is “The Golden Guild” Apparently, it’s a guild tree.",
         ephemeral=True)
-    await interaction.followup.send("\n...", ephemeral=True)
-    time.sleep(1)
+    time.sleep(2)
     await interaction.followup.send(
         "\n\n7 large branches extend from the base. Each branch features more than 20 freaks, made up of different races. You recognize some freaks from your memories, and a few ogres are featured as well – you recognize them from earlier in the day since the snot dribbling from their nose is unmistakable.",
         ephemeral=True)
-    await interaction.followup.send("\n...", ephemeral=True)
-    time.sleep(1)
+    time.sleep(5)
     await interaction.followup.send(
         "\n\nWhat looks to be elves are on some of the branches, amidst some other mysterious freaks. Most of them are creatures you’ve never seen before, at least that’s what you remember.",
         ephemeral=True)
-    await interaction.followup.send("\n...", ephemeral=True)
-    time.sleep(1)
+    time.sleep(2)
     await interaction.followup.send(
         "\n\nYour eyes scan the tree looking for more information. 7 names are scribbled into the branches of the tree. From left to right, you read: Chad the Chiseled, Missy the Inaccurate, Clair the Clairvoyant, Satoshi the Wise, Wanda the Witch, Vlad the Game Stopper, and Kaiju the Nifty.",
         ephemeral=True)
-    await interaction.followup.send("\n...", ephemeral=True)
-    time.sleep(1)
+    time.sleep(3)
     await interaction.followup.send(
-        "\n\nSatisfied, you don’t think staring at this tapestry will get you any closer to the rune you seek.",
+        "\n\nSatisfied, you don’t think staring at this tapestry will get you any closer to the rune you seek.", view=gobackview6,
         ephemeral=True)
-    await interaction.followup.send("\n...", view=gobackview6, ephemeral=True)
 
     await gobackview6.wait()
 
