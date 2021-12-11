@@ -400,7 +400,10 @@ async def B7 (interaction, alreadyb2, unlockedb12, unlockedb9, alreadyb1, unlock
             ephemeral=True)
   time.sleep(3)
   await interaction.followup.send(
-            "Your heart is pounding out of your chest, it’s hard to run. Every minute you sneak a glance back. The freak is still after you, snapping trees like an unstoppable juggernaut hell-bent on smashing you. You pick up the pace, sprinting faster. You can see a flickering light in the distance.", view=b7view,
+            "You run like your life depends on it (it does) for over an hour. The troll finally gives up the chase but you continue stumbling on, adrenaline coursing through your body. You begin to get tired, and a bit cold. You didn’t realize it until now, but it’s cold again, and quite dark. And now you’ve got a headache, great. Nowhere near close to the rune either, you think.",
+            ephemeral=True)
+  time.sleep(5)
+  await interaction.followup.send("You can see a flickering light in the distance.", view=b7view,
             ephemeral=True)
 
   await b7view.wait()
