@@ -1,5 +1,6 @@
 import discord
 import time
+from discord.abc import PrivateChannel
 from discord.ext import commands
 
 class OneButton(discord.ui.Button):
@@ -295,7 +296,7 @@ class SevenView(discord.ui.View):
 
 
 
-async def C1(interaction, c8shortcut, c9times, unlockedc18, unlockedc13, unlockedc17, c16goback, c17goback):
+async def C1(interaction, c8shortcut, c9times, unlockedc18, unlockedc13, unlockedc17, c16goback, c17goback, client):
   c1view = TwoView("Run across the pathway", "Carefully walk")
 
   await interaction.followup.send(
@@ -336,9 +337,9 @@ async def C1(interaction, c8shortcut, c9times, unlockedc18, unlockedc13, unlocke
         ephemeral=True)
 
   elif c1view.choice == 1:
-    await C2(interaction, c8shortcut, c9times, unlockedc18, unlockedc13, unlockedc17, c16goback, c17goback)
+    await C2(interaction, c8shortcut, c9times, unlockedc18, unlockedc13, unlockedc17, c16goback, c17goback, client)
 
-async def C2(interaction, c8shortcut, c9times, unlockedc18, unlockedc13, unlockedc17, c16goback, c17goback):
+async def C2(interaction, c8shortcut, c9times, unlockedc18, unlockedc13, unlockedc17, c16goback, c17goback, client):
   c2view = TwoView("Go to the podium", "Ignore the podium")
 
   await interaction.followup.send(
@@ -376,12 +377,12 @@ async def C2(interaction, c8shortcut, c9times, unlockedc18, unlockedc13, unlocke
             ephemeral=True)
         return
 
-    await C3(interaction, c8shortcut, c9times, unlockedc18, unlockedc13, unlockedc17, c16goback, c17goback)
+    await C3(interaction, c8shortcut, c9times, unlockedc18, unlockedc13, unlockedc17, c16goback, c17goback, client)
 
   elif c2view.choice == 2:
-    await C3(interaction, c8shortcut, c9times, unlockedc18, unlockedc13, unlockedc17, c16goback, c17goback)
+    await C3(interaction, c8shortcut, c9times, unlockedc18, unlockedc13, unlockedc17, c16goback, c17goback, client)
 
-async def C3(interaction, c8shortcut, c9times, unlockedc18, unlockedc13, unlockedc17, c16goback, c17goback):
+async def C3(interaction, c8shortcut, c9times, unlockedc18, unlockedc13, unlockedc17, c16goback, c17goback, client):
   c3view = TwoView("Run", "Wait")
 
   await interaction.followup.send(
@@ -422,9 +423,9 @@ async def C3(interaction, c8shortcut, c9times, unlockedc18, unlockedc13, unlocke
         ephemeral=True)
 
   elif c3view.choice == 1:
-    await C4(interaction, c8shortcut, c9times, unlockedc18, unlockedc13, unlockedc17, c16goback, c17goback)
+    await C4(interaction, c8shortcut, c9times, unlockedc18, unlockedc13, unlockedc17, c16goback, c17goback, client)
 
-async def C4(interaction, c8shortcut, c9times, unlockedc18, unlockedc13, unlockedc17, c16goback, c17goback):
+async def C4(interaction, c8shortcut, c9times, unlockedc18, unlockedc13, unlockedc17, c16goback, c17goback, client):
   c4view = TwoView("Continue walking forward", "Scale the cliff wall")
 
   await interaction.followup.send(
@@ -452,13 +453,13 @@ async def C4(interaction, c8shortcut, c9times, unlockedc18, unlockedc13, unlocke
         return
 
   elif c4view.choice == 1:
-    await C5(interaction, c8shortcut, c9times, unlockedc18, unlockedc13, unlockedc17, c16goback, c17goback)
+    await C5(interaction, c8shortcut, c9times, unlockedc18, unlockedc13, unlockedc17, c16goback, c17goback, client)
 
   elif c4view.choice == 2:
     c8shortcut = True
-    await C8(interaction, c8shortcut, c9times, unlockedc18, unlockedc13, unlockedc17, c16goback, c17goback)
+    await C8(interaction, c8shortcut, c9times, unlockedc18, unlockedc13, unlockedc17, c16goback, c17goback, client)
 
-async def C5(interaction, c8shortcut, c9times, unlockedc18, unlockedc13, unlockedc17, c16goback, c17goback):
+async def C5(interaction, c8shortcut, c9times, unlockedc18, unlockedc13, unlockedc17, c16goback, c17goback, client):
   c5view = TwoView("Investigate the shine", "Pick up the rock")
 
   await interaction.followup.send(
@@ -499,9 +500,9 @@ async def C5(interaction, c8shortcut, c9times, unlockedc18, unlockedc13, unlocke
         ephemeral=True)
 
   elif c5view.choice == 2:
-    await C6(interaction, c8shortcut, c9times, unlockedc18, unlockedc13, unlockedc17, c16goback, c17goback)
+    await C6(interaction, c8shortcut, c9times, unlockedc18, unlockedc13, unlockedc17, c16goback, c17goback, client)
 
-async def C6(interaction, c8shortcut, c9times, unlockedc18, unlockedc13, unlockedc17, c16goback, c17goback):
+async def C6(interaction, c8shortcut, c9times, unlockedc18, unlockedc13, unlockedc17, c16goback, c17goback, client):
   c6view = TwoView("Stay and fight", "Rappel down the cliff")
 
   await interaction.followup.send(
@@ -525,12 +526,12 @@ async def C6(interaction, c8shortcut, c9times, unlockedc18, unlockedc13, unlocke
         return
 
   elif c6view.choice == 1:
-    await C7(interaction, c8shortcut, c9times, unlockedc18, unlockedc13, unlockedc17, c16goback, c17goback)
+    await C7(interaction, c8shortcut, c9times, unlockedc18, unlockedc13, unlockedc17, c16goback, c17goback, client)
 
   elif c6view.choice == 2:
-    await C8(interaction, c8shortcut, c9times, unlockedc18, unlockedc13, unlockedc17, c16goback, c17goback)
+    await C8(interaction, c8shortcut, c9times, unlockedc18, unlockedc13, unlockedc17, c16goback, c17goback, client)
 
-async def C7(interaction, c8shortcut, c9times, unlockedc18, unlockedc13, unlockedc17, c16goback, c17goback):
+async def C7(interaction, c8shortcut, c9times, unlockedc18, unlockedc13, unlockedc17, c16goback, c17goback, client):
   c7view = OneView("Rappel down the cliff")
 
   await interaction.followup.send(
@@ -553,9 +554,9 @@ async def C7(interaction, c8shortcut, c9times, unlockedc18, unlockedc13, unlocke
             ephemeral=True)
         return
 
-  await C8(interaction, c8shortcut, c9times, unlockedc18, unlockedc13, unlockedc17, c16goback, c17goback)
+  await C8(interaction, c8shortcut, c9times, unlockedc18, unlockedc13, unlockedc17, c16goback, c17goback, client)
 
-async def C8(interaction, c8shortcut, c9times, unlockedc18, unlockedc13, unlockedc17, c16goback, c17goback):
+async def C8(interaction, c8shortcut, c9times, unlockedc18, unlockedc13, unlockedc17, c16goback, c17goback, client):
   c8view = TwoView("Wait here", "Crawl through opening")
 
   if c8shortcut == True:
@@ -622,9 +623,9 @@ async def C8(interaction, c8shortcut, c9times, unlockedc18, unlockedc13, unlocke
         ephemeral=True)
 
   elif c8view.choice == 2:
-    await C9(interaction, c8shortcut, c9times, unlockedc18, unlockedc13, unlockedc17, c16goback, c17goback)
+    await C9(interaction, c8shortcut, c9times, unlockedc18, unlockedc13, unlockedc17, c16goback, c17goback, client)
 
-async def C9(interaction, c8shortcut, c9times, unlockedc18, unlockedc13, unlockedc17, c16goback, c17goback):
+async def C9(interaction, c8shortcut, c9times, unlockedc18, unlockedc13, unlockedc17, c16goback, c17goback, client):
   if c9times == 1:
     c9times += 1
 
@@ -655,25 +656,25 @@ async def C9(interaction, c8shortcut, c9times, unlockedc18, unlockedc13, unlocke
         return
 
     elif c9view.choice == 1:
-      await C18(interaction, c8shortcut, c9times, unlockedc18, unlockedc13, unlockedc17, c16goback, c17goback)
+      await C18(interaction, c8shortcut, c9times, unlockedc18, unlockedc13, unlockedc17, c16goback, c17goback, client)
 
     elif c9view.choice == 2:
-      await C10(interaction, c8shortcut, c9times, unlockedc18, unlockedc13, unlockedc17, c16goback, c17goback)
+      await C10(interaction, c8shortcut, c9times, unlockedc18, unlockedc13, unlockedc17, c16goback, c17goback, client)
 
     elif c9view.choice == 3:
-      await C11(interaction, c8shortcut, c9times, unlockedc18, unlockedc13, unlockedc17, c16goback, c17goback)
+      await C11(interaction, c8shortcut, c9times, unlockedc18, unlockedc13, unlockedc17, c16goback, c17goback, client)
 
     elif c9view.choice == 4:
-      await C15(interaction, c8shortcut, c9times, unlockedc18, unlockedc13, unlockedc17, c16goback, c17goback)
+      await C15(interaction, c8shortcut, c9times, unlockedc18, unlockedc13, unlockedc17, c16goback, c17goback, client)
 
     elif c9view.choice == 5:
-      await C12(interaction, c8shortcut, c9times, unlockedc18, unlockedc13, unlockedc17, c16goback, c17goback)
+      await C12(interaction, c8shortcut, c9times, unlockedc18, unlockedc13, unlockedc17, c16goback, c17goback, client)
 
     elif c9view.choice == 6:
-      await C13(interaction, c8shortcut, c9times, unlockedc18, unlockedc13, unlockedc17, c16goback, c17goback)
+      await C13(interaction, c8shortcut, c9times, unlockedc18, unlockedc13, unlockedc17, c16goback, c17goback, client)
 
     elif c9view.choice == 7:
-      await C14(interaction, c8shortcut, c9times, unlockedc18, unlockedc13, unlockedc17, c16goback, c17goback)
+      await C14(interaction, c8shortcut, c9times, unlockedc18, unlockedc13, unlockedc17, c16goback, c17goback, client)
 
   elif c9times == 5:
     await interaction.followup.send(
@@ -710,25 +711,25 @@ async def C9(interaction, c8shortcut, c9times, unlockedc18, unlockedc13, unlocke
         return
 
     elif c9view.choice == 1:
-      await C18(interaction, c8shortcut, c9times, unlockedc18, unlockedc13, unlockedc17, c16goback, c17goback)
+      await C18(interaction, c8shortcut, c9times, unlockedc18, unlockedc13, unlockedc17, c16goback, c17goback, client)
 
     elif c9view.choice == 2:
-      await C10(interaction, c8shortcut, c9times, unlockedc18, unlockedc13, unlockedc17, c16goback, c17goback)
+      await C10(interaction, c8shortcut, c9times, unlockedc18, unlockedc13, unlockedc17, c16goback, c17goback, client)
 
     elif c9view.choice == 3:
-      await C11(interaction, c8shortcut, c9times, unlockedc18, unlockedc13, unlockedc17, c16goback, c17goback)
+      await C11(interaction, c8shortcut, c9times, unlockedc18, unlockedc13, unlockedc17, c16goback, c17goback, client)
 
     elif c9view.choice == 4:
-      await C15(interaction, c8shortcut, c9times, unlockedc18, unlockedc13, unlockedc17, c16goback, c17goback)
+      await C15(interaction, c8shortcut, c9times, unlockedc18, unlockedc13, unlockedc17, c16goback, c17goback, client)
 
     elif c9view.choice == 5:
-      await C12(interaction, c8shortcut, c9times, unlockedc18, unlockedc13, unlockedc17, c16goback, c17goback)
+      await C12(interaction, c8shortcut, c9times, unlockedc18, unlockedc13, unlockedc17, c16goback, c17goback, client)
 
     elif c9view.choice == 6:
-      await C13(interaction, c8shortcut, c9times, unlockedc18, unlockedc13, unlockedc17, c16goback, c17goback)
+      await C13(interaction, c8shortcut, c9times, unlockedc18, unlockedc13, unlockedc17, c16goback, c17goback, client)
 
     elif c9view.choice == 7:
-      await C14(interaction, c8shortcut, c9times, unlockedc18, unlockedc13, unlockedc17, c16goback, c17goback)
+      await C14(interaction, c8shortcut, c9times, unlockedc18, unlockedc13, unlockedc17, c16goback, c17goback, client)
 
   elif unlockedc13 == True and unlockedc17 == False:
     c9times += 1
@@ -752,25 +753,25 @@ async def C9(interaction, c8shortcut, c9times, unlockedc18, unlockedc13, unlocke
         return
 
     elif c9view.choice == 1:
-      await C18(interaction, c8shortcut, c9times, unlockedc18, unlockedc13, unlockedc17, c16goback, c17goback)
+      await C18(interaction, c8shortcut, c9times, unlockedc18, unlockedc13, unlockedc17, c16goback, c17goback, client)
 
     elif c9view.choice == 2:
-      await C10(interaction, c8shortcut, c9times, unlockedc18, unlockedc13, unlockedc17, c16goback, c17goback)
+      await C10(interaction, c8shortcut, c9times, unlockedc18, unlockedc13, unlockedc17, c16goback, c17goback, client)
 
     elif c9view.choice == 3:
-      await C11(interaction, c8shortcut, c9times, unlockedc18, unlockedc13, unlockedc17, c16goback, c17goback)
+      await C11(interaction, c8shortcut, c9times, unlockedc18, unlockedc13, unlockedc17, c16goback, c17goback, client)
 
     elif c9view.choice == 4:
-      await C15(interaction, c8shortcut, c9times, unlockedc18, unlockedc13, unlockedc17, c16goback, c17goback)
+      await C15(interaction, c8shortcut, c9times, unlockedc18, unlockedc13, unlockedc17, c16goback, c17goback, client)
 
     elif c9view.choice == 5:
-      await C12(interaction, c8shortcut, c9times, unlockedc18, unlockedc13, unlockedc17, c16goback, c17goback)
+      await C12(interaction, c8shortcut, c9times, unlockedc18, unlockedc13, unlockedc17, c16goback, c17goback, client)
 
     elif c9view.choice == 6:
-      await C13(interaction, c8shortcut, c9times, unlockedc18, unlockedc13, unlockedc17, c16goback, c17goback)
+      await C13(interaction, c8shortcut, c9times, unlockedc18, unlockedc13, unlockedc17, c16goback, c17goback, client)
 
     elif c9view.choice == 7:
-      await C14(interaction, c8shortcut, c9times, unlockedc18, unlockedc13, unlockedc17, c16goback, c17goback)
+      await C14(interaction, c8shortcut, c9times, unlockedc18, unlockedc13, unlockedc17, c16goback, c17goback, client)
 
   elif unlockedc17 == True and unlockedc18 == True:
     c9view = SevenView("Leave Cave", "Path of Greenery", "Path of Steel", "Narrow Path", "Path of Fire", "Submerged Path", "Path of Darkness")
@@ -788,25 +789,25 @@ async def C9(interaction, c8shortcut, c9times, unlockedc18, unlockedc13, unlocke
         return
 
     elif c9view.choice == 1:
-      await C18(interaction, c8shortcut, c9times, unlockedc18, unlockedc13, unlockedc17, c16goback, c17goback)
+      await C18(interaction, c8shortcut, c9times, unlockedc18, unlockedc13, unlockedc17, c16goback, c17goback, client)
 
     elif c9view.choice == 2:
-      await C10(interaction, c8shortcut, c9times, unlockedc18, unlockedc13, unlockedc17, c16goback, c17goback)
+      await C10(interaction, c8shortcut, c9times, unlockedc18, unlockedc13, unlockedc17, c16goback, c17goback, client)
 
     elif c9view.choice == 3:
-      await C11(interaction, c8shortcut, c9times, unlockedc18, unlockedc13, unlockedc17, c16goback, c17goback)
+      await C11(interaction, c8shortcut, c9times, unlockedc18, unlockedc13, unlockedc17, c16goback, c17goback, client)
 
     elif c9view.choice == 4:
-      await C15(interaction, c8shortcut, c9times, unlockedc18, unlockedc13, unlockedc17, c16goback, c17goback)
+      await C15(interaction, c8shortcut, c9times, unlockedc18, unlockedc13, unlockedc17, c16goback, c17goback, client)
 
     elif c9view.choice == 5:
-      await C12(interaction, c8shortcut, c9times, unlockedc18, unlockedc13, unlockedc17, c16goback, c17goback)
+      await C12(interaction, c8shortcut, c9times, unlockedc18, unlockedc13, unlockedc17, c16goback, c17goback, client)
 
     elif c9view.choice == 6:
-      await C13(interaction, c8shortcut, c9times, unlockedc18, unlockedc13, unlockedc17, c16goback, c17goback)
+      await C13(interaction, c8shortcut, c9times, unlockedc18, unlockedc13, unlockedc17, c16goback, c17goback, client)
 
     elif c9view.choice == 7:
-      await C14(interaction, c8shortcut, c9times, unlockedc18, unlockedc13, unlockedc17, c16goback, c17goback)
+      await C14(interaction, c8shortcut, c9times, unlockedc18, unlockedc13, unlockedc17, c16goback, c17goback, client)
 
   elif unlockedc17 == True:
     c9view = SevenView("Leave Cave", "Path of Greenery", "Path of Steel", "Narrow Path", "Path of Fire", "Submerged Path", "Path of Darkness")
@@ -828,27 +829,27 @@ async def C9(interaction, c8shortcut, c9times, unlockedc18, unlockedc13, unlocke
         return
 
     elif c9view.choice == 1:
-      await C18(interaction, c8shortcut, c9times, unlockedc18, unlockedc13, unlockedc17, c16goback, c17goback)
+      await C18(interaction, c8shortcut, c9times, unlockedc18, unlockedc13, unlockedc17, c16goback, c17goback, client)
 
     elif c9view.choice == 2:
-      await C10(interaction, c8shortcut, c9times, unlockedc18, unlockedc13, unlockedc17, c16goback, c17goback)
+      await C10(interaction, c8shortcut, c9times, unlockedc18, unlockedc13, unlockedc17, c16goback, c17goback, client)
 
     elif c9view.choice == 3:
-      await C11(interaction, c8shortcut, c9times, unlockedc18, unlockedc13, unlockedc17, c16goback, c17goback)
+      await C11(interaction, c8shortcut, c9times, unlockedc18, unlockedc13, unlockedc17, c16goback, c17goback, client)
 
     elif c9view.choice == 4:
-      await C15(interaction, c8shortcut, c9times, unlockedc18, unlockedc13, unlockedc17, c16goback, c17goback)
+      await C15(interaction, c8shortcut, c9times, unlockedc18, unlockedc13, unlockedc17, c16goback, c17goback, client)
 
     elif c9view.choice == 5:
-      await C12(interaction, c8shortcut, c9times, unlockedc18, unlockedc13, unlockedc17, c16goback, c17goback)
+      await C12(interaction, c8shortcut, c9times, unlockedc18, unlockedc13, unlockedc17, c16goback, c17goback, client)
 
     elif c9view.choice == 6:
-      await C13(interaction, c8shortcut, c9times, unlockedc18, unlockedc13, unlockedc17, c16goback, c17goback)
+      await C13(interaction, c8shortcut, c9times, unlockedc18, unlockedc13, unlockedc17, c16goback, c17goback, client)
 
     elif c9view.choice == 7:
-      await C14(interaction, c8shortcut, c9times, unlockedc18, unlockedc13, unlockedc17, c16goback, c17goback)
+      await C14(interaction, c8shortcut, c9times, unlockedc18, unlockedc13, unlockedc17, c16goback, c17goback, client)
 
-async def C10(interaction, c8shortcut, c9times, unlockedc18, unlockedc13, unlockedc17, c16goback, c17goback):
+async def C10(interaction, c8shortcut, c9times, unlockedc18, unlockedc13, unlockedc17, c16goback, c17goback, client):
   await interaction.followup.send(
         "You start down the path. The dense air is replaced by damp humidity as you move further into the cave, moss creeping up the walls.",
         ephemeral=True)
@@ -885,7 +886,7 @@ async def C10(interaction, c8shortcut, c9times, unlockedc18, unlockedc13, unlock
         embed=discord.Embed(description="**You lose... Go back to the top of this channel and click `begin challenge` to start again.**", color=0x000ff),
         ephemeral=True)
 
-async def C11(interaction, c8shortcut, c9times, unlockedc18, unlockedc13, unlockedc17, c16goback, c17goback):
+async def C11(interaction, c8shortcut, c9times, unlockedc18, unlockedc13, unlockedc17, c16goback, c17goback, client):
   c11view = TwoView("Press big red button", "Press small yellow button")
 
   await interaction.followup.send(
@@ -966,9 +967,9 @@ async def C11(interaction, c8shortcut, c9times, unlockedc18, unlockedc13, unlock
         return
 
     unlockedc13 = True
-    await C9(interaction, c8shortcut, c9times, unlockedc18, unlockedc13, unlockedc17, c16goback, c17goback)
+    await C9(interaction, c8shortcut, c9times, unlockedc18, unlockedc13, unlockedc17, c16goback, c17goback, client)
 
-async def C13(interaction, c8shortcut, c9times, unlockedc18, unlockedc13, unlockedc17, c16goback, c17goback):
+async def C13(interaction, c8shortcut, c9times, unlockedc18, unlockedc13, unlockedc17, c16goback, c17goback, client):
   if unlockedc13 == False:
     await interaction.followup.send(
         "You head to an opening in the cave. Murky water greets you, the stench sending shivers down your spine. You step into the water. It’s warm. This is a mistake you think, but you commit. You ain’t no bitch.",
@@ -1030,9 +1031,9 @@ async def C13(interaction, c8shortcut, c9times, unlockedc18, unlockedc13, unlock
         return
 
     unlockedc17 = True
-    await C9(interaction, c8shortcut, c9times, unlockedc18, unlockedc13, unlockedc17, c16goback, c17goback)
+    await C9(interaction, c8shortcut, c9times, unlockedc18, unlockedc13, unlockedc17, c16goback, c17goback, client)
 
-async def C15(interaction, c8shortcut, c9times, unlockedc18, unlockedc13, unlockedc17, c16goback, c17goback):
+async def C15(interaction, c8shortcut, c9times, unlockedc18, unlockedc13, unlockedc17, c16goback, c17goback, client):
   if unlockedc13 == False:
     c15view = TwoView("Go back", "Cross bridge")
 
@@ -1098,7 +1099,7 @@ async def C15(interaction, c8shortcut, c9times, unlockedc18, unlockedc13, unlock
         ephemeral=True)
 
     elif c15view.choice == 1:
-      await C9(interaction, c8shortcut, c9times, unlockedc18, unlockedc13, unlockedc17, c16goback, c17goback)
+      await C9(interaction, c8shortcut, c9times, unlockedc18, unlockedc13, unlockedc17, c16goback, c17goback, client)
 
   elif unlockedc17 == True and c16goback == False:
     c15view = TwoView("Go back", "Swim across")
@@ -1124,10 +1125,10 @@ async def C15(interaction, c8shortcut, c9times, unlockedc18, unlockedc13, unlock
         return
 
     elif c15view.choice == 1:
-      await C9(interaction, c8shortcut, c9times, unlockedc18, unlockedc13, unlockedc17, c16goback, c17goback)
+      await C9(interaction, c8shortcut, c9times, unlockedc18, unlockedc13, unlockedc17, c16goback, c17goback, client)
 
     elif c15view.choice == 2:
-      await C16(interaction, c8shortcut, c9times, unlockedc18, unlockedc13, unlockedc17, c16goback, c17goback)
+      await C16(interaction, c8shortcut, c9times, unlockedc18, unlockedc13, unlockedc17, c16goback, c17goback, client)
 
   elif c16goback == True:
     c15view = TwoView("Go through passage", "Cross water again")
@@ -1145,12 +1146,12 @@ async def C15(interaction, c8shortcut, c9times, unlockedc18, unlockedc13, unlock
         return
 
     elif c15view.choice == 1:
-      await C9(interaction, c8shortcut, c9times, unlockedc18, unlockedc13, unlockedc17, c16goback, c17goback)
+      await C9(interaction, c8shortcut, c9times, unlockedc18, unlockedc13, unlockedc17, c16goback, c17goback, client)
 
     elif c15view.choice == 2:
-      await C16(interaction, c8shortcut, c9times, unlockedc18, unlockedc13, unlockedc17, c16goback, c17goback)
+      await C16(interaction, c8shortcut, c9times, unlockedc18, unlockedc13, unlockedc17, c16goback, c17goback, client)
 
-async def C16(interaction, c8shortcut, c9times, unlockedc18, unlockedc13, unlockedc17, c16goback, c17goback):
+async def C16(interaction, c8shortcut, c9times, unlockedc18, unlockedc13, unlockedc17, c16goback, c17goback, client):
   if c17goback == False:
     c16view = TwoView("Go back", "Go to gold smoke")
 
@@ -1176,7 +1177,7 @@ async def C16(interaction, c8shortcut, c9times, unlockedc18, unlockedc13, unlock
 
     elif c16view.choice == 1:
       c16goback = True
-      await C15(interaction, c8shortcut, c9times, unlockedc18, unlockedc13, unlockedc17, c16goback, c17goback)
+      await C15(interaction, c8shortcut, c9times, unlockedc18, unlockedc13, unlockedc17, c16goback, c17goback, client)
 
     elif c16view.choice == 2:
       if unlockedc17 == False:
@@ -1193,7 +1194,7 @@ async def C16(interaction, c8shortcut, c9times, unlockedc18, unlockedc13, unlock
         ephemeral=True)
 
       else:
-        await C17(interaction, c8shortcut, c9times, unlockedc18, unlockedc13, unlockedc17, c16goback, c17goback)
+        await C17(interaction, c8shortcut, c9times, unlockedc18, unlockedc13, unlockedc17, c16goback, c17goback, client)
 
   else:
     c16view2 = OneView("Swim across")
@@ -1211,9 +1212,9 @@ async def C16(interaction, c8shortcut, c9times, unlockedc18, unlockedc13, unlock
         return
 
     c16goback = True
-    await C15(interaction, c8shortcut, c9times, unlockedc18, unlockedc13, unlockedc17, c16goback, c17goback)
+    await C15(interaction, c8shortcut, c9times, unlockedc18, unlockedc13, unlockedc17, c16goback, c17goback, client)
 
-async def C17(interaction, c8shortcut, c9times, unlockedc18, unlockedc13, unlockedc17, c16goback, c17goback):
+async def C17(interaction, c8shortcut, c9times, unlockedc18, unlockedc13, unlockedc17, c16goback, c17goback, client):
   c17view = OneView("Go back")
 
   await interaction.followup.send(
@@ -1257,10 +1258,10 @@ async def C17(interaction, c8shortcut, c9times, unlockedc18, unlockedc13, unlock
 
   unlockedc18 = True
   c17goback = True
-  await C16(interaction, c8shortcut, c9times, unlockedc18, unlockedc13, unlockedc17, c16goback, c17goback)
+  await C16(interaction, c8shortcut, c9times, unlockedc18, unlockedc13, unlockedc17, c16goback, c17goback, client)
 
 
-async def C12(interaction, c8shortcut, c9times, unlockedc18, unlockedc13, unlockedc17, c16goback, c17goback):
+async def C12(interaction, c8shortcut, c9times, unlockedc18, unlockedc13, unlockedc17, c16goback, c17goback, client):
   await interaction.followup.send(
         "You start down the path of fire. It’s blazing hot in here. Didn’t you do that enough already in the volcano?! Wait, this still is the volcano, duh.",
         ephemeral=True)
@@ -1286,7 +1287,7 @@ async def C12(interaction, c8shortcut, c9times, unlockedc18, unlockedc13, unlock
         embed=discord.Embed(description="**You lose... Go back to the top of this channel and click `begin challenge` to start again.**", color=0x000ff),
         ephemeral=True)
 
-async def C14(interaction, c8shortcut, c9times, unlockedc18, unlockedc13, unlockedc17, c16goback, c17goback):
+async def C14(interaction, c8shortcut, c9times, unlockedc18, unlockedc13, unlockedc17, c16goback, c17goback, client):
   await interaction.followup.send(
         "The pathway ahead Is pitch black.",
         ephemeral=True)
@@ -1323,7 +1324,7 @@ async def C14(interaction, c8shortcut, c9times, unlockedc18, unlockedc13, unlock
         embed=discord.Embed(description="**You lose... Go back to the top of this channel and click `begin challenge` to start again.**", color=0x000ff),
         ephemeral=True)
 
-async def C18(interaction, c8shortcut, c9times, unlockedc18, unlockedc13, unlockedc17, c16goback, c17goback):
+async def C18(interaction, c8shortcut, c9times, unlockedc18, unlockedc13, unlockedc17, c16goback, c17goback, client):
   if unlockedc18 == False:
 
     await interaction.followup.send(
@@ -1389,16 +1390,35 @@ async def C18(interaction, c8shortcut, c9times, unlockedc18, unlockedc13, unlock
         "Triumphant against your foe, you let out a deep breath. A blinding light erupts from beneath your feet, and after a few moments of stunned glory, a voice calls out: KO!!!",
         ephemeral=True)
     time.sleep(2)
+
+    walletembed = discord.Embed(description="Congratulations on completing the quest! The first 50 people to complete will be added to the free mint whitelist and the next 300 will be whitelisted. You will gain a role for completing this quest and we will manually assign the roles for the winners! Please send your wallet address here! (Make sure to send only your wallet address and no extra random text!)", color=0x000ff)
+    walletembed.set_footer(text="Freaks N' Guilds",
+                          icon_url=client.user.avatar.url)
+
+    dmmessage = await interaction.user.send(embed=walletembed)
+
     await interaction.followup.send(
-        "The rune materializes before your eyes as a championship belt. Congratulations! You are a worthy Illuvar!",
+        f"The rune materializes before your eyes as a championship belt. Congratulations! You are a worthy Illuvar!",
         ephemeral=True)
     time.sleep(1)
-    await interaction.followup.send(embed=discord.Embed(description="**You have completed challenge 3!**", color=0x000ff),
+    await interaction.followup.send(embed=discord.Embed(description=f"Congratulations on completing the quest! The first 50 people to complete will be added to the free mint whitelist and the next 300 will be whitelisted. You will gain a role for completing this quest and we will manually assign the roles for the winners! Please [check your DMs]({dmmessage.jump_url}) and send your wallet address there! (Make sure to send only your wallet address and no extra random text!)", color=0x000ff),
         ephemeral=True)
 
+    walletaddress = (await client.wait_for('message', check=lambda message: message.author == interaction.user and isinstance(message.channel, PrivateChannel))).content
+
+    await interaction.user.send("Got it! I've stored your wallet address.")
+
+    f = open("walletaddresses.txt", "a")
+    f.write(f"\n{interaction.user.name}#{interaction.user.discriminator}:{walletaddress},")
+    f.close()
+
+    knightsrole = interaction.guild.get_role(902795625253449759)
+    await interaction.user.add_roles(knightsrole)
+
 class ChallengeView3(discord.ui.View):
-    def __init__(self):
+    def __init__(self, client):
         super().__init__(timeout=None)
+        self.client = client
 
     @discord.ui.button(label='Begin Challenge',
                        style=discord.ButtonStyle.blurple,
@@ -1434,7 +1454,7 @@ class ChallengeView3(discord.ui.View):
 
         await startview.wait()
 
-        await C1(interaction, c8shortcut, c9times, unlockedc18, unlockedc13, unlockedc17, c16goback, c17goback)
+        await C1(interaction, c8shortcut, c9times, unlockedc18, unlockedc13, unlockedc17, c16goback, c17goback, self.client)
 
 
 class Challenge3(commands.Cog):
@@ -1451,7 +1471,7 @@ class Challenge3(commands.Cog):
         rulesembed.set_footer(text="Freaks N' Guilds",
                               icon_url=ctx.guild.icon.url)
 
-        challengeview = ChallengeView3()
+        challengeview = ChallengeView3(self.client)
 
         await ctx.message.delete()
 
@@ -1465,7 +1485,7 @@ class Challenge3(commands.Cog):
             # In order to do this you need to first send a message with the View, which is shown below.
             # If you have the message_id you can also pass it as a keyword argument, but for this example
             # we don't have one.
-            self.client.add_view(ChallengeView3())
+            self.client.add_view(ChallengeView3(self.client))
             self.persistent_views_added = True
 
 
