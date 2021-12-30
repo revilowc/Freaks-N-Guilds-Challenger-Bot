@@ -836,8 +836,9 @@ async def A11_room(interaction, x, y, p, l):
 
 
 class ChallengeView1(discord.ui.View):
-    def __init__(self):
+    def __init__(self, client):
         super().__init__(timeout=None)
+        self.client = client
 
     @discord.ui.button(label='Begin Challenge',
                        style=discord.ButtonStyle.blurple,
@@ -853,7 +854,7 @@ class ChallengeView1(discord.ui.View):
 
         startembed = discord.Embed(
             description=
-            "\n   How to play:\n\nThis is a real-time race for 2000 spots. Only the first 2000 players to open the chest will win a special prize…\n\nRead the paragraph, and then type one of the prompted responses to move on.\nYou will have some obvious options available to you, so you will not have to guess or grasp at straws.\n\nIf you ever want to return to the place you just previously were, just click ‘go back’. You will always have the option ‘go back’ available to you.\n\nTo start, click the begin button. Look for hints, read carefully, and...\nGOOD LUCK!",
+            f"These quests are a race to complete. The first 75 to complete each quest will be whitelisted for an allowed to mint 1 Celestial Key For FREE. The next 300 to finish will be whitelisted for the mint at a reduced price. When you have completed all the quests you will be DMed by {self.client.user.mention} and prompted to enter your wallet address. It will only ask for you wallet address - do not add random text!\n\nHow to play:\nRead the paragraph, and then type one of the prompted responses to move on.\nYou will have some obvious options available to you, so you will not have to guess or grasp at straws.\n\nIf you ever want to return to the place you just previously were, just click ‘go back’. You will always have the option ‘go back’ available to you.\n\nTo start, click the begin button. Look for hints, read carefully, and...\nGOOD LUCK!",
             color=0x000ff)
         startembed.set_author(name="Challenge 1",
                               icon_url=interaction.guild.icon.url)
@@ -887,7 +888,7 @@ class Challenge1(commands.Cog):
         rulesembed.set_footer(text="Freaks N' Guilds",
                               icon_url=ctx.guild.icon.url)
 
-        challengeview = ChallengeView1()
+        challengeview = ChallengeView1(self.client)
 
         await ctx.message.delete()
 
@@ -901,7 +902,7 @@ class Challenge1(commands.Cog):
             # In order to do this you need to first send a message with the View, which is shown below.
             # If you have the message_id you can also pass it as a keyword argument, but for this example
             # we don't have one.
-            self.client.add_view(ChallengeView1())
+            self.client.add_view(ChallengeView1(self.client))
             self.persistent_views_added = True
 
 
