@@ -1,5 +1,6 @@
 import discord
 import time
+from discord.abc import PrivateChannel
 from discord.ext import commands
 
 class Dropdown(discord.ui.Select):
@@ -187,7 +188,7 @@ class FourView(discord.ui.View):
         self.timeout = True
 
 
-async def intro_room(interaction, x, y, p, l):
+async def intro_room(interaction, x, y, p, l, client):
     rockview = OneView("Go to rock")
 
     await interaction.followup.send("...", ephemeral=True)
@@ -244,10 +245,10 @@ async def intro_room(interaction, x, y, p, l):
         "Timed out... Don't you know how to click buttons?!", ephemeral=True)
       return
 
-    await A1_room(interaction, x, y, p, l)
+    await A1_room(interaction, x, y, p, l, client)
 
 
-async def A1_room(interaction, x, y, p, l):
+async def A1_room(interaction, x, y, p, l, client):
     pilferview = OneView("Pilfer")
 
     await interaction.followup.send(
@@ -266,10 +267,10 @@ async def A1_room(interaction, x, y, p, l):
         "Timed out... Don't you know how to click buttons?!", ephemeral=True)
       return
 
-    await A1P1_room(interaction, x, y, p, l)
+    await A1P1_room(interaction, x, y, p, l, client)
 
 
-async def A1P1_room(interaction, x, y, p, l):
+async def A1P1_room(interaction, x, y, p, l, client):
     pilfermoreview = OneView("Pilfer more")
 
     await interaction.followup.send(
@@ -284,10 +285,10 @@ async def A1P1_room(interaction, x, y, p, l):
         "Timed out... Don't you know how to click buttons?!", ephemeral=True)
       return
 
-    await A1P2_room(interaction, x, y, p, l)
+    await A1P2_room(interaction, x, y, p, l, client)
 
 
-async def A1P2_room(interaction, x, y, p, l):
+async def A1P2_room(interaction, x, y, p, l, client):
     pilfermoreview2 = OneView("Pilfer more")
 
     await interaction.followup.send(
@@ -302,10 +303,10 @@ async def A1P2_room(interaction, x, y, p, l):
         "Timed out... Don't you know how to click buttons?!", ephemeral=True)
       return
 
-    await A1P3_room(interaction, x, y, p, l)
+    await A1P3_room(interaction, x, y, p, l, client)
 
 
-async def A1P3_room(interaction, x, y, p, l):
+async def A1P3_room(interaction, x, y, p, l, client):
     keepgoingview = OneView("Keep going")
 
     await interaction.followup.send(
@@ -320,10 +321,10 @@ async def A1P3_room(interaction, x, y, p, l):
         "Timed out... Don't you know how to click buttons?!", ephemeral=True)
       return
 
-    await A1Final_room(interaction, x, y, p, l)
+    await A1Final_room(interaction, x, y, p, l, client)
 
 
-async def A1Final_room(interaction, x, y, p, l):
+async def A1Final_room(interaction, x, y, p, l, client):
 
     A13choicesview = ThreeView("Pilfer more", "Climb on boulder",
                                "Go deeper into the lair")
@@ -341,19 +342,19 @@ async def A1Final_room(interaction, x, y, p, l):
       return
 
     elif A13choicesview.choice == 1:
-        await A2_room(interaction, x, y, p, l)
+        await A2_room(interaction, x, y, p, l, client)
 
     elif A13choicesview.choice == 2:
         if x < 2:
-            await A3P1_room(interaction, x, y, p, l)
+            await A3P1_room(interaction, x, y, p, l, client)
         else:
-            await A3Z2_room(interaction, x, y, p, l)
+            await A3Z2_room(interaction, x, y, p, l, client)
 
     elif A13choicesview.choice == 3:
-        await A5_room(interaction, x, y, p, l)
+        await A5_room(interaction, x, y, p, l, client)
 
 
-async def A2_room(interaction, x, y, p, l):
+async def A2_room(interaction, x, y, p, l, client):
     gobackview = OneView("Go back")
 
     await interaction.followup.send(
@@ -372,10 +373,10 @@ async def A2_room(interaction, x, y, p, l):
         "Timed out... Don't you know how to click buttons?!", ephemeral=True)
       return
 
-    await A1Final_room(interaction, x, y, p, l)
+    await A1Final_room(interaction, x, y, p, l, client)
 
 
-async def A3P1_room(interaction, x, y, p, l):
+async def A3P1_room(interaction, x, y, p, l, client):
     x = x + 3
     climbview = OneView("Climb ladder")
 
@@ -441,7 +442,7 @@ async def A3P1_room(interaction, x, y, p, l):
 
     elif A3P12choiceview.choice == 1:
 
-        await A1Final_room(interaction, x, y, p, l)
+        await A1Final_room(interaction, x, y, p, l, client)
 
     elif A3P12choiceview.choice == 2:
         gobackview2 = OneView("Go back")
@@ -457,10 +458,10 @@ async def A3P1_room(interaction, x, y, p, l):
           await interaction.followup.send("Timed out... Don't you know how to click buttons?!", ephemeral=True)
           return
 
-        await A1Final_room(interaction, x, y, p, l)
+        await A1Final_room(interaction, x, y, p, l, client)
 
 
-async def A3Z2_room(interaction, x, y, p, l):
+async def A3Z2_room(interaction, x, y, p, l, client):
     gobackview3 = OneView("Go back")
 
     await interaction.followup.send(
@@ -475,10 +476,10 @@ async def A3Z2_room(interaction, x, y, p, l):
         "Timed out... Don't you know how to click buttons?!", ephemeral=True)
       return
 
-    await A1Final_room(interaction, x, y, p, l)
+    await A1Final_room(interaction, x, y, p, l, client)
 
 
-async def A5_room(interaction, x, y, p, l):
+async def A5_room(interaction, x, y, p, l, client):
     # some prompts
     leftrightview = ThreeView("Left", "Right", "Go back")
 
@@ -495,19 +496,19 @@ async def A5_room(interaction, x, y, p, l):
       return
 
     elif leftrightview.choice == 1:
-        await A6_room(interaction, x, y, p, l)
+        await A6_room(interaction, x, y, p, l, client)
 
     elif leftrightview.choice == 2:
         if y < 2:
-            await A7_room(interaction, x, y, p, l)
+            await A7_room(interaction, x, y, p, l, client)
         else:
-            await A7back_room(interaction, x, y, p, l)
+            await A7back_room(interaction, x, y, p, l, client)
 
     elif leftrightview.choice == 3:
-        await A1Final_room(interaction, x, y, p, l)
+        await A1Final_room(interaction, x, y, p, l, client)
 
 
-async def A5back_room(interaction, x, y, p, l):
+async def A5back_room(interaction, x, y, p, l, client):
     # some prompts
     leftrightview2 = ThreeView("Left", "Right", "Go back")
 
@@ -525,21 +526,21 @@ async def A5back_room(interaction, x, y, p, l):
 
     elif leftrightview2.choice == 1:
         if p < 2:
-            await A6_room(interaction, x, y, p, l)
+            await A6_room(interaction, x, y, p, l, client)
         else:
-            await A6back_room(interaction, x, y, p, l)
+            await A6back_room(interaction, x, y, p, l, client)
 
     elif leftrightview2.choice == 2:
         if y < 2:
-            await A7_room(interaction, x, y, p, l)
+            await A7_room(interaction, x, y, p, l, client)
         else:
-            await A7back_room(interaction, x, y, p, l)
+            await A7back_room(interaction, x, y, p, l, client)
 
     elif leftrightview2.choice == 3:
-        await A1Final_room(interaction, x, y, p, l)
+        await A1Final_room(interaction, x, y, p, l, client)
 
 
-async def A6_room(interaction, x, y, p, l):
+async def A6_room(interaction, x, y, p, l, client):
     p = p + 3
     gobackview4 = OneView("Go back")
 
@@ -571,10 +572,10 @@ async def A6_room(interaction, x, y, p, l):
         "Timed out... Don't you know how to click buttons?!", ephemeral=True)
       return
 
-    await A5back_room(interaction, x, y, p, l)
+    await A5back_room(interaction, x, y, p, l, client)
 
 
-async def A6back_room(interaction, x, y, p, l):
+async def A6back_room(interaction, x, y, p, l, client):
     gobackview5 = OneView("Go back")
 
     await interaction.followup.send(
@@ -588,10 +589,10 @@ async def A6back_room(interaction, x, y, p, l):
         "Timed out... Don't you know how to click buttons?!", ephemeral=True)
       return
 
-    await A5back_room(interaction, x, y, p, l)
+    await A5back_room(interaction, x, y, p, l, client)
 
 
-async def A7_room(interaction, x, y, p, l):
+async def A7_room(interaction, x, y, p, l, client):
     # some prompts
     await interaction.followup.send(
         "\n\nYou approach the pile of loose rocks.", ephemeral=True)
@@ -613,10 +614,10 @@ async def A7_room(interaction, x, y, p, l):
 
         elif A7view.choice == 1:
             y = y + 3
-            await A8_room(interaction, x, y, p, l)
+            await A8_room(interaction, x, y, p, l, client)
 
         elif A7view.choice == 2:
-            await A5back_room(interaction, x, y, p, l)
+            await A5back_room(interaction, x, y, p, l, client)
 
     else:
         A7view = OneView("Go back")
@@ -629,10 +630,10 @@ async def A7_room(interaction, x, y, p, l):
           await interaction.followup.send("Timed out... Don't you know how to click buttons?!", ephemeral=True)
           return
 
-        await A5back_room(interaction, x, y, p, l)
+        await A5back_room(interaction, x, y, p, l, client)
 
 
-async def A7back_room(interaction, x, y, p, l):
+async def A7back_room(interaction, x, y, p, l, client):
     A7backview = TwoView("Go back", "Crawl through")
     await interaction.followup.send(
         "\n\nYou approach the small entrance. You can see a large room behind it. Will you crawl through, or go back to the fork in the cave?",view=A7backview,
@@ -645,12 +646,12 @@ async def A7back_room(interaction, x, y, p, l):
           return
 
     elif A7backview.choice == 1:
-        await A5back_room(interaction, x, y, p, l)
+        await A5back_room(interaction, x, y, p, l, client)
     elif A7backview.choice == 2:
-        await A8back_room(interaction, x, y, p, l)
+        await A8back_room(interaction, x, y, p, l, client)
 
 
-async def A8_room(interaction, x, y, p, l):
+async def A8_room(interaction, x, y, p, l, client):
     l = l + 3
     # some prompts
     A8view = FourView("Chest", "Tapestry", "Sit in throne", "Go back")
@@ -681,13 +682,13 @@ async def A8_room(interaction, x, y, p, l):
           return
 
     elif A8view.choice == 1:
-        await A11_room(interaction, x, y, p, l)
+        await A11_room(interaction, x, y, p, l, client)
     elif A8view.choice == 2:
-        await A9_room(interaction, x, y, p, l)
+        await A9_room(interaction, x, y, p, l, client)
     elif A8view.choice == 3:
-        await A10_room(interaction, x, y, p, l)
+        await A10_room(interaction, x, y, p, l, client)
     elif A8view.choice == 4:
-        await A7back_room(interaction, x, y, p, l)
+        await A7back_room(interaction, x, y, p, l, client)
 
 
 async def A8back_room(interaction, x, y, p, l):
@@ -715,16 +716,16 @@ async def A8back_room(interaction, x, y, p, l):
           return
 
     elif A8backview.choice == 1:
-        await A11_room(interaction, x, y, p, l)
+        await A11_room(interaction, x, y, p, l, client)
     elif A8backview.choice == 2:
-        await A9_room(interaction, x, y, p, l)
+        await A9_room(interaction, x, y, p, l, client)
     elif A8backview.choice == 3:
-        await A10_room(interaction, x, y, p, l)
+        await A10_room(interaction, x, y, p, l, client)
     elif A8backview.choice == 4:
-        await A7back_room(interaction, x, y, p, l)
+        await A7back_room(interaction, x, y, p, l, client)
 
 
-async def A9_room(interaction, x, y, p, l):
+async def A9_room(interaction, x, y, p, l, client):
     gobackview6 = OneView("Go back")
 
     await interaction.followup.send(
@@ -753,10 +754,10 @@ async def A9_room(interaction, x, y, p, l):
           await interaction.followup.send("Timed out... Don't you know how to click buttons?!", ephemeral=True)
           return
 
-    await A8back_room(interaction, x, y, p, l)
+    await A8back_room(interaction, x, y, p, l, client)
 
 
-async def A10_room(interaction, x, y, p, l):
+async def A10_room(interaction, x, y, p, l, client):
     gobackview7 = OneView("Go back")
 
     await interaction.followup.send("\n...", ephemeral=True)
@@ -796,10 +797,10 @@ async def A10_room(interaction, x, y, p, l):
           await interaction.followup.send("Timed out... Don't you know how to click buttons?!", ephemeral=True)
           return
 
-    await A8back_room(interaction, x, y, p, l)
+    await A8back_room(interaction, x, y, p, l, client)
 
 
-async def A11_room(interaction, x, y, p, l):
+async def A11_room(interaction, x, y, p, l, client):
     dropdownview = DropdownView()
 
     await interaction.followup.send(
@@ -820,11 +821,25 @@ async def A11_room(interaction, x, y, p, l):
 
     elif dropdownview.win == True:
 
-        await interaction.followup.send(embed=discord.Embed(
-            description=
-            f"**Congratulations {interaction.user.name} - You Win!**",
-            color=0x000ff),
-                                        ephemeral=True)
+        walletembed = discord.Embed(description="Congratulations on completing the quest! The first 50 people to complete will be added to the free mint whitelist and the next 300 will be whitelisted. You will gain a role for completing this quest and we will manually assign the roles for the winners! Please send your wallet address here! (Make sure to send only your wallet address and no extra random text!)", color=0x000ff)
+        walletembed.set_footer(text="Freaks N' Guilds",
+                              icon_url=client.user.avatar.url)
+
+        dmmessage = await interaction.user.send(embed=walletembed)
+
+        await interaction.followup.send(embed=discord.Embed(description=f"Congratulations on completing the quest! The first 50 people to complete will be added to the free mint whitelist and the next 300 will be whitelisted. You will gain a role for completing this quest and we will manually assign the roles for the winners! Please [check your DMs]({dmmessage.jump_url}) and send your wallet address there! (Make sure to send only your wallet address and no extra random text!)", color=0x000ff),
+            ephemeral=True)
+
+        walletaddress = (await client.wait_for('message', check=lambda message: message.author == interaction.user and isinstance(message.channel, PrivateChannel))).content
+
+        await interaction.user.send("Got it! I've stored your wallet address.")
+
+        f = open("walletaddresses.txt", "a")
+        f.write(f"\n{interaction.user.name}#{interaction.user.discriminator}:{walletaddress},")
+        f.close()
+
+        knightsrole = interaction.guild.get_role(902795625253449759)
+        await interaction.user.add_roles(knightsrole)
 
     else:
 
@@ -871,7 +886,7 @@ class ChallengeView1(discord.ui.View):
 
         await startview.wait()
 
-        await intro_room(interaction, x, y, p, l)
+        await intro_room(interaction, x, y, p, l, self.client)
 
 
 class Challenge1(commands.Cog):
