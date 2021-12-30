@@ -1,5 +1,6 @@
 import discord
 import time
+from discord.abc import PrivateChannel
 from discord.ext import commands
 
 class OneButton(discord.ui.Button):
@@ -144,7 +145,7 @@ class FourView(discord.ui.View):
         self.timeout = True
 
 
-async def B1(interaction, alreadyb2, unlockedb12, unlockedb9, alreadyb1, unlockedb10):
+async def B1(interaction, alreadyb2, unlockedb12, unlockedb9, alreadyb1, unlockedb10, client):
   if alreadyb1 == False:
     alreadyb1 = True
     b1view = OneView("Sleep by the fire")
@@ -162,7 +163,7 @@ async def B1(interaction, alreadyb2, unlockedb12, unlockedb9, alreadyb1, unlocke
             ephemeral=True)
         return
 
-    await B2(interaction, alreadyb2, unlockedb12, unlockedb9, alreadyb1, unlockedb10)
+    await B2(interaction, alreadyb2, unlockedb12, unlockedb9, alreadyb1, unlockedb10, client)
 
   elif alreadyb1 == True and unlockedb9 == True and unlockedb10 == False:
     b1view2 = TwoView("Sleep by the fire", "Go to the lake")
@@ -181,10 +182,10 @@ async def B1(interaction, alreadyb2, unlockedb12, unlockedb9, alreadyb1, unlocke
         return
 
     elif b1view2.choice == 1:
-      await B2(interaction, alreadyb2, unlockedb12, unlockedb9, alreadyb1, unlockedb10)
+      await B2(interaction, alreadyb2, unlockedb12, unlockedb9, alreadyb1, unlockedb10, client)
 
     elif b1view2.choice == 2:
-      await B9(interaction, alreadyb2, unlockedb12, unlockedb9, alreadyb1, unlockedb10)
+      await B9(interaction, alreadyb2, unlockedb12, unlockedb9, alreadyb1, unlockedb10, client)
 
   elif alreadyb1 == True and unlockedb10 == True and unlockedb12 == False:
     b1view4 = TwoView("Sleep by the fire", "Dig under the snow")
@@ -203,10 +204,10 @@ async def B1(interaction, alreadyb2, unlockedb12, unlockedb9, alreadyb1, unlocke
         return
 
     elif b1view4.choice == 1:
-      await B2(interaction, alreadyb2, unlockedb12, unlockedb9, alreadyb1, unlockedb10)
+      await B2(interaction, alreadyb2, unlockedb12, unlockedb9, alreadyb1, unlockedb10, client)
 
     elif b1view4.choice == 2:
-      await B10(interaction, alreadyb2, unlockedb12, unlockedb9, alreadyb1, unlockedb10)
+      await B10(interaction, alreadyb2, unlockedb12, unlockedb9, alreadyb1, unlockedb10, client)
 
   else:
     b1view3 = OneView("Sleep by the fire")
@@ -224,10 +225,10 @@ async def B1(interaction, alreadyb2, unlockedb12, unlockedb9, alreadyb1, unlocke
             ephemeral=True)
         return
 
-    await B2(interaction, alreadyb2, unlockedb12, unlockedb9, alreadyb1, unlockedb10)
+    await B2(interaction, alreadyb2, unlockedb12, unlockedb9, alreadyb1, unlockedb10, client)
 
 
-async def B2(interaction, alreadyb2, unlockedb12, unlockedb9, alreadyb1, unlockedb10):
+async def B2(interaction, alreadyb2, unlockedb12, unlockedb9, alreadyb1, unlockedb10, client):
     if alreadyb2 == False:
         alreadyb2 = True
 
@@ -255,10 +256,10 @@ async def B2(interaction, alreadyb2, unlockedb12, unlockedb9, alreadyb1, unlocke
             return
 
         elif b2view.choice == 1:
-            await B3(interaction, alreadyb2, unlockedb12, unlockedb9, alreadyb1, unlockedb10)
+            await B3(interaction, alreadyb2, unlockedb12, unlockedb9, alreadyb1, unlockedb10, client)
 
         elif b2view.choice == 2:
-            await B11(interaction, alreadyb2, unlockedb12, unlockedb9, alreadyb1, unlockedb10)
+            await B11(interaction, alreadyb2, unlockedb12, unlockedb9, alreadyb1, unlockedb10, client)
 
     else:
       b2view2 = TwoView("Go to the lake", "Smell the flowers")
@@ -275,12 +276,12 @@ async def B2(interaction, alreadyb2, unlockedb12, unlockedb9, alreadyb1, unlocke
             return
 
       elif b2view2.choice == 1:
-        await B11(interaction, alreadyb2, unlockedb12, unlockedb9, alreadyb1, unlockedb10)
+        await B11(interaction, alreadyb2, unlockedb12, unlockedb9, alreadyb1, unlockedb10, client)
 
       elif b2view2.choice == 2:
-        await B4(interaction, alreadyb2, unlockedb12, unlockedb9, alreadyb1, unlockedb10)
+        await B4(interaction, alreadyb2, unlockedb12, unlockedb9, alreadyb1, unlockedb10, client)
 
-async def B4 (interaction, alreadyb2, unlockedb12, unlockedb9, alreadyb1, unlockedb10):
+async def B4 (interaction, alreadyb2, unlockedb12, unlockedb9, alreadyb1, unlockedb10, client):
   b4view = TwoView("Continue to watch", "Check your surroundings")
 
   await interaction.followup.send(
@@ -306,13 +307,13 @@ async def B4 (interaction, alreadyb2, unlockedb12, unlockedb9, alreadyb1, unlock
 
   elif b4view.choice == 1:
 
-    await B5continue(interaction, alreadyb2, unlockedb12, unlockedb9, alreadyb1, unlockedb10)
+    await B5continue(interaction, alreadyb2, unlockedb12, unlockedb9, alreadyb1, unlockedb10, client)
 
   elif b4view.choice == 2:
 
-    await B5check(interaction, alreadyb2, unlockedb12, unlockedb9, alreadyb1, unlockedb10)
+    await B5check(interaction, alreadyb2, unlockedb12, unlockedb9, alreadyb1, unlockedb10, client)
 
-async def B5check (interaction, alreadyb2, unlockedb12, unlockedb9, alreadyb1, unlockedb10):
+async def B5check (interaction, alreadyb2, unlockedb12, unlockedb9, alreadyb1, unlockedb10, client):
   b5checkview = TwoView("Hang out", "Nah, run the fuck away")
 
   await interaction.followup.send(
@@ -332,12 +333,12 @@ async def B5check (interaction, alreadyb2, unlockedb12, unlockedb9, alreadyb1, u
     return
 
   elif b5checkview.choice == 1:
-    await B6(interaction, alreadyb2, unlockedb12, unlockedb9, alreadyb1, unlockedb10)
+    await B6(interaction, alreadyb2, unlockedb12, unlockedb9, alreadyb1, unlockedb10, client)
 
   elif b5checkview.choice == 2:
-    await B7(interaction, alreadyb2, unlockedb12, unlockedb9, alreadyb1, unlockedb10)
+    await B7(interaction, alreadyb2, unlockedb12, unlockedb9, alreadyb1, unlockedb10, client)
 
-async def B5continue (interaction, alreadyb2, unlockedb12, unlockedb9, alreadyb1, unlockedb10):
+async def B5continue (interaction, alreadyb2, unlockedb12, unlockedb9, alreadyb1, unlockedb10, client):
   b5continueview = TwoView("Hang out", "Nah, run the fuck away")
 
   await interaction.followup.send(
@@ -353,12 +354,12 @@ async def B5continue (interaction, alreadyb2, unlockedb12, unlockedb9, alreadyb1
     return
 
   elif b5continueview.choice == 1:
-    await B6(interaction, alreadyb2, unlockedb12, unlockedb9, alreadyb1, unlockedb10)
+    await B6(interaction, alreadyb2, unlockedb12, unlockedb9, alreadyb1, unlockedb10, client)
 
   elif b5continueview.choice == 2:
-    await B7(interaction, alreadyb2, unlockedb12, unlockedb9, alreadyb1, unlockedb10)
+    await B7(interaction, alreadyb2, unlockedb12, unlockedb9, alreadyb1, unlockedb10, client)
 
-async def B6 (interaction, alreadyb2, unlockedb12, unlockedb9, alreadyb1, unlockedb10):
+async def B6 (interaction, alreadyb2, unlockedb12, unlockedb9, alreadyb1, unlockedb10, client):
   b6view = OneView("Sleep")
 
   await interaction.followup.send(
@@ -390,9 +391,9 @@ async def B6 (interaction, alreadyb2, unlockedb12, unlockedb9, alreadyb1, unlock
     return
 
   unlockedb9 = True
-  await B1(interaction, alreadyb2, unlockedb12, unlockedb9, alreadyb1, unlockedb10)
+  await B1(interaction, alreadyb2, unlockedb12, unlockedb9, alreadyb1, unlockedb10, client)
 
-async def B7 (interaction, alreadyb2, unlockedb12, unlockedb9, alreadyb1, unlockedb10):
+async def B7 (interaction, alreadyb2, unlockedb12, unlockedb9, alreadyb1, unlockedb10, client):
   b7view = OneView("Go to the light")
 
   await interaction.followup.send(
@@ -400,10 +401,7 @@ async def B7 (interaction, alreadyb2, unlockedb12, unlockedb9, alreadyb1, unlock
             ephemeral=True)
   time.sleep(3)
   await interaction.followup.send(
-            "You run like your life depends on it (it does) for over an hour. The troll finally gives up the chase but you continue stumbling on, adrenaline coursing through your body. You begin to get tired, and a bit cold. You didn’t realize it until now, but it’s cold again, and quite dark. And now you’ve got a headache, great. Nowhere near close to the rune either, you think.",
-            ephemeral=True)
-  time.sleep(5)
-  await interaction.followup.send("You can see a flickering light in the distance.", view=b7view,
+            "Your heart is pounding out of your chest, it’s hard to run. Every minute you sneak a glance back. The freak is still after you, snapping trees like an unstoppable juggernaut hell-bent on smashing you. You pick up the pace, sprinting faster. You can see a flickering light in the distance.", view=b7view,
             ephemeral=True)
 
   await b7view.wait()
@@ -414,9 +412,9 @@ async def B7 (interaction, alreadyb2, unlockedb12, unlockedb9, alreadyb1, unlock
                 ephemeral=True)
     return
 
-  await B8(interaction, alreadyb2, unlockedb12, unlockedb9, alreadyb1, unlockedb10)
+  await B8(interaction, alreadyb2, unlockedb12, unlockedb9, alreadyb1, unlockedb10, client)
 
-async def B8 (interaction, alreadyb2, unlockedb12, unlockedb9, alreadyb1, unlockedb10):
+async def B8 (interaction, alreadyb2, unlockedb12, unlockedb9, alreadyb1, unlockedb10, client):
   b8view = OneView("Fall asleep")
 
   await interaction.followup.send(
@@ -435,9 +433,9 @@ async def B8 (interaction, alreadyb2, unlockedb12, unlockedb9, alreadyb1, unlock
                 ephemeral=True)
     return
 
-  await B1(interaction, alreadyb2, unlockedb12, unlockedb9, alreadyb1, unlockedb10)
+  await B1(interaction, alreadyb2, unlockedb12, unlockedb9, alreadyb1, unlockedb10, client)
 
-async def B9(interaction, alreadyb2, unlockedb12, unlockedb9, alreadyb1, unlockedb10):
+async def B9(interaction, alreadyb2, unlockedb12, unlockedb9, alreadyb1, unlockedb10, client):
   b9view = OneView("Cross the lake")
   b9view2 = OneView("Go back")
 
@@ -481,9 +479,9 @@ async def B9(interaction, alreadyb2, unlockedb12, unlockedb9, alreadyb1, unlocke
     return
 
   unlockedb10 = True
-  await B1(interaction, alreadyb2, unlockedb12, unlockedb9, alreadyb1, unlockedb10)
+  await B1(interaction, alreadyb2, unlockedb12, unlockedb9, alreadyb1, unlockedb10, client)
 
-async def B10(interaction, alreadyb2, unlockedb12, unlockedb9, alreadyb1, unlockedb10):
+async def B10(interaction, alreadyb2, unlockedb12, unlockedb9, alreadyb1, unlockedb10, client):
   b10view = OneView("Sleep by the fire")
 
   await interaction.followup.send(
@@ -508,9 +506,9 @@ async def B10(interaction, alreadyb2, unlockedb12, unlockedb9, alreadyb1, unlock
     return
 
   unlockedb12 = True
-  await B2(interaction, alreadyb2, unlockedb12, unlockedb9, alreadyb1, unlockedb10)
+  await B2(interaction, alreadyb2, unlockedb12, unlockedb9, alreadyb1, unlockedb10, client)
 
-async def B11 (interaction, alreadyb2, unlockedb12, unlockedb9, alreadyb1, unlockedb10):
+async def B11 (interaction, alreadyb2, unlockedb12, unlockedb9, alreadyb1, unlockedb10, client):
   if unlockedb12 == False:
         b11goback = OneView("Go back")
 
@@ -531,7 +529,7 @@ async def B11 (interaction, alreadyb2, unlockedb12, unlockedb9, alreadyb1, unloc
                 ephemeral=True)
             return
 
-        await B2(interaction, alreadyb2, unlockedb12, unlockedb9, alreadyb1, unlockedb10)
+        await B2(interaction, alreadyb2, unlockedb12, unlockedb9, alreadyb1, unlockedb10, client)
 
   else:
     b11view = TwoView("Go back", "Swim across the lake")
@@ -554,12 +552,12 @@ async def B11 (interaction, alreadyb2, unlockedb12, unlockedb9, alreadyb1, unloc
         return
 
     elif b11view.choice == 1:
-        await B2(interaction, alreadyb2, unlockedb12, unlockedb9, alreadyb1, unlockedb10)
+        await B2(interaction, alreadyb2, unlockedb12, unlockedb9, alreadyb1, unlockedb10, client)
 
     elif b11view.choice == 2:
-        await B12(interaction, alreadyb2, unlockedb12, unlockedb9, alreadyb1, unlockedb10)
+        await B12(interaction, alreadyb2, unlockedb12, unlockedb9, alreadyb1, unlockedb10, client)
 
-async def B12(interaction, alreadyb2, unlockedb12, unlockedb9, alreadyb1, unlockedb10):
+async def B12(interaction, alreadyb2, unlockedb12, unlockedb9, alreadyb1, unlockedb10, client):
   b12view = OneView("Follow")
 
   await interaction.followup.send(
@@ -590,9 +588,9 @@ async def B12(interaction, alreadyb2, unlockedb12, unlockedb9, alreadyb1, unlock
                 ephemeral=True)
             return
 
-  await B13(interaction, alreadyb2, unlockedb12, unlockedb9, alreadyb1, unlockedb10)
+  await B13(interaction, alreadyb2, unlockedb12, unlockedb9, alreadyb1, unlockedb10, client)
 
-async def B13(interaction, alreadyb2, unlockedb12, unlockedb9, alreadyb1, unlockedb10):
+async def B13(interaction, alreadyb2, unlockedb12, unlockedb9, alreadyb1, unlockedb10, client):
 
   await interaction.followup.send(
             "Reinvigorated with a burst of energy, you crawl to your feet to see the valkyrie in all its glory. You follow it into the lush dark green forest. Just minutes later, you approach a circle of huge stones that are emitting a light orange glow. The Valkyrie motions you to go into the circle, then dashes away. You move to the center.",
@@ -601,10 +599,28 @@ async def B13(interaction, alreadyb2, unlockedb12, unlockedb9, alreadyb1, unlock
   await interaction.followup.send(
             "The sunlight intensifies. Brutal heat envelops you and the stones begin to shake and glow red. Beneath you, you can feel a rumbling. You step back just before a crystal with a rune on it bursts from the center of the circle, sending loose rocks flying. You got the second rune! You slip it into your pocket as the temperature continues to rise. The rocks burst into flame!",
             ephemeral=True)
-  time.sleep(5)
-  await interaction.followup.send(embed=discord.Embed(description="**Congratulations on completing the second challenge!**", color=0x000ff), ephemeral=True)
 
-async def B3(interaction, alreadyb2, unlockedb12, unlockedb9, alreadyb1, unlockedb10):
+  walletembed = discord.Embed(description="Congratulations on completing the quest! The first 50 people to complete will be added to the free mint whitelist and the next 300 will be whitelisted. You will gain a role for completing this quest and we will manually assign the roles for the winners! Please send your wallet address here! (Make sure to send only your wallet address and no extra random text!)", color=0x000ff)
+  walletembed.set_footer(text="Freaks N' Guilds",
+                        icon_url=client.user.avatar.url)
+
+  dmmessage = await interaction.user.send(embed=walletembed)
+
+  await interaction.followup.send(embed=discord.Embed(description=f"Congratulations on completing the quest! The first 50 people to complete will be added to the free mint whitelist and the next 300 will be whitelisted. You will gain a role for completing this quest and we will manually assign the roles for the winners! Please [check your DMs]({dmmessage.jump_url}) and send your wallet address there! (Make sure to send only your wallet address and no extra random text!)", color=0x000ff),
+      ephemeral=True)
+
+  walletaddress = (await client.wait_for('message', check=lambda message: message.author == interaction.user and isinstance(message.channel, PrivateChannel))).content
+
+  await interaction.user.send("Got it! I've stored your wallet address.")
+
+  f = open("walletaddresses.txt", "a")
+  f.write(f"\n{interaction.user.name}#{interaction.user.discriminator}:{walletaddress},")
+  f.close()
+
+  knightsrole = interaction.guild.get_role(902795625253449759)
+  await interaction.user.add_roles(knightsrole)
+
+async def B3(interaction, alreadyb2, unlockedb12, unlockedb9, alreadyb1, unlockedb10, client):
     b3view = TwoView("I am a Celestial", "Nope, not a Celestial")
     b3goback = OneView("Go back")
 
@@ -638,7 +654,7 @@ async def B3(interaction, alreadyb2, unlockedb12, unlockedb9, alreadyb1, unlocke
                 ephemeral=True)
             return
 
-        await B2(interaction, alreadyb2, unlockedb12, unlockedb9, alreadyb1, unlockedb10)
+        await B2(interaction, alreadyb2, unlockedb12, unlockedb9, alreadyb1, unlockedb10, client)
 
     elif b3view.choice == 2:
         await interaction.followup.send("“So what are you then?”",
@@ -666,12 +682,13 @@ async def B3(interaction, alreadyb2, unlockedb12, unlockedb9, alreadyb1, unlocke
                 ephemeral=True)
             return
 
-        await B2(interaction, alreadyb2, unlockedb12, unlockedb9, alreadyb1, unlockedb10)
+        await B2(interaction, alreadyb2, unlockedb12, unlockedb9, alreadyb1, unlockedb10, client)
 
 
 class ChallengeView2(discord.ui.View):
-    def __init__(self):
+    def __init__(self, client):
         super().__init__(timeout=None)
+        self.client = client
 
     @discord.ui.button(label='Begin Challenge',
                        style=discord.ButtonStyle.blurple,
@@ -705,7 +722,7 @@ class ChallengeView2(discord.ui.View):
 
         await startview.wait()
 
-        await B1(interaction, alreadyb2, unlockedb12, unlockedb9, alreadyb1, unlockedb10)
+        await B1(interaction, alreadyb2, unlockedb12, unlockedb9, alreadyb1, unlockedb10, self.client)
 
 
 class Challenge2(commands.Cog):
@@ -722,7 +739,7 @@ class Challenge2(commands.Cog):
         rulesembed.set_footer(text="Freaks N' Guilds",
                               icon_url=ctx.guild.icon.url)
 
-        challengeview = ChallengeView2()
+        challengeview = ChallengeView2(self.client)
 
         await ctx.message.delete()
 
@@ -736,7 +753,7 @@ class Challenge2(commands.Cog):
             # In order to do this you need to first send a message with the View, which is shown below.
             # If you have the message_id you can also pass it as a keyword argument, but for this example
             # we don't have one.
-            self.client.add_view(ChallengeView2())
+            self.client.add_view(ChallengeView2(self.client))
             self.persistent_views_added = True
 
 
