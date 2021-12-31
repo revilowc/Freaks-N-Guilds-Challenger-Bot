@@ -691,7 +691,7 @@ async def A8_room(interaction, x, y, p, l, client):
         await A7back_room(interaction, x, y, p, l, client)
 
 
-async def A8back_room(interaction, x, y, p, l):
+async def A8back_room(interaction, x, y, p, l, client):
     A8backview = FourView("Chest", "Tapestry", "Sit in throne", "Go back")
     await interaction.followup.send(
         "\n\nYou’re in a large regal room. A 6-foot round table sits in the middle, surrounded by chairs. In the corner you see a locked treasure chest. ",
