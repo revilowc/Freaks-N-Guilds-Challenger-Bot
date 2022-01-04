@@ -191,50 +191,7 @@ class FourView(discord.ui.View):
 async def intro_room(interaction, x, y, p, l, client):
     rockview = OneView("Go to rock")
 
-    await interaction.followup.send("...", ephemeral=True)
-    time.sleep(1)
-    await interaction.followup.send("\n...", ephemeral=True)
-    time.sleep(1)
-    await interaction.followup.send("\nHuh? Are you dead…?", ephemeral=True)
-    await interaction.followup.send("\n\nIt looks like they’re breathing",
-                                    ephemeral=True)
-    time.sleep(1)
-    await interaction.followup.send("\n\nWAKE UP SWINE!", ephemeral=True)
-    time.sleep(1)
-    await interaction.followup.send(
-        "\n\nYou feel a studded boot press into your back. Dazed, you sit up. It’s hard to see, light seems so far away. Your eyes begin to adjust to the darkness.",
-        ephemeral=True)
-    time.sleep(1)
-    await interaction.followup.send(
-        "\n\nYou let out a loud gasp as the freakish face of an ogre, snot dribbling down his chin, comes into view. A second ogre peers from the left. 'What do you want?' you say.",
-        ephemeral=True)
-    time.sleep(1)
-    await interaction.followup.send(
-        "\n\n'Do you not remember? Do you not know?' the second ogre grumbled under its breath.",
-        ephemeral=True)
-    time.sleep(1)
-    await interaction.followup.send(
-        "\n\nThe Creator of Worlds has shaken up the planet, mixing light and dark freaks together. What once was a peaceful land is now teeming with conflict. The Creator of Worlds proclaimed to the land that a contest would be held to determine who is most worthy to become the first hunters, guild members; owners of us freaks. There are only 2000 spots available. If you can open the ancient chest, you’ll claim your rightful spot. But to open the chest, you’ll need the 4 runes. Each rune can be found in a particular location in the land. The first will lead to the second, and so on",
-        ephemeral=True)
-    time.sleep(1)
-    await interaction.followup.send(
-        "\n\nKinda like that Earth movie ‘Ready Slayer Won’” grumbled the second ogre",
-        ephemeral=True)
-    time.sleep(1)
-    await interaction.followup.send(
-        "\n\nRight, you gotta find the 4 runes. The first one is around here somewhere, in the Guild’s Lair",
-        ephemeral=True)
-    time.sleep(1)
-    await interaction.followup.send(
-        "\n\nYou stand up, and memories flood into your brain, tuning out the sounds of the ogres. It’s odd, this isn’t your first time here you don’t think. You have memories of great battles, hunting freaks, and forming friendships with guilds. You begin to feel power course through your body. You know you’re meant for something more. Could you be a hunter?",
-        ephemeral=True)
-    time.sleep(1)
-    await interaction.followup.send(
-        "\n\nWe freaks can’t become hunters, nor would we want to, we want the Ooze, that’s all we’re here for” said the first ogre, droning on.",
-        ephemeral=True)
-    time.sleep(1)
-    await interaction.followup.send(
-        "\n\nYou thank the ogres and tell them to keep moving. Maybe it’s a trick of the light, but your eyes have adjusted so well to the darkness that you can see distinct shapes of shrubbery and rock formations. You sense that you’re supposed to go to the rock formation...",
+    await interaction.followup.send("...\n\n...\n\nHuh? Are you dead…?\n\nIt looks like they’re breathing.\n\nWAKE UP SWINE!\n\nYou feel a studded boot press into your back. Dazed, you sit up. It’s hard to see, light seems so far away. Your eyes begin to adjust to the darkness.\n\nYou let out a loud gasp as the freakish face of an ogre, snot dribbling down his chin, comes into view. A second ogre peers from the left. 'What do you want?' you say.\n\n'Do you not remember? Do you not know?' the second ogre grumbled under its breath.\n\nThe Creator of Worlds has shaken up the planet, mixing light and dark freaks together. What once was a peaceful land is now teeming with conflict. The Creator of Worlds proclaimed to the land that a contest would be held to determine who is most worthy to become the first hunters, guild members; owners of us freaks. There are only 2000 spots available. If you can open the ancient chest, you’ll claim your rightful spot. But to open the chest, you’ll need the 4 runes. Each rune can be found in a particular location in the land. The first will lead to the second, and so on.\n\nKinda like that Earth movie ‘Ready Slayer Won’” grumbled the second ogre.\n\nRight, you gotta find the 4 runes. The first one is around here somewhere, in the Guild’s Lair.\n\nYou stand up, and memories flood into your brain, tuning out the sounds of the ogres. It’s odd, this isn’t your first time here you don’t think. You have memories of great battles, hunting freaks, and forming friendships with guilds. You begin to feel power course through your body. You know you’re meant for something more. Could you be a hunter?\n\nWe freaks can’t become hunters, nor would we want to, we want the Ooze, that’s all we’re here for” said the first ogre, droning on.\n\nYou thank the ogres and tell them to keep moving. Maybe it’s a trick of the light, but your eyes have adjusted so well to the darkness that you can see distinct shapes of shrubbery and rock formations. You sense that you’re supposed to go to the rock formation...",
         view=rockview,
         ephemeral=True)
 
@@ -252,11 +209,7 @@ async def A1_room(interaction, x, y, p, l, client):
     pilferview = OneView("Pilfer")
 
     await interaction.followup.send(
-        "\n\nYou approach the rock formation. The vitality inside you is getting stronger and your eyes have almost perfect night vision at this point. You climb down and around the rocks until you see a cave entrance.",
-        ephemeral=True)
-    time.sleep(1)
-    await interaction.followup.send(
-        "\nYou peer into the cave and see mounds of treasure. Pilfer?",
+        "\n\nYou approach the rock formation. The vitality inside you is getting stronger and your eyes have almost perfect night vision at this point. You climb down and around the rocks until you see a cave entrance.\n\nYou peer into the cave and see mounds of treasure. Pilfer?",
         view=pilferview,
         ephemeral=True)
 
@@ -358,11 +311,7 @@ async def A2_room(interaction, x, y, p, l, client):
     gobackview = OneView("Go back")
 
     await interaction.followup.send(
-        "\n\nYou climb over the mound of treasure, making your way to the side of the cave. A skeleton of a freak is seen clinging to a broken, rusted machete. \n\nYou snag the machete and chop the head off, just to be sure.\n\nNever know how long that thing has been dead right? 'Double Tap' you scream aloud, as the skull rolls across the rocks.\n\nYou’re not sure why, but you felt compelled to yell it, as if it was second nature.",
-        ephemeral=True)
-    time.sleep(5)
-    await interaction.followup.send(
-        "\n\nYou poke into the mound of treasure with the rusted machete. Gold coins spill onto your feet. Worthless, you think in contempt. It doesn’t look like anything here is worth taking or exploring. \n\nYou’ve reached a dead end.",
+        "\n\nYou climb over the mound of treasure, making your way to the side of the cave. A skeleton of a freak is seen clinging to a broken, rusted machete. \n\nYou snag the machete and chop the head off, just to be sure.\n\nNever know how long that thing has been dead right? 'Double Tap' you scream aloud, as the skull rolls across the rocks.\n\nYou’re not sure why, but you felt compelled to yell it, as if it was second nature.\n\nYou poke into the mound of treasure with the rusted machete. Gold coins spill onto your feet. Worthless, you think in contempt. It doesn’t look like anything here is worth taking or exploring. \n\nYou’ve reached a dead end.",
         view=gobackview,
         ephemeral=True)
 
@@ -395,41 +344,7 @@ async def A3P1_room(interaction, x, y, p, l, client):
     A3P12choiceview = TwoView("Go back", "Swing staff")
 
     await interaction.followup.send(
-        "\n\nYou start climbing the ladder and it snaps, sending you down into the pile of treasure below. Couldn’t be that easy you think. Ooze seeps around your feet.",
-        ephemeral=True)
-    time.sleep(2)
-    await interaction.followup.send(
-        "\n\nYour nerves in your legs activate with intense energy and you try pushing off of them with all your force.",
-        ephemeral=True)
-    time.sleep(1)
-    await interaction.followup.send(
-        "\n\nYou shoot into the air 20 feet, bashing your poor nose once again, this time on the ceiling of the cave.",
-        ephemeral=True)
-    time.sleep(1)
-    await interaction.followup.send(
-        "\n\nMore blood falls down your chin as you flop back face down into the pile of Ooze on the floor. The blood stops. The pain subsides as you feel jolts of energy course through your body again.",
-        ephemeral=True)
-    time.sleep(2)
-    await interaction.followup.send(
-        "\n\nYou touch your nose and realize its completely healed! Determined and rejuvenated, you look to the alcove again.",
-        ephemeral=True)
-    await interaction.followup.send(
-        "\n\nYou leap towards it, easily sailing in!", ephemeral=True)
-    time.sleep(1)
-    await interaction.followup.send(
-        "\n\nIn front of you is what looks like a shimmering staff. You swing the staff, loosing a blast of pure energy in front of you.",
-        ephemeral=True)
-    time.sleep(2)
-    await interaction.followup.send(
-        "\n\nThe energy ricochets, knocking you back down, smacking you into the boulder and sending you faceplanting once again into the pile of Ooze.",
-        ephemeral=True)
-    time.sleep(2)
-    await interaction.followup.send(
-        "\n\nUnder further inspection, the staff looks as if it’s covered in runes. You wonder if swinging the staff again will cause the same effect.",
-        ephemeral=True)
-    time.sleep(2)
-    await interaction.followup.send(
-        "\n\nDoesn't look like there is anything left to do on this boulder. I do have this sweet staff now though...",
+        "\n\nYou start climbing the ladder and it snaps, sending you down into the pile of treasure below. Couldn’t be that easy you think. Ooze seeps around your feet.\n\nYour nerves in your legs activate with intense energy and you try pushing off of them with all your force.\n\nYou shoot into the air 20 feet, bashing your poor nose once again, this time on the ceiling of the cave.\n\nMore blood falls down your chin as you flop back face down into the pile of Ooze on the floor. The blood stops. The pain subsides as you feel jolts of energy course through your body again.\n\nYou touch your nose and realize its completely healed! Determined and rejuvenated, you look to the alcove again.\n\nYou leap towards it, easily sailing in!\n\nIn front of you is what looks like a shimmering staff. You swing the staff, loosing a blast of pure energy in front of you.\n\nThe energy ricochets, knocking you back down, smacking you into the boulder and sending you faceplanting once again into the pile of Ooze.\n\nUnder further inspection, the staff looks as if it’s covered in runes. You wonder if swinging the staff again will cause the same effect.\n\nDoesn't look like there is anything left to do on this boulder. I do have this sweet staff now though...",
         view=A3P12choiceview,
         ephemeral=True)
 
@@ -545,23 +460,7 @@ async def A6_room(interaction, x, y, p, l, client):
     gobackview4 = OneView("Go back")
 
     await interaction.followup.send(
-        "\n\nYou approach a giant mirror as you examine yourself for the first time. Damn, you’re a catch. You’re human, that’s for sure.",
-        ephemeral=True)
-    time.sleep(1)
-    await interaction.followup.send(
-        "\n\n From the look of it, this mirror is the only thing down this path, besides some treasure and armor. You try some armor on for the fun of it. Damn, you look even better now.",
-        ephemeral=True)
-    time.sleep(2)
-    await interaction.followup.send(
-        "\n\nYou decide to keep the armor because you’re here pilfering, and no one but you would look this good in it anyway.",
-        ephemeral=True)
-    time.sleep(1)
-    await interaction.followup.send(
-        "\n\nThat’s enough, you think, you can’t just stare at yourself all day, you’ve got runes to find. Tendies to make. Gains for days.",
-        ephemeral=True)
-    time.sleep(1)
-    await interaction.followup.send(
-        "\n\nYou should probably go back, or you can just stare at yourself some more...",
+        "\n\nYou approach a giant mirror as you examine yourself for the first time. Damn, you’re a catch. You’re human, that’s for sure.\n\n From the look of it, this mirror is the only thing down this path, besides some treasure and armor. You try some armor on for the fun of it. Damn, you look even better now.\n\nYou decide to keep the armor because you’re here pilfering, and no one but you would look this good in it anyway.\n\nThat’s enough, you think, you can’t just stare at yourself all day, you’ve got runes to find. Tendies to make. Gains for days.\n\nYou should probably go back, or you can just stare at yourself some more...",
         view=gobackview4,
         ephemeral=True)
 
@@ -594,17 +493,12 @@ async def A6back_room(interaction, x, y, p, l, client):
 
 async def A7_room(interaction, x, y, p, l, client):
     # some prompts
-    await interaction.followup.send(
-        "\n\nYou approach the pile of loose rocks.", ephemeral=True)
-    time.sleep(1)
-    await interaction.followup.send(
-        "\n\nThere seems to be a pathway behind the rocks, but they’re too heavy to move. A blast of energy might help clear it.",
-        ephemeral=True)
 
     if x > 1:
         A7view = TwoView("Swing Staff", "Go back")
 
-        await interaction.followup.send("\n...", view=A7view, ephemeral=True)
+        await interaction.followup.send(
+            "\n\nYou approach the pile of loose rocks.\n\nThere seems to be a pathway behind the rocks, but they’re too heavy to move. A blast of energy might help clear it.\n\n...", view=A7view, ephemeral=True)
 
         await A7view.wait()
 
@@ -622,7 +516,8 @@ async def A7_room(interaction, x, y, p, l, client):
     else:
         A7view = OneView("Go back")
 
-        await interaction.followup.send("\n...", view=A7view, ephemeral=True)
+        await interaction.followup.send(
+            "\n\nYou approach the pile of loose rocks.\n\nThere seems to be a pathway behind the rocks, but they’re too heavy to move. A blast of energy might help clear it.\n\n...", view=A7view, ephemeral=True)
 
         await A7view.wait()
 
@@ -656,23 +551,7 @@ async def A8_room(interaction, x, y, p, l, client):
     # some prompts
     A8view = FourView("Chest", "Tapestry", "Sit in throne", "Go back")
     await interaction.followup.send(
-        "\n\nYou swing the staff, loosing a blast of energy. The energy forcefully slams into the rocks, sending them flying through the cave, scraping you on the way by.",
-        ephemeral=True)
-    time.sleep(2)
-    await interaction.followup.send(
-        "\n\n You stumble and fall back from the force. As the dust settles, you see that the pathway has been cleared enough to wriggle your way through.",
-        ephemeral=True)
-    time.sleep(2)
-    await interaction.followup.send(
-        "\n\nYou crawl through the opening and find yourself in a large regal room. This must be where the guild met before they disappeared. A 6-foot round table sits in the middle, surrounded by chairs.\n\n You wonder how they got the table into the cave until you remember, “magic!” Makes sense.",
-        ephemeral=True)
-    time.sleep(3)
-    await interaction.followup.send(
-        "\n\nIn the corner you see a locked treasure chest. \n\nYou also notice a tapestry near where you entered the room, adorned with decorations and a tree behind several images of freaks. \n\nAt the opposite end of the room near the table is a gold throne. None of the other chairs are thrones, this one is clearly special.",
-        ephemeral=True)
-    time.sleep(4)
-    await interaction.followup.send(
-        "\n\nWhat will you do? You can approach the chest, examine the tapestry, or sit in the throne",view=A8view,
+        "\n\nYou swing the staff, loosing a blast of energy. The energy forcefully slams into the rocks, sending them flying through the cave, scraping you on the way by.\n\n You stumble and fall back from the force. As the dust settles, you see that the pathway has been cleared enough to wriggle your way through.\n\nYou crawl through the opening and find yourself in a large regal room. This must be where the guild met before they disappeared. A 6-foot round table sits in the middle, surrounded by chairs.\n\n You wonder how they got the table into the cave until you remember, “magic!” Makes sense.\n\nIn the corner you see a locked treasure chest. \n\nYou also notice a tapestry near where you entered the room, adorned with decorations and a tree behind several images of freaks. \n\nAt the opposite end of the room near the table is a gold throne. None of the other chairs are thrones, this one is clearly special.\n\nWhat will you do? You can approach the chest, examine the tapestry, or sit in the throne",view=A8view,
         ephemeral=True)
 
     await A8view.wait()
@@ -694,19 +573,7 @@ async def A8_room(interaction, x, y, p, l, client):
 async def A8back_room(interaction, x, y, p, l, client):
     A8backview = FourView("Chest", "Tapestry", "Sit in throne", "Go back")
     await interaction.followup.send(
-        "\n\nYou’re in a large regal room. A 6-foot round table sits in the middle, surrounded by chairs. In the corner you see a locked treasure chest. ",
-        ephemeral=True)
-    time.sleep(2)
-    await interaction.followup.send(
-        "\n\n You also notice a tapestry near where you entered the room, adorned with decorations and a tree behind several images of freaks. ",
-        ephemeral=True)
-    time.sleep(2)
-    await interaction.followup.send(
-        "\n\n. At the opposite end of the room near the table is a gold throne. None of the other chairs are thrones, this one is clearly special.",
-        ephemeral=True)
-    time.sleep(2)
-    await interaction.followup.send(
-        "\n\nWhat will you do? You can approach the chest, examine the tapestry, or sit in the throne.",view=A8backview,
+        "\n\nYou’re in a large regal room. A 6-foot round table sits in the middle, surrounded by chairs. In the corner you see a locked treasure chest.\n\n You also notice a tapestry near where you entered the room, adorned with decorations and a tree behind several images of freaks.\n\n. At the opposite end of the room near the table is a gold throne. None of the other chairs are thrones, this one is clearly special.\n\nWhat will you do? You can approach the chest, examine the tapestry, or sit in the throne.",view=A8backview,
         ephemeral=True)
 
     await A8backview.wait()
@@ -729,23 +596,7 @@ async def A9_room(interaction, x, y, p, l, client):
     gobackview6 = OneView("Go back")
 
     await interaction.followup.send(
-        "\n\nYou move closer to the tapestry. It looks almost like a family tree, except inscribed on the top is “The Golden Guild” Apparently, it’s a guild tree.",
-        ephemeral=True)
-    time.sleep(2)
-    await interaction.followup.send(
-        "\n\n7 large branches extend from the base. Each branch features more than 20 freaks, made up of different races. You recognize some freaks from your memories, and a few ogres are featured as well – you recognize them from earlier in the day since the snot dribbling from their nose is unmistakable.",
-        ephemeral=True)
-    time.sleep(5)
-    await interaction.followup.send(
-        "\n\nWhat looks to be elves are on some of the branches, amidst some other mysterious freaks. Most of them are creatures you’ve never seen before, at least that’s what you remember.",
-        ephemeral=True)
-    time.sleep(2)
-    await interaction.followup.send(
-        "\n\nYour eyes scan the tree looking for more information. 7 names are scribbled into the branches of the tree. From left to right, you read: Chad the Chiseled, Missy the Inaccurate, Clair the Clairvoyant, Satoshi the Wise, Wanda the Witch, Vlad the Game Stopper, and Kaiju the Nifty.",
-        ephemeral=True)
-    time.sleep(3)
-    await interaction.followup.send(
-        "\n\nSatisfied, you don’t think staring at this tapestry will get you any closer to the rune you seek.", view=gobackview6,
+        "\n\nYou move closer to the tapestry. It looks almost like a family tree, except inscribed on the top is “The Golden Guild” Apparently, it’s a guild tree.\n\n7 large branches extend from the base. Each branch features more than 20 freaks, made up of different races. You recognize some freaks from your memories, and a few ogres are featured as well – you recognize them from earlier in the day since the snot dribbling from their nose is unmistakable.\n\nWhat looks to be elves are on some of the branches, amidst some other mysterious freaks. Most of them are creatures you’ve never seen before, at least that’s what you remember.\n\nYour eyes scan the tree looking for more information. 7 names are scribbled into the branches of the tree. From left to right, you read: Chad the Chiseled, Missy the Inaccurate, Clair the Clairvoyant, Satoshi the Wise, Wanda the Witch, Vlad the Game Stopper, and Kaiju the Nifty.\n\nSatisfied, you don’t think staring at this tapestry will get you any closer to the rune you seek.", view=gobackview6,
         ephemeral=True)
 
     await gobackview6.wait()
@@ -760,36 +611,7 @@ async def A9_room(interaction, x, y, p, l, client):
 async def A10_room(interaction, x, y, p, l, client):
     gobackview7 = OneView("Go back")
 
-    await interaction.followup.send("\n...", ephemeral=True)
-    time.sleep(1)
-    await interaction.followup.send(
-        "\n\nFit for a king, isn’t it? You plop your undeserving fat ass down on the throne, feeling the soft velvet smush under your weight. It’s the armor weighing you down, obviously",
-        ephemeral=True)
-    await interaction.followup.send("\n...", ephemeral=True)
-    time.sleep(1)
-    await interaction.followup.send(
-        "\n\n You don’t look fat in it. Seriously.", ephemeral=True)
-    await interaction.followup.send("\n...", ephemeral=True)
-    time.sleep(1)
-    await interaction.followup.send(
-        "\n\nYou can see the whole room from this view. The tapestry hangs regally from the wall, and you can hear drips of water splash in the corner. It’s damp. Wonder why the table hasn’t warped yet… oh yeah, magic, you remember.",
-        ephemeral=True)
-    await interaction.followup.send("\n...", ephemeral=True)
-    time.sleep(1)
-    await interaction.followup.send(
-        "\n\nThe other 6 chairs around the table form a circle. It seems like many decisions have been argued over in this room. You bang your hand on the table, acting as if you’re in an argument. The edge of the table begins to glow, spreading a light film over the table.",
-        ephemeral=True)
-    await interaction.followup.send("\n...", ephemeral=True)
-    time.sleep(1)
-    await interaction.followup.send(
-        "\n\nYou can see a pattern of cubes encircling the table, bound by a chain. In front of you, a crown is inscribed into the table, with the word ‘wise’ on it.",
-        ephemeral=True)
-    await interaction.followup.send("\n...", ephemeral=True)
-    time.sleep(1)
-    await interaction.followup.send(
-        "\n\nThe glow dissipates. Satisfied, you know it’s time to rise. This is no time to sit on your ass.",
-        ephemeral=True)
-    await interaction.followup.send("\n...", view=gobackview7, ephemeral=True)
+    await interaction.followup.send("\n...\n\nFit for a king, isn’t it? You plop your undeserving fat ass down on the throne, feeling the soft velvet smush under your weight. It’s the armor weighing you down, obviously.\n\n You don’t look fat in it. Seriously.\n\nYou can see the whole room from this view. The tapestry hangs regally from the wall, and you can hear drips of water splash in the corner. It’s damp. Wonder why the table hasn’t warped yet… oh yeah, magic, you remember.\n\nThe other 6 chairs around the table form a circle. It seems like many decisions have been argued over in this room. You bang your hand on the table, acting as if you’re in an argument. The edge of the table begins to glow, spreading a light film over the table. \n\nYou can see a pattern of cubes encircling the table, bound by a chain. In front of you, a crown is inscribed into the table, with the word ‘wise’ on it.\n\nThe glow dissipates. Satisfied, you know it’s time to rise. This is no time to sit on your ass.", view=gobackview7, ephemeral=True)
 
     await gobackview7.wait()
 
@@ -804,12 +626,7 @@ async def A11_room(interaction, x, y, p, l, client):
     dropdownview = DropdownView()
 
     await interaction.followup.send(
-        "\n\nYou approach the chest in the corner. It’s adorned in gold and jewels. A crown is visible near the lock. An inscription on the chest reads 'To find the private key, Speak aloud the owner’s name'.",
-        ephemeral=True)
-    await interaction.followup.send("\n...", ephemeral=True)
-    time.sleep(1)
-    await interaction.followup.send(
-        "\n\nChoose the owner's name correctly or you will have to restart.",
+        "\n\nYou approach the chest in the corner. It’s adorned in gold and jewels. A crown is visible near the lock. An inscription on the chest reads 'To find the private key, Speak aloud the owner’s name'.\n\nChoose the owner's name correctly or you will have to restart.",
         view=dropdownview,
         ephemeral=True)
 
@@ -835,7 +652,7 @@ async def A11_room(interaction, x, y, p, l, client):
         await interaction.user.send("Got it! I've stored your wallet address.")
 
         f = open("walletaddresses.txt", "a")
-        f.write(f"\n{interaction.user.name}#{interaction.user.discriminator}:{walletaddress},")
+        f.write(f"{interaction.user.name}#{interaction.user.discriminator}:{walletaddress},\n")
         f.close()
 
         knightsrole = interaction.guild.get_role(902795625253449759)
