@@ -23,7 +23,9 @@ class Dropdown(discord.ui.Select):
 
     async def callback(self, interaction: discord.Interaction):
         if self.values[0] == 'Satoshi the Wise':
-          self.view.win = True
+          self.view.win = 2
+        else:
+          self.view.win = 0
 
         self.view.clear_items()
         self.view.stop()
@@ -35,10 +37,11 @@ class Dropdown(discord.ui.Select):
 class DropdownView(discord.ui.View):
     def __init__(self):
         super().__init__()
-        self.win = False
+        self.win = 1
         self.timeout = False
 
         self.add_item(Dropdown())
+        self.add_item(OneButton("Go back"))
 
     async def on_timeout(self):
         # *_original_message methods can be used after the initial response,
@@ -636,7 +639,7 @@ async def A11_room(interaction, x, y, p, l, client):
           await interaction.followup.send("Timed out... Don't you know how to click buttons?!", ephemeral=True)
           return
 
-    elif dropdownview.win == True:
+    elif dropdownview.win == 2:
 
         walletembed = discord.Embed(description="Congratulations on completing the quest! The first 50 people to complete will be added to the free mint whitelist and the next 300 will be whitelisted. You will gain a role for completing this quest and we will manually assign the roles for the winners! Please send your wallet address here! (Make sure to send only your wallet address and no extra random text!)", color=0x000ff)
         walletembed.set_footer(text="Freaks N' Guilds",
@@ -658,7 +661,10 @@ async def A11_room(interaction, x, y, p, l, client):
         knightsrole = interaction.guild.get_role(902795625253449759)
         await interaction.user.add_roles(knightsrole)
 
-    else:
+    elif dropdownview.win == 1:
+        await A8_room(interaction, x, y, p, l, client)
+
+    elif dropdownview.win == 0:
 
         await interaction.followup.send(embed=discord.Embed(
             description=
