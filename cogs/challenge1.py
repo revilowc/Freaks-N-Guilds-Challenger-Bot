@@ -192,6 +192,11 @@ class FourView(discord.ui.View):
 
 
 async def intro_room(interaction, x, y, p, l, client):
+    x = 0
+    y = 0
+    p = 0
+    l = 0
+
     rockview = OneView("Go to rock")
 
     await interaction.followup.send("...\n\n...\n\nHuh? Are you dead…?\n\nIt looks like they’re breathing.\n\nWAKE UP SWINE!\n\nYou feel a studded boot press into your back. Dazed, you sit up. It’s hard to see, light seems so far away. Your eyes begin to adjust to the darkness.\n\nYou let out a loud gasp as the freakish face of an ogre, snot dribbling down his chin, comes into view. A second ogre peers from the left. 'What do you want?' you say.\n\n'Do you not remember? Do you not know?' the second ogre grumbled under its breath.\n\nThe Creator of Worlds has shaken up the planet, mixing light and dark freaks together. What once was a peaceful land is now teeming with conflict. The Creator of Worlds proclaimed to the land that a contest would be held to determine who is most worthy to become the first hunters, guild members; owners of us freaks. There are only 2000 spots available. If you can open the ancient chest, you’ll claim your rightful spot. But to open the chest, you’ll need the 4 runes. Each rune can be found in a particular location in the land. The first will lead to the second, and so on.\n\nKinda like that Earth movie ‘Ready Slayer Won’” grumbled the second ogre.\n\nRight, you gotta find the 4 runes. The first one is around here somewhere, in the Guild’s Lair.\n\nYou stand up, and memories flood into your brain, tuning out the sounds of the ogres. It’s odd, this isn’t your first time here you don’t think. You have memories of great battles, hunting freaks, and forming friendships with guilds. You begin to feel power course through your body. You know you’re meant for something more. Could you be a hunter?\n\nWe freaks can’t become hunters, nor would we want to, we want the Ooze, that’s all we’re here for” said the first ogre, droning on.\n\nYou thank the ogres and tell them to keep moving. Maybe it’s a trick of the light, but your eyes have adjusted so well to the darkness that you can see distinct shapes of shrubbery and rock formations. You sense that you’re supposed to go to the rock formation...",
@@ -665,13 +670,20 @@ async def A11_room(interaction, x, y, p, l, client):
         await A8_room(interaction, x, y, p, l, client)
 
     elif dropdownview.win == 0:
+        startoverview = OneView("Start over")
 
         await interaction.followup.send(embed=discord.Embed(
             description=
-            "**Welp, looks like you got it wrong. Now you have to start over.**",
-            color=0x000ff),
-                                        ephemeral=True)
+            "**Welp, looks like you got it wrong. Now you have to start over...**",
+            color=0x000ff), view=startoverview, ephemeral=True)
 
+        await startoverview.wait()
+
+        if startoverview.timeout == True:
+              await interaction.followup.send("Timed out... Don't you know how to click buttons?!", ephemeral=True)
+              return
+
+        await intro_room(interaction, x, y, p, l, client)
 
 class ChallengeView1(discord.ui.View):
     def __init__(self, client):
