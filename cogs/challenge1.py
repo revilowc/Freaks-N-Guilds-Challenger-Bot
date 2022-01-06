@@ -3,8 +3,488 @@ import time
 from discord.abc import PrivateChannel
 from discord.ext import commands
 
+class BeginView(discord.ui.View):
+  def __init__(self, x, y, p, l, client):
+    super().__init__(timeout=None)
+    self.x = x
+    self.y = y
+    self.p = p
+    self.l = l
+    self.client = client
+
+  @discord.ui.button(label='Begin', style=discord.ButtonStyle.blurple)
+  async def button1(self, button: discord.ui.Button, interaction: discord.Interaction):
+    self.stop()
+
+    rockview = RockView(self.x, self.y, self.p, self.l, self.client)
+
+    await interaction.response.send_message("...\n\n...\n\nHuh? Are you dead…?\n\nIt looks like they’re breathing.\n\nWAKE UP SWINE!\n\nYou feel a studded boot press into your back. Dazed, you sit up. It’s hard to see, light seems so far away. Your eyes begin to adjust to the darkness.\n\nYou let out a loud gasp as the freakish face of an ogre, snot dribbling down his chin, comes into view. A second ogre peers from the left. 'What do you want?' you say.\n\n'Do you not remember? Do you not know?' the second ogre grumbled under its breath.\n\nThe Creator of Worlds has shaken up the planet, mixing light and dark freaks together. What once was a peaceful land is now teeming with conflict. The Creator of Worlds proclaimed to the land that a contest would be held to determine who is most worthy to become the first hunters, guild members; owners of us freaks. There are only 2000 spots available. If you can open the ancient chest, you’ll claim your rightful spot. But to open the chest, you’ll need the 4 runes. Each rune can be found in a particular location in the land. The first will lead to the second, and so on.\n\nKinda like that Earth movie ‘Ready Slayer Won’” grumbled the second ogre.\n\nRight, you gotta find the 4 runes. The first one is around here somewhere, in the Guild’s Lair.\n\nYou stand up, and memories flood into your brain, tuning out the sounds of the ogres. It’s odd, this isn’t your first time here you don’t think. You have memories of great battles, hunting freaks, and forming friendships with guilds. You begin to feel power course through your body. You know you’re meant for something more. Could you be a hunter?\n\nWe freaks can’t become hunters, nor would we want to, we want the Ooze, that’s all we’re here for” said the first ogre, droning on.\n\nYou thank the ogres and tell them to keep moving. Maybe it’s a trick of the light, but your eyes have adjusted so well to the darkness that you can see distinct shapes of shrubbery and rock formations. You sense that you’re supposed to go to the rock formation...", view=rockview, ephemeral=True)
+
+class RockView(discord.ui.View):
+  def __init__(self, x, y, p, l, client):
+    super().__init__(timeout=None)
+    self.x = x
+    self.y = y
+    self.p = p
+    self.l = l
+    self.client = client
+
+  @discord.ui.button(label='Go to rock', style=discord.ButtonStyle.blurple)
+  async def button1(self, button: discord.ui.Button, interaction: discord.Interaction):
+    self.stop()
+
+    pilferview = PilferView(self.x, self.y, self.p, self.l, self.client)
+
+    await interaction.response.send_message("\n\nYou approach the rock formation. The vitality inside you is getting stronger and your eyes have almost perfect night vision at this point. You climb down and around the rocks until you see a cave entrance.\n\nYou peer into the cave and see mounds of treasure. Pilfer?", view=pilferview, ephemeral=True)
+
+class PilferView(discord.ui.View):
+  def __init__(self, x, y, p, l, client):
+    super().__init__(timeout=None)
+    self.x = x
+    self.y = y
+    self.p = p
+    self.l = l
+    self.client = client
+
+  @discord.ui.button(label='Pilfer', style=discord.ButtonStyle.blurple)
+  async def button1(self, button: discord.ui.Button, interaction: discord.Interaction):
+    self.stop()
+
+    pilfermoreview = PilferMoreView(self.x, self.y, self.p, self.l, self.client)
+
+    await interaction.response.send_message("\n\nYou rummage through the treasure finding all sorts of interesting trinkets. Swords from long forgotten battles. Ruby encrusted armor with 4 arm holes, or what look like arm holes anyway. Helmets forged in volcanic pyres, glowing with elven magic. How do you know all of this, you wonder? The memories float in and out from times long ago. Continue pilfering?", view=pilfermoreview, ephemeral=True)
+
+class PilferMoreView(discord.ui.View):
+  def __init__(self, x, y, p, l, client):
+    super().__init__(timeout=None)
+    self.x = x
+    self.y = y
+    self.p = p
+    self.l = l
+    self.client = client
+
+  @discord.ui.button(label='Pilfer more', style=discord.ButtonStyle.blurple)
+  async def button1(self, button: discord.ui.Button, interaction: discord.Interaction):
+    self.stop()
+
+    pilferevenmoreview = PilferEvenMoreView(self.x, self.y, self.p, self.l, self.client)
+
+    await interaction.response.send_message("\n\nYou dive into another pile of treasure, right into a goopy pile of Ooze. Its weird texture envelops your arm and stimulates it, giving you a burst of energy. You wonder what else it could stimulate when all of a sudden, a low rumbling comes from within the planet, causing some rocks to fall from the ceiling. You leap out of the way as a giant boulder crashes down into the pile of treasure, splattering Ooze all over the trinkets and weapons. Rattled but unafraid, you continue rummaging, curious about what secrets this Guild’s Lair hides. Pilfer some more?", view=pilferevenmoreview, ephemeral=True)
+
+class PilferEvenMoreView(discord.ui.View):
+  def __init__(self, x, y, p, l, client):
+    super().__init__(timeout=None)
+    self.x = x
+    self.y = y
+    self.p = p
+    self.l = l
+    self.client = client
+
+  @discord.ui.button(label='Pilfer more', style=discord.ButtonStyle.blurple)
+  async def button1(self, button: discord.ui.Button, interaction: discord.Interaction):
+    self.stop()
+
+    keepgoingview = KeepGoingView(self.x, self.y, self.p, self.l, self.client)
+
+    await interaction.response.send_message("\n\nYou grab a spiked club and consider using it. Nah, too top heavy. You grab a pair of glowing nunchuks and start to spin them like a drunken toddler. They start to warm as you spin faster and faster, and suddenly a burst of flame explodes out of the end illuminating the cave and searing your hair. Wow that smells awful, you think, dropping the scorching weapon as you extinguish your now burnt head. You hadn’t noticed before the burst of flame, but there was a reflection deeper in the cave. There’s something shiny back there… something… precious? My precious?", view=keepgoingview, ephemeral=True)
+
+class KeepGoingView(discord.ui.View):
+  def __init__(self, x, y, p, l, client):
+    super().__init__(timeout=None)
+    self.x = x
+    self.y = y
+    self.p = p
+    self.l = l
+    self.client = client
+
+  @discord.ui.button(label='Keep going', style=discord.ButtonStyle.blurple)
+  async def button1(self, button: discord.ui.Button, interaction: discord.Interaction):
+    self.stop()
+
+    view = A1FinalRoomView(self.x, self.y, self.p, self.l, self.client)
+
+    await interaction.response.send_message("\n\nYou’re near some mounds of treasure and the giant boulder. What will you do? You can pilfer some more, you can climb on top of the fallen boulder, or you can go deeper into the lair.", view=view, ephemeral=True)
+
+class GoBackView(discord.ui.View):
+  def __init__(self, x, y, p, l, client):
+    super().__init__(timeout=None)
+    self.x = x
+    self.y = y
+    self.p = p
+    self.l = l
+    self.client = client
+
+  @discord.ui.button(label='Go back', style=discord.ButtonStyle.blurple)
+  async def button1(self, button: discord.ui.Button, interaction: discord.Interaction):
+    self.stop()
+
+    view = A1FinalRoomView(self.x, self.y, self.p, self.l, self.client)
+
+    await interaction.response.send_message("\n\nYou’re near some mounds of treasure and the giant boulder. What will you do? You can pilfer some more, you can climb on top of the fallen boulder, or you can go deeper into the lair.", view=view, ephemeral=True)
+
+class A1FinalRoomView(discord.ui.View):
+  def __init__(self, x, y, p, l, client):
+    super().__init__(timeout=None)
+    self.x = x
+    self.y = y
+    self.p = p
+    self.l = l
+    self.client = client
+
+  @discord.ui.button(label='Pilfer more', style=discord.ButtonStyle.blurple)
+  async def button1(self, button: discord.ui.Button, interaction: discord.Interaction):
+    self.stop()
+
+    view = GoBackView(self.x, self.y, self.p, self.l, self.client)
+
+    await interaction.response.send_message("\n\nYou climb over the mound of treasure, making your way to the side of the cave. A skeleton of a freak is seen clinging to a broken, rusted machete. \n\nYou snag the machete and chop the head off, just to be sure.\n\nNever know how long that thing has been dead right? 'Double Tap' you scream aloud, as the skull rolls across the rocks.\n\nYou’re not sure why, but you felt compelled to yell it, as if it was second nature.\n\nYou poke into the mound of treasure with the rusted machete. Gold coins spill onto your feet. Worthless, you think in contempt. It doesn’t look like anything here is worth taking or exploring. \n\nYou’ve reached a dead end.", view=view, ephemeral=True)
+
+  @discord.ui.button(label='Climb on boulder', style=discord.ButtonStyle.blurple)
+  async def button2(self, button: discord.ui.Button, interaction: discord.Interaction):
+    self.stop()
+
+    if self.x < 2:
+        self.x = self.x + 3
+
+        view = A3P1RoomView(self.x, self.y, self.p, self.l, self.client)
+
+        await interaction.response.send_message("\n\nYou climb onto the fallen boulder, slipping on your way up, knocking your nose. Blood trickles down your face. You stare up towards the alcove from which it fell. You think you can reach it if you can just get close enough… You spot a convenient ladder amidst the rubble. \n\nYou prop it on top of the boulder, giving you access to the alcove. \n\nWant to climb the ladder?", view=view, ephemeral=True)
+
+    else:
+        view = GoBackView(self.x, self.y, self.p, self.l, self.client)
+
+        await interaction.response.send_message("\n\nYou climb atop the boulder. That’s a niiiiice boulder. Looks like some pieces from the broken ladder, there’s nothing else interesting here.", view=view, ephemeral=True)
+
+  @discord.ui.button(label='Go deeper into the lair', style=discord.ButtonStyle.blurple)
+  async def button3(self, button: discord.ui.Button, interaction: discord.Interaction):
+    self.stop()
+
+    view = A5RoomView(self.x, self.y, self.p, self.l, self.client)
+
+    await interaction.response.send_message("\n\nYou delve further into the cave, climbing over rocks and disturbingly sharp weapons. \n\nYou reach a fork in the path. To your right you see a pile of loose rocks blocking a path. To your left you see a mirror of sorts, which must have been creating the shiny reflection you saw earlier in the cave! \n\nShould you go right or left...?", view=view, ephemeral=True)
+
+class A3P1RoomView(discord.ui.View):
+  def __init__(self, x, y, p, l, client):
+    super().__init__(timeout=None)
+    self.x = x
+    self.y = y
+    self.p = p
+    self.l = l
+    self.client = client
+
+  @discord.ui.button(label='Climb ladder', style=discord.ButtonStyle.blurple)
+  async def button1(self, button: discord.ui.Button, interaction: discord.Interaction):
+    self.stop()
+
+    view = A3P1TwoRoomView(self.x, self.y, self.p, self.l, self.client)
+
+    await interaction.response.send_message("\n\nYou start climbing the ladder and it snaps, sending you down into the pile of treasure below. Couldn’t be that easy you think. Ooze seeps around your feet.\n\nYour nerves in your legs activate with intense energy and you try pushing off of them with all your force.\n\nYou shoot into the air 20 feet, bashing your poor nose once again, this time on the ceiling of the cave.\n\nMore blood falls down your chin as you flop back face down into the pile of Ooze on the floor. The blood stops. The pain subsides as you feel jolts of energy course through your body again.\n\nYou touch your nose and realize its completely healed! Determined and rejuvenated, you look to the alcove again.\n\nYou leap towards it, easily sailing in!\n\nIn front of you is what looks like a shimmering staff. You swing the staff, loosing a blast of pure energy in front of you.\n\nThe energy ricochets, knocking you back down, smacking you into the boulder and sending you faceplanting once again into the pile of Ooze.\n\nUnder further inspection, the staff looks as if it’s covered in runes. You wonder if swinging the staff again will cause the same effect.\n\nDoesn't look like there is anything left to do on this boulder. I do have this sweet staff now though...", view=view, ephemeral=True)
+
+class A3P1TwoRoomView(discord.ui.View):
+  def __init__(self, x, y, p, l, client):
+    super().__init__(timeout=None)
+    self.x = x
+    self.y = y
+    self.p = p
+    self.l = l
+    self.client = client
+
+  @discord.ui.button(label='Go back', style=discord.ButtonStyle.blurple)
+  async def button1(self, button: discord.ui.Button, interaction: discord.Interaction):
+    self.stop()
+
+    view = A1FinalRoomView(self.x, self.y, self.p, self.l, self.client)
+
+    await interaction.response.send_message("\n\nYou’re near some mounds of treasure and the giant boulder. What will you do? You can pilfer some more, you can climb on top of the fallen boulder, or you can go deeper into the lair.", view=view, ephemeral=True)
+
+  @discord.ui.button(label='Swing staff', style=discord.ButtonStyle.blurple)
+  async def button2(self, button: discord.ui.Button, interaction: discord.Interaction):
+    self.stop()
+
+    view = GoBackView(self.x, self.y, self.p, self.l, self.client)
+
+    await interaction.response.send_message("\nYou swing the staff, loosing a blast of energy directly in front of you. The blast sends treasure and copious amounts of weapons flying, but you don’t see any major changes in the cave. I should save this thing in case I need it later. \n probably should head back now", view=view, ephemeral=True)
+
+class A5RoomView(discord.ui.View):
+  def __init__(self, x, y, p, l, client):
+    super().__init__(timeout=None)
+    self.x = x
+    self.y = y
+    self.p = p
+    self.l = l
+    self.client = client
+
+  @discord.ui.button(label='Left', style=discord.ButtonStyle.blurple)
+  async def button1(self, button: discord.ui.Button, interaction: discord.Interaction):
+    self.stop()
+    self.p = self.p + 3
+
+    view = A5BackRoomGoBackView(self.x, self.y, self.p, self.l, self.client)
+
+    await interaction.response.send_message("\n\nYou approach a giant mirror as you examine yourself for the first time. Damn, you’re a catch. You’re human, that’s for sure.\n\n From the look of it, this mirror is the only thing down this path, besides some treasure and armor. You try some armor on for the fun of it. Damn, you look even better now.\n\nYou decide to keep the armor because you’re here pilfering, and no one but you would look this good in it anyway.\n\nThat’s enough, you think, you can’t just stare at yourself all day, you’ve got runes to find. Tendies to make. Gains for days.\n\nYou should probably go back, or you can just stare at yourself some more...", view=view, ephemeral=True)
+
+  @discord.ui.button(label='Right', style=discord.ButtonStyle.blurple)
+  async def button2(self, button: discord.ui.Button, interaction: discord.Interaction):
+    self.stop()
+
+    if self.y < 2:
+        if self.x > 1:
+
+            view = A7RoomView(self.x, self.y, self.p, self.l, self.client)
+
+            await interaction.response.send_message("\n\nYou approach the pile of loose rocks.\n\nThere seems to be a pathway behind the rocks, but they’re too heavy to move. A blast of energy might help clear it.\n\n...", view=view, ephemeral=True)
+
+        else:
+            view = A5BackRoomGoBackView(self.x, self.y, self.p, self.l, self.client)
+
+            await interaction.response.send_message("\n\nYou approach the pile of loose rocks.\n\nThere seems to be a pathway behind the rocks, but they’re too heavy to move. A blast of energy might help clear it.\n\n...", view=view, ephemeral=True)
+
+    else:
+
+        view = A7BackRoomView(self.x, self.y, self.p, self.l, self.client)
+
+        await interaction.response.send_message("\n\nYou approach the small entrance. You can see a large room behind it. Will you crawl through, or go back to the fork in the cave?", view=view, ephemeral=True)
+
+  @discord.ui.button(label='Go back', style=discord.ButtonStyle.blurple)
+  async def button3(self, button: discord.ui.Button, interaction: discord.Interaction):
+    self.stop()
+
+    view = A1FinalRoomView(self.x, self.y, self.p, self.l, self.client)
+
+    await interaction.response.send_message("\n\nYou’re near some mounds of treasure and the giant boulder. What will you do? You can pilfer some more, you can climb on top of the fallen boulder, or you can go deeper into the lair.", view=view, ephemeral=True)
+
+class A5BackRoomView(discord.ui.View):
+  def __init__(self, x, y, p, l, client):
+    super().__init__(timeout=None)
+    self.x = x
+    self.y = y
+    self.p = p
+    self.l = l
+    self.client = client
+
+  @discord.ui.button(label='Left', style=discord.ButtonStyle.blurple)
+  async def button1(self, button: discord.ui.Button, interaction: discord.Interaction):
+    self.stop()
+    if self.p < 2:
+
+        view = A5BackRoomGoBackView(self.x, self.y, self.p, self.l, self.client)
+
+        await interaction.response.send_message("\n\nYou approach a giant mirror as you examine yourself for the first time. Damn, you’re a catch. You’re human, that’s for sure.\n\n From the look of it, this mirror is the only thing down this path, besides some treasure and armor. You try some armor on for the fun of it. Damn, you look even better now.\n\nYou decide to keep the armor because you’re here pilfering, and no one but you would look this good in it anyway.\n\nThat’s enough, you think, you can’t just stare at yourself all day, you’ve got runes to find. Tendies to make. Gains for days.\n\nYou should probably go back, or you can just stare at yourself some more...", view=view, ephemeral=True)
+
+    else:
+
+        view = A5BackRoomGoBackView(self.x, self.y, self.p, self.l, self.client)
+
+        await interaction.response.send_message("\n\nWoah who’s that you see? Oh yeah, it’s you in the mirror, check that out. Damn you look good in your armor. There doesn’t seem to be anything else here.", view=view, ephemeral=True)
+
+
+  @discord.ui.button(label='Right', style=discord.ButtonStyle.blurple)
+  async def button2(self, button: discord.ui.Button, interaction: discord.Interaction):
+    self.stop()
+
+    if self.y < 2:
+        if self.x > 1:
+
+            view = A7RoomView(self.x, self.y, self.p, self.l, self.client)
+
+            await interaction.response.send_message("\n\nYou approach the pile of loose rocks.\n\nThere seems to be a pathway behind the rocks, but they’re too heavy to move. A blast of energy might help clear it.\n\n...", view=view, ephemeral=True)
+
+        else:
+            view = A7BackRoomView(self.x, self.y, self.p, self.l, self.client)
+
+            await interaction.response.send_message("\n\nYou approach the pile of loose rocks.\n\nThere seems to be a pathway behind the rocks, but they’re too heavy to move. A blast of energy might help clear it.\n\n...", view=view, ephemeral=True)
+
+    else:
+
+        view = A5BackRoomGoBackView(self.x, self.y, self.p, self.l, self.client)
+
+        await interaction.response.send_message("\n\nYou approach the small entrance. You can see a large room behind it. Will you crawl through, or go back to the fork in the cave?", view=view, ephemeral=True)
+
+  @discord.ui.button(label='Go back', style=discord.ButtonStyle.blurple)
+  async def button3(self, button: discord.ui.Button, interaction: discord.Interaction):
+    self.stop()
+
+    view = A1FinalRoomView(self.x, self.y, self.p, self.l, self.client)
+
+    await interaction.response.send_message("\n\nYou’re near some mounds of treasure and the giant boulder. What will you do? You can pilfer some more, you can climb on top of the fallen boulder, or you can go deeper into the lair.", view=view, ephemeral=True)
+
+class A5BackRoomGoBackView(discord.ui.View):
+  def __init__(self, x, y, p, l, client):
+    super().__init__(timeout=None)
+    self.x = x
+    self.y = y
+    self.p = p
+    self.l = l
+    self.client = client
+
+  @discord.ui.button(label='Go back', style=discord.ButtonStyle.blurple)
+  async def button1(self, button: discord.ui.Button, interaction: discord.Interaction):
+    self.stop()
+
+    view = A5BackRoomView(self.x, self.y, self.p, self.l, self.client)
+
+    await interaction.response.send_message("\n\nYou’re deep in the cave at a fork in the path. Behind you are the piles of treasure you pilfered and the giant boulder. To your right you see a pile of loose rocks blocking a path. To your left you see a mirror of sorts. Should you right, left, or to the go back...?", view=view, ephemeral=True)
+
+class A7RoomView(discord.ui.View):
+  def __init__(self, x, y, p, l, client):
+    super().__init__(timeout=None)
+    self.x = x
+    self.y = y
+    self.p = p
+    self.l = l
+    self.client = client
+
+  @discord.ui.button(label='Swing Staff', style=discord.ButtonStyle.blurple)
+  async def button1(self, button: discord.ui.Button, interaction: discord.Interaction):
+    self.stop()
+    self.y = self.y + 3
+    self.l = self.l + 3
+
+    view = A8RoomView(self.x, self.y, self.p, self.l, self.client)
+
+    await interaction.response.send_message("\n\nYou swing the staff, loosing a blast of energy. The energy forcefully slams into the rocks, sending them flying through the cave, scraping you on the way by.\n\n You stumble and fall back from the force. As the dust settles, you see that the pathway has been cleared enough to wriggle your way through.\n\nYou crawl through the opening and find yourself in a large regal room. This must be where the guild met before they disappeared. A 6-foot round table sits in the middle, surrounded by chairs.\n\n You wonder how they got the table into the cave until you remember, “magic!” Makes sense.\n\nIn the corner you see a locked treasure chest. \n\nYou also notice a tapestry near where you entered the room, adorned with decorations and a tree behind several images of freaks. \n\nAt the opposite end of the room near the table is a gold throne. None of the other chairs are thrones, this one is clearly special.\n\nWhat will you do? You can approach the chest, examine the tapestry, or sit in the throne", view=view, ephemeral=True)
+
+  @discord.ui.button(label='Go back', style=discord.ButtonStyle.blurple)
+  async def button2(self, button: discord.ui.Button, interaction: discord.Interaction):
+    self.stop()
+
+    view = A5BackRoomGoBackView(self.x, self.y, self.p, self.l, self.client)
+
+    await interaction.response.send_message("\n\nYou’re deep in the cave at a fork in the path. Behind you are the piles of treasure you pilfered and the giant boulder. To your right you see a pile of loose rocks blocking a path. To your left you see a mirror of sorts. Should you right, left, or to the go back...?", view=view, ephemeral=True)
+
+class A7BackRoomView(discord.ui.View):
+  def __init__(self, x, y, p, l, client):
+    super().__init__(timeout=None)
+    self.x = x
+    self.y = y
+    self.p = p
+    self.l = l
+    self.client = client
+
+  @discord.ui.button(label='Crawl Through', style=discord.ButtonStyle.blurple)
+  async def button1(self, button: discord.ui.Button, interaction: discord.Interaction):
+    self.stop()
+    self.y = self.y + 3
+    self.l = self.l + 3
+
+    view = A8RoomView(self.x, self.y, self.p, self.l, self.client)
+
+    await interaction.response.send_message("\n\nYou swing the staff, loosing a blast of energy. The energy forcefully slams into the rocks, sending them flying through the cave, scraping you on the way by.\n\n You stumble and fall back from the force. As the dust settles, you see that the pathway has been cleared enough to wriggle your way through.\n\nYou crawl through the opening and find yourself in a large regal room. This must be where the guild met before they disappeared. A 6-foot round table sits in the middle, surrounded by chairs.\n\n You wonder how they got the table into the cave until you remember, “magic!” Makes sense.\n\nIn the corner you see a locked treasure chest. \n\nYou also notice a tapestry near where you entered the room, adorned with decorations and a tree behind several images of freaks. \n\nAt the opposite end of the room near the table is a gold throne. None of the other chairs are thrones, this one is clearly special.\n\nWhat will you do? You can approach the chest, examine the tapestry, or sit in the throne", view=view, ephemeral=True)
+
+  @discord.ui.button(label='Go back', style=discord.ButtonStyle.blurple)
+  async def button2(self, button: discord.ui.Button, interaction: discord.Interaction):
+    self.stop()
+
+    view = A5BackRoomGoBackView(self.x, self.y, self.p, self.l, self.client)
+
+    await interaction.response.send_message("\n\nYou’re deep in the cave at a fork in the path. Behind you are the piles of treasure you pilfered and the giant boulder. To your right you see a pile of loose rocks blocking a path. To your left you see a mirror of sorts. Should you right, left, or to the go back...?", view=view, ephemeral=True)
+
+class A8BackRoomGoBackView(discord.ui.View):
+  def __init__(self, x, y, p, l, client):
+    super().__init__(timeout=None)
+    self.x = x
+    self.y = y
+    self.p = p
+    self.l = l
+    self.client = client
+
+  @discord.ui.button(label='Go back', style=discord.ButtonStyle.blurple)
+  async def button1(self, button: discord.ui.Button, interaction: discord.Interaction):
+    self.stop()
+
+    view = A8BackRoomView(self.x, self.y, self.p, self.l, self.client)
+
+    await interaction.response.send_message("\n\nYou’re in a large regal room. A 6-foot round table sits in the middle, surrounded by chairs. In the corner you see a locked treasure chest.\n\n You also notice a tapestry near where you entered the room, adorned with decorations and a tree behind several images of freaks.\n\n. At the opposite end of the room near the table is a gold throne. None of the other chairs are thrones, this one is clearly special.\n\nWhat will you do? You can approach the chest, examine the tapestry, or sit in the throne.", view=view, ephemeral=True)
+
+class A8RoomView(discord.ui.View):
+  def __init__(self, x, y, p, l, client):
+    super().__init__(timeout=None)
+    self.x = x
+    self.y = y
+    self.p = p
+    self.l = l
+    self.client = client
+
+  @discord.ui.button(label='Chest', style=discord.ButtonStyle.blurple)
+  async def button1(self, button: discord.ui.Button, interaction: discord.Interaction):
+    self.stop()
+
+    view = DropdownView(self.x, self.y, self.p, self.l, self.client)
+
+    await interaction.response.send_message("\n\nYou approach the chest in the corner. It’s adorned in gold and jewels. A crown is visible near the lock. An inscription on the chest reads 'To find the private key, Speak aloud the owner’s name'.\n\nChoose the owner's name correctly or you will have to restart.", view=view, ephemeral=True)
+
+  @discord.ui.button(label='Tapestry', style=discord.ButtonStyle.blurple)
+  async def button2(self, button: discord.ui.Button, interaction: discord.Interaction):
+    self.stop()
+
+    view = A8BackRoomGoBackView(self.x, self.y, self.p, self.l, self.client)
+
+    await interaction.response.send_message("\n\nYou move closer to the tapestry. It looks almost like a family tree, except inscribed on the top is “The Golden Guild” Apparently, it’s a guild tree.\n\n7 large branches extend from the base. Each branch features more than 20 freaks, made up of different races. You recognize some freaks from your memories, and a few ogres are featured as well – you recognize them from earlier in the day since the snot dribbling from their nose is unmistakable.\n\nWhat looks to be elves are on some of the branches, amidst some other mysterious freaks. Most of them are creatures you’ve never seen before, at least that’s what you remember.\n\nYour eyes scan the tree looking for more information. 7 names are scribbled into the branches of the tree. From left to right, you read: Chad the Chiseled, Missy the Inaccurate, Clair the Clairvoyant, Satoshi the Wise, Wanda the Witch, Vlad the Game Stopper, and Kaiju the Nifty.\n\nSatisfied, you don’t think staring at this tapestry will get you any closer to the rune you seek.", view=view, ephemeral=True)
+
+  @discord.ui.button(label='Sit in throne', style=discord.ButtonStyle.blurple)
+  async def button3(self, button: discord.ui.Button, interaction: discord.Interaction):
+    self.stop()
+
+    view = A8BackRoomGoBackView(self.x, self.y, self.p, self.l, self.client)
+
+    await interaction.response.send_message("\n...\n\nFit for a king, isn’t it? You plop your undeserving fat ass down on the throne, feeling the soft velvet smush under your weight. It’s the armor weighing you down, obviously.\n\n You don’t look fat in it. Seriously.\n\nYou can see the whole room from this view. The tapestry hangs regally from the wall, and you can hear drips of water splash in the corner. It’s damp. Wonder why the table hasn’t warped yet… oh yeah, magic, you remember.\n\nThe other 6 chairs around the table form a circle. It seems like many decisions have been argued over in this room. You bang your hand on the table, acting as if you’re in an argument. The edge of the table begins to glow, spreading a light film over the table. \n\nYou can see a pattern of cubes encircling the table, bound by a chain. In front of you, a crown is inscribed into the table, with the word ‘wise’ on it.\n\nThe glow dissipates. Satisfied, you know it’s time to rise. This is no time to sit on your ass.", view=view, ephemeral=True)
+
+  @discord.ui.button(label='Go back', style=discord.ButtonStyle.blurple)
+  async def button4(self, button: discord.ui.Button, interaction: discord.Interaction):
+    self.stop()
+
+    view = A7BackRoomView(self.x, self.y, self.p, self.l, self.client)
+
+    await interaction.response.send_message("\n\nYou approach the pile of loose rocks.\n\nThere seems to be a pathway behind the rocks, but they’re too heavy to move. A blast of energy might help clear it.\n\n...", view=view, ephemeral=True)
+
+class A8BackRoomView(discord.ui.View):
+  def __init__(self, x, y, p, l, client):
+    super().__init__(timeout=None)
+    self.x = x
+    self.y = y
+    self.p = p
+    self.l = l
+    self.client = client
+
+  @discord.ui.button(label='Chest', style=discord.ButtonStyle.blurple)
+  async def button1(self, button: discord.ui.Button, interaction: discord.Interaction):
+    self.stop()
+
+    view = DropdownView(self.x, self.y, self.p, self.l, self.client)
+
+    await interaction.response.send_message("\n\nYou approach the chest in the corner. It’s adorned in gold and jewels. A crown is visible near the lock. An inscription on the chest reads 'To find the private key, Speak aloud the owner’s name'.\n\nChoose the owner's name correctly or you will have to restart.", view=view, ephemeral=True)
+
+  @discord.ui.button(label='Tapestry', style=discord.ButtonStyle.blurple)
+  async def button2(self, button: discord.ui.Button, interaction: discord.Interaction):
+    self.stop()
+
+    view = A8BackRoomGoBackView(self.x, self.y, self.p, self.l, self.client)
+
+    await interaction.response.send_message("\n\nYou move closer to the tapestry. It looks almost like a family tree, except inscribed on the top is “The Golden Guild” Apparently, it’s a guild tree.\n\n7 large branches extend from the base. Each branch features more than 20 freaks, made up of different races. You recognize some freaks from your memories, and a few ogres are featured as well – you recognize them from earlier in the day since the snot dribbling from their nose is unmistakable.\n\nWhat looks to be elves are on some of the branches, amidst some other mysterious freaks. Most of them are creatures you’ve never seen before, at least that’s what you remember.\n\nYour eyes scan the tree looking for more information. 7 names are scribbled into the branches of the tree. From left to right, you read: Chad the Chiseled, Missy the Inaccurate, Clair the Clairvoyant, Satoshi the Wise, Wanda the Witch, Vlad the Game Stopper, and Kaiju the Nifty.\n\nSatisfied, you don’t think staring at this tapestry will get you any closer to the rune you seek.", view=view, ephemeral=True)
+
+  @discord.ui.button(label='Sit in throne', style=discord.ButtonStyle.blurple)
+  async def button3(self, button: discord.ui.Button, interaction: discord.Interaction):
+    self.stop()
+
+    view = A8BackRoomGoBackView(self.x, self.y, self.p, self.l, self.client)
+
+    await interaction.response.send_message("\n...\n\nFit for a king, isn’t it? You plop your undeserving fat ass down on the throne, feeling the soft velvet smush under your weight. It’s the armor weighing you down, obviously.\n\n You don’t look fat in it. Seriously.\n\nYou can see the whole room from this view. The tapestry hangs regally from the wall, and you can hear drips of water splash in the corner. It’s damp. Wonder why the table hasn’t warped yet… oh yeah, magic, you remember.\n\nThe other 6 chairs around the table form a circle. It seems like many decisions have been argued over in this room. You bang your hand on the table, acting as if you’re in an argument. The edge of the table begins to glow, spreading a light film over the table. \n\nYou can see a pattern of cubes encircling the table, bound by a chain. In front of you, a crown is inscribed into the table, with the word ‘wise’ on it.\n\nThe glow dissipates. Satisfied, you know it’s time to rise. This is no time to sit on your ass.", view=view, ephemeral=True)
+
+  @discord.ui.button(label='Go back', style=discord.ButtonStyle.blurple)
+  async def button4(self, button: discord.ui.Button, interaction: discord.Interaction):
+    self.stop()
+
+    view = A7BackRoomView(self.x, self.y, self.p, self.l, self.client)
+
+    await interaction.response.send_message("\n\nYou approach the pile of loose rocks.\n\nThere seems to be a pathway behind the rocks, but they’re too heavy to move. A blast of energy might help clear it.\n\n...", view=view, ephemeral=True)
+
 class Dropdown(discord.ui.Select):
-    def __init__(self):
+    def __init__(self, x, y, p, l, client):
+        self.client = client
+        self.x = x
+        self.y = y
+        self.p = p
+        self.l = l
         # Set the options that will be presented inside the dropdown
         options = [
             discord.SelectOption(label='Clair the Clairvoyant'),
@@ -23,667 +503,58 @@ class Dropdown(discord.ui.Select):
 
     async def callback(self, interaction: discord.Interaction):
         if self.values[0] == 'Satoshi the Wise':
-          self.view.win = 2
+          await interaction.response.defer()
+
+          walletembed = discord.Embed(description="Congratulations on completing the quest! The first 50 people to complete will be added to the free mint whitelist and the next 300 will be whitelisted. You will gain a role for completing this quest and we will manually assign the roles for the winners! Please send your wallet address here! (Make sure to send only your wallet address and no extra random text!)", color=0x000ff)
+          walletembed.set_footer(text="Freaks N' Guilds",
+                                icon_url=self.client.user.avatar.url)
+
+          dmmessage = await interaction.user.send(embed=walletembed)
+
+          await interaction.followup.send(embed=discord.Embed(description=f"Congratulations on completing the quest! The first 50 people to complete will be added to the free mint whitelist and the next 300 will be whitelisted. You will gain a role for completing this quest and we will manually assign the roles for the winners! Please [check your DMs]({dmmessage.jump_url}) and send your wallet address there! (Make sure to send only your wallet address and no extra random text!)", color=0x000ff),
+              ephemeral=True)
+
+          walletaddress = (await self.client.wait_for('message', check=lambda message: message.author == interaction.user and isinstance(message.channel, PrivateChannel))).content
+
+          await interaction.user.send("Got it! I've stored your wallet address.")
+
+          f = open("walletaddresses.txt", "a")
+          f.write(f"{interaction.user.name}#{interaction.user.discriminator}:{walletaddress},\n")
+          f.close()
+
+          knightsrole = interaction.guild.get_role(902795625253449759)
+          await interaction.user.add_roles(knightsrole)
+
         else:
-          self.view.win = 0
+          startoverview = BeginView(self.view.x, self.view.y, self.view.p, self.view.l, self.view.client)
 
-        self.view.clear_items()
-        self.view.stop()
-
-        await interaction.response.edit_message(view=self.view)
-
-
-
-class DropdownView(discord.ui.View):
-    def __init__(self):
-        super().__init__()
-        self.win = 1
-        self.timeout = False
-
-        self.add_item(Dropdown())
-        self.add_item(OneButton("Go back"))
-
-    async def on_timeout(self):
-        # *_original_message methods can be used after the initial response,
-        # available until the interaction's webhook expires
-        self.stop()
-        self.timeout = False
+          await interaction.response.send_message(embed=discord.Embed(description="**Welp, looks like you got it wrong. Now you have to start over...**", color=0x000ff), view=startoverview, ephemeral=True)
 
 class OneButton(discord.ui.Button):
-    def __init__(self, label):
+    def __init__(self, label, x, y, p, l, client):
         super().__init__(label=label, style=discord.ButtonStyle.blurple)
+        self.client = client
+        self.x = x
+        self.y = y
+        self.p = p
+        self.l = l
 
     async def callback(self, interaction: discord.Interaction):
-        self.view.stop()
-        self.view.clear_items()
-
-        await interaction.response.edit_message(view=self.view)
-
-
-class OneView(discord.ui.View):
-    def __init__(self, label):
-        super().__init__()
-
-        self.add_item(OneButton(label))
-        self.timeout = False
-
-    async def on_timeout(self):
-        # *_original_message methods can be used after the initial response,
-        # available until the interaction's webhook expires
-        self.stop()
-        self.timeout = False
-
-
-class TwoButton(discord.ui.Button):
-    def __init__(self, label):
-        super().__init__(label=label, style=discord.ButtonStyle.blurple)
-        self.label = label
-
-    async def callback(self, interaction: discord.Interaction):
-        self.view.stop()
-        self.view.clear_items()
-
-        if self.view.label1 == self.label:
-            self.view.choice = 1
-        elif self.view.label2 == self.label:
-            self.view.choice = 2
-
-        await interaction.response.edit_message(view=self.view)
-
-
-class TwoView(discord.ui.View):
-    def __init__(self, label1, label2):
-        super().__init__()
-        self.label1 = label1
-        self.label2 = label2
-        self.choice = 0
-        self.timeout = False
-
-        self.add_item(TwoButton(label1))
-        self.add_item(TwoButton(label2))
-
-    async def on_timeout(self):
-        # *_original_message methods can be used after the initial response,
-        # available until the interaction's webhook expires
-        self.stop()
-        self.timeout = False
-
-
-class ThreeButton(discord.ui.Button):
-    def __init__(self, label):
-        super().__init__(label=label, style=discord.ButtonStyle.blurple)
-        self.label = label
-
-    async def callback(self, interaction: discord.Interaction):
-        self.view.stop()
-        self.view.clear_items()
-
-        if self.view.label1 == self.label:
-            self.view.choice = 1
-        elif self.view.label2 == self.label:
-            self.view.choice = 2
-        elif self.view.label3 == self.label:
-            self.view.choice = 3
-
-        await interaction.response.edit_message(view=self.view)
-
-
-class ThreeView(discord.ui.View):
-    def __init__(self, label1, label2, label3):
-        super().__init__()
-        self.label1 = label1
-        self.label2 = label2
-        self.label3 = label3
-        self.choice = 0
-        self.timeout = False
-
-        self.add_item(ThreeButton(label1))
-        self.add_item(ThreeButton(label2))
-        self.add_item(ThreeButton(label3))
-
-    async def on_timeout(self):
-        # *_original_message methods can be used after the initial response,
-        # available until the interaction's webhook expires
-        self.stop()
-        self.timeout = False
-
-
-class FourButton(discord.ui.Button):
-    def __init__(self, label):
-        super().__init__(label=label, style=discord.ButtonStyle.blurple)
-        self.label = label
-
-    async def callback(self, interaction: discord.Interaction):
-        self.view.stop()
-        self.view.clear_items()
-
-        if self.view.label1 == self.label:
-            self.view.choice = 1
-        elif self.view.label2 == self.label:
-            self.view.choice = 2
-        elif self.view.label3 == self.label:
-            self.view.choice = 3
-        elif self.view.label4 == self.label:
-            self.view.choice = 4
-
-        await interaction.response.edit_message(view=self.view)
-
-
-class FourView(discord.ui.View):
-    def __init__(self, label1, label2, label3, label4):
-        super().__init__()
-        self.label1 = label1
-        self.label2 = label2
-        self.label3 = label3
-        self.label4 = label4
-        self.choice = 0
-        self.timeout = False
-
-        self.add_item(FourButton(label1))
-        self.add_item(FourButton(label2))
-        self.add_item(FourButton(label3))
-        self.add_item(FourButton(label4))
-
-    async def on_timeout(self):
-        # *_original_message methods can be used after the initial response,
-        # available until the interaction's webhook expires
-        self.stop()
-        self.timeout = False
-
-
-async def intro_room(interaction, x, y, p, l, client):
-    x = 0
-    y = 0
-    p = 0
-    l = 0
-
-    rockview = OneView("Go to rock")
-
-    await interaction.followup.send("...\n\n...\n\nHuh? Are you dead…?\n\nIt looks like they’re breathing.\n\nWAKE UP SWINE!\n\nYou feel a studded boot press into your back. Dazed, you sit up. It’s hard to see, light seems so far away. Your eyes begin to adjust to the darkness.\n\nYou let out a loud gasp as the freakish face of an ogre, snot dribbling down his chin, comes into view. A second ogre peers from the left. 'What do you want?' you say.\n\n'Do you not remember? Do you not know?' the second ogre grumbled under its breath.\n\nThe Creator of Worlds has shaken up the planet, mixing light and dark freaks together. What once was a peaceful land is now teeming with conflict. The Creator of Worlds proclaimed to the land that a contest would be held to determine who is most worthy to become the first hunters, guild members; owners of us freaks. There are only 2000 spots available. If you can open the ancient chest, you’ll claim your rightful spot. But to open the chest, you’ll need the 4 runes. Each rune can be found in a particular location in the land. The first will lead to the second, and so on.\n\nKinda like that Earth movie ‘Ready Slayer Won’” grumbled the second ogre.\n\nRight, you gotta find the 4 runes. The first one is around here somewhere, in the Guild’s Lair.\n\nYou stand up, and memories flood into your brain, tuning out the sounds of the ogres. It’s odd, this isn’t your first time here you don’t think. You have memories of great battles, hunting freaks, and forming friendships with guilds. You begin to feel power course through your body. You know you’re meant for something more. Could you be a hunter?\n\nWe freaks can’t become hunters, nor would we want to, we want the Ooze, that’s all we’re here for” said the first ogre, droning on.\n\nYou thank the ogres and tell them to keep moving. Maybe it’s a trick of the light, but your eyes have adjusted so well to the darkness that you can see distinct shapes of shrubbery and rock formations. You sense that you’re supposed to go to the rock formation...",
-        view=rockview,
-        ephemeral=True)
-
-    await rockview.wait()
-
-    if rockview.timeout == True:
-      await interaction.followup.send(
-        "Timed out... Don't you know how to click buttons?!", ephemeral=True)
-      return
-
-    await A1_room(interaction, x, y, p, l, client)
-
-
-async def A1_room(interaction, x, y, p, l, client):
-    pilferview = OneView("Pilfer")
-
-    await interaction.followup.send(
-        "\n\nYou approach the rock formation. The vitality inside you is getting stronger and your eyes have almost perfect night vision at this point. You climb down and around the rocks until you see a cave entrance.\n\nYou peer into the cave and see mounds of treasure. Pilfer?",
-        view=pilferview,
-        ephemeral=True)
-
-    await pilferview.wait()
-
-    if pilferview.timeout == True:
-      await interaction.followup.send(
-        "Timed out... Don't you know how to click buttons?!", ephemeral=True)
-      return
-
-    await A1P1_room(interaction, x, y, p, l, client)
-
-
-async def A1P1_room(interaction, x, y, p, l, client):
-    pilfermoreview = OneView("Pilfer more")
-
-    await interaction.followup.send(
-        "\n\nYou rummage through the treasure finding all sorts of interesting trinkets. Swords from long forgotten battles. Ruby encrusted armor with 4 arm holes, or what look like arm holes anyway. Helmets forged in volcanic pyres, glowing with elven magic. How do you know all of this, you wonder? The memories float in and out from times long ago. Continue pilfering?",
-        view=pilfermoreview,
-        ephemeral=True)
-
-    await pilfermoreview.wait()
-
-    if pilfermoreview.timeout == True:
-      await interaction.followup.send(
-        "Timed out... Don't you know how to click buttons?!", ephemeral=True)
-      return
-
-    await A1P2_room(interaction, x, y, p, l, client)
-
-
-async def A1P2_room(interaction, x, y, p, l, client):
-    pilfermoreview2 = OneView("Pilfer more")
-
-    await interaction.followup.send(
-        "\n\nYou dive into another pile of treasure, right into a goopy pile of Ooze. Its weird texture envelops your arm and stimulates it, giving you a burst of energy. You wonder what else it could stimulate when all of a sudden, a low rumbling comes from within the planet, causing some rocks to fall from the ceiling. You leap out of the way as a giant boulder crashes down into the pile of treasure, splattering Ooze all over the trinkets and weapons. Rattled but unafraid, you continue rummaging, curious about what secrets this Guild’s Lair hides. Pilfer some more?",
-        view=pilfermoreview2,
-        ephemeral=True)
-
-    await pilfermoreview2.wait()
-
-    if pilfermoreview2.timeout == True:
-      await interaction.followup.send(
-        "Timed out... Don't you know how to click buttons?!", ephemeral=True)
-      return
-
-    await A1P3_room(interaction, x, y, p, l, client)
-
-
-async def A1P3_room(interaction, x, y, p, l, client):
-    keepgoingview = OneView("Keep going")
-
-    await interaction.followup.send(
-        "\n\nYou grab a spiked club and consider using it. Nah, too top heavy. You grab a pair of glowing nunchuks and start to spin them like a drunken toddler. They start to warm as you spin faster and faster, and suddenly a burst of flame explodes out of the end illuminating the cave and searing your hair. Wow that smells awful, you think, dropping the scorching weapon as you extinguish your now burnt head. You hadn’t noticed before the burst of flame, but there was a reflection deeper in the cave. There’s something shiny back there… something… precious? My precious?",
-        view=keepgoingview,
-        ephemeral=True)
-
-    await keepgoingview.wait()
-
-    if keepgoingview.timeout == True:
-      await interaction.followup.send(
-        "Timed out... Don't you know how to click buttons?!", ephemeral=True)
-      return
-
-    await A1Final_room(interaction, x, y, p, l, client)
-
-
-async def A1Final_room(interaction, x, y, p, l, client):
-
-    A13choicesview = ThreeView("Pilfer more", "Climb on boulder",
-                               "Go deeper into the lair")
-
-    await interaction.followup.send(
-        "\n\nYou’re near some mounds of treasure and the giant boulder. What will you do? You can pilfer some more, you can climb on top of the fallen boulder, or you can go deeper into the lair.",
-        view=A13choicesview,
-        ephemeral=True)
-
-    await A13choicesview.wait()
-
-    if A13choicesview.timeout == True:
-      await interaction.followup.send(
-        "Timed out... Don't you know how to click buttons?!", ephemeral=True)
-      return
-
-    elif A13choicesview.choice == 1:
-        await A2_room(interaction, x, y, p, l, client)
-
-    elif A13choicesview.choice == 2:
-        if x < 2:
-            await A3P1_room(interaction, x, y, p, l, client)
-        else:
-            await A3Z2_room(interaction, x, y, p, l, client)
-
-    elif A13choicesview.choice == 3:
-        await A5_room(interaction, x, y, p, l, client)
-
-
-async def A2_room(interaction, x, y, p, l, client):
-    gobackview = OneView("Go back")
-
-    await interaction.followup.send(
-        "\n\nYou climb over the mound of treasure, making your way to the side of the cave. A skeleton of a freak is seen clinging to a broken, rusted machete. \n\nYou snag the machete and chop the head off, just to be sure.\n\nNever know how long that thing has been dead right? 'Double Tap' you scream aloud, as the skull rolls across the rocks.\n\nYou’re not sure why, but you felt compelled to yell it, as if it was second nature.\n\nYou poke into the mound of treasure with the rusted machete. Gold coins spill onto your feet. Worthless, you think in contempt. It doesn’t look like anything here is worth taking or exploring. \n\nYou’ve reached a dead end.",
-        view=gobackview,
-        ephemeral=True)
-
-    await gobackview.wait()
-
-    if gobackview.timeout == True:
-      await interaction.followup.send(
-        "Timed out... Don't you know how to click buttons?!", ephemeral=True)
-      return
-
-    await A1Final_room(interaction, x, y, p, l, client)
-
-
-async def A3P1_room(interaction, x, y, p, l, client):
-    x = x + 3
-    climbview = OneView("Climb ladder")
-
-    await interaction.followup.send(
-        "\n\nYou climb onto the fallen boulder, slipping on your way up, knocking your nose. Blood trickles down your face. You stare up towards the alcove from which it fell. You think you can reach it if you can just get close enough… You spot a convenient ladder amidst the rubble. \n\nYou prop it on top of the boulder, giving you access to the alcove. \n\nWant to climb the ladder?",
-        view=climbview,
-        ephemeral=True)
-
-    await climbview.wait()
-
-    if climbview.timeout == True:
-      await interaction.followup.send(
-        "Timed out... Don't you know how to click buttons?!", ephemeral=True)
-      return
-
-    A3P12choiceview = TwoView("Go back", "Swing staff")
-
-    await interaction.followup.send(
-        "\n\nYou start climbing the ladder and it snaps, sending you down into the pile of treasure below. Couldn’t be that easy you think. Ooze seeps around your feet.\n\nYour nerves in your legs activate with intense energy and you try pushing off of them with all your force.\n\nYou shoot into the air 20 feet, bashing your poor nose once again, this time on the ceiling of the cave.\n\nMore blood falls down your chin as you flop back face down into the pile of Ooze on the floor. The blood stops. The pain subsides as you feel jolts of energy course through your body again.\n\nYou touch your nose and realize its completely healed! Determined and rejuvenated, you look to the alcove again.\n\nYou leap towards it, easily sailing in!\n\nIn front of you is what looks like a shimmering staff. You swing the staff, loosing a blast of pure energy in front of you.\n\nThe energy ricochets, knocking you back down, smacking you into the boulder and sending you faceplanting once again into the pile of Ooze.\n\nUnder further inspection, the staff looks as if it’s covered in runes. You wonder if swinging the staff again will cause the same effect.\n\nDoesn't look like there is anything left to do on this boulder. I do have this sweet staff now though...",
-        view=A3P12choiceview,
-        ephemeral=True)
-
-    await A3P12choiceview.wait()
-
-    if A3P12choiceview.timeout == True:
-      await interaction.followup.send(
-        "Timed out... Don't you know how to click buttons?!", ephemeral=True)
-      return
-
-    elif A3P12choiceview.choice == 1:
-
-        await A1Final_room(interaction, x, y, p, l, client)
-
-    elif A3P12choiceview.choice == 2:
-        gobackview2 = OneView("Go back")
-
-        await interaction.followup.send(
-            "\nYou swing the staff, loosing a blast of energy directly in front of you. The blast sends treasure and copious amounts of weapons flying, but you don’t see any major changes in the cave. I should save this thing in case I need it later. \n probably should head back now",
-            view=gobackview2,
-            ephemeral=True)
-
-        await gobackview2.wait()
-
-        if gobackview2.timeout == True:
-          await interaction.followup.send("Timed out... Don't you know how to click buttons?!", ephemeral=True)
-          return
-
-        await A1Final_room(interaction, x, y, p, l, client)
-
-
-async def A3Z2_room(interaction, x, y, p, l, client):
-    gobackview3 = OneView("Go back")
-
-    await interaction.followup.send(
-        "\n\nYou climb atop the boulder. That’s a niiiiice boulder. Looks like some pieces from the broken ladder, there’s nothing else interesting here.",
-        view=gobackview3,
-        ephemeral=True)
-
-    await gobackview3.wait()
-
-    if gobackview3.timeout == True:
-      await interaction.followup.send(
-        "Timed out... Don't you know how to click buttons?!", ephemeral=True)
-      return
-
-    await A1Final_room(interaction, x, y, p, l, client)
-
-
-async def A5_room(interaction, x, y, p, l, client):
-    # some prompts
-    leftrightview = ThreeView("Left", "Right", "Go back")
-
-    await interaction.followup.send(
-        "\n\nYou delve further into the cave, climbing over rocks and disturbingly sharp weapons. \n\nYou reach a fork in the path. To your right you see a pile of loose rocks blocking a path. To your left you see a mirror of sorts, which must have been creating the shiny reflection you saw earlier in the cave! \n\nShould you go right or left...?",
-        view=leftrightview,
-        ephemeral=True)
-
-    await leftrightview.wait()
-
-    if leftrightview.timeout == True:
-      await interaction.followup.send(
-        "Timed out... Don't you know how to click buttons?!", ephemeral=True)
-      return
-
-    elif leftrightview.choice == 1:
-        await A6_room(interaction, x, y, p, l, client)
-
-    elif leftrightview.choice == 2:
-        if y < 2:
-            await A7_room(interaction, x, y, p, l, client)
-        else:
-            await A7back_room(interaction, x, y, p, l, client)
-
-    elif leftrightview.choice == 3:
-        await A1Final_room(interaction, x, y, p, l, client)
-
-
-async def A5back_room(interaction, x, y, p, l, client):
-    # some prompts
-    leftrightview2 = ThreeView("Left", "Right", "Go back")
-
-    await interaction.followup.send(
-        "\n\nYou’re deep in the cave at a fork in the path. Behind you are the piles of treasure you pilfered and the giant boulder. To your right you see a pile of loose rocks blocking a path. To your left you see a mirror of sorts. Should you right, left, or to the go back...?",
-        view=leftrightview2,
-        ephemeral=True)
-
-    await leftrightview2.wait()
-
-    if leftrightview2.timeout == True:
-      await interaction.followup.send(
-        "Timed out... Don't you know how to click buttons?!", ephemeral=True)
-      return
-
-    elif leftrightview2.choice == 1:
-        if p < 2:
-            await A6_room(interaction, x, y, p, l, client)
-        else:
-            await A6back_room(interaction, x, y, p, l, client)
-
-    elif leftrightview2.choice == 2:
-        if y < 2:
-            await A7_room(interaction, x, y, p, l, client)
-        else:
-            await A7back_room(interaction, x, y, p, l, client)
-
-    elif leftrightview2.choice == 3:
-        await A1Final_room(interaction, x, y, p, l, client)
-
-
-async def A6_room(interaction, x, y, p, l, client):
-    p = p + 3
-    gobackview4 = OneView("Go back")
-
-    await interaction.followup.send(
-        "\n\nYou approach a giant mirror as you examine yourself for the first time. Damn, you’re a catch. You’re human, that’s for sure.\n\n From the look of it, this mirror is the only thing down this path, besides some treasure and armor. You try some armor on for the fun of it. Damn, you look even better now.\n\nYou decide to keep the armor because you’re here pilfering, and no one but you would look this good in it anyway.\n\nThat’s enough, you think, you can’t just stare at yourself all day, you’ve got runes to find. Tendies to make. Gains for days.\n\nYou should probably go back, or you can just stare at yourself some more...",
-        view=gobackview4,
-        ephemeral=True)
-
-    await gobackview4.wait()
-
-    if gobackview4.timeout == True:
-      await interaction.followup.send(
-        "Timed out... Don't you know how to click buttons?!", ephemeral=True)
-      return
-
-    await A5back_room(interaction, x, y, p, l, client)
-
-
-async def A6back_room(interaction, x, y, p, l, client):
-    gobackview5 = OneView("Go back")
-
-    await interaction.followup.send(
-        "\n\nWoah who’s that you see? Oh yeah, it’s you in the mirror, check that out. Damn you look good in your armor. There doesn’t seem to be anything else here.", view=gobackview5,
-        ephemeral=True)
-
-    await gobackview5.wait()
-
-    if gobackview5.timeout == True:
-      await interaction.followup.send(
-        "Timed out... Don't you know how to click buttons?!", ephemeral=True)
-      return
-
-    await A5back_room(interaction, x, y, p, l, client)
-
-
-async def A7_room(interaction, x, y, p, l, client):
-    # some prompts
-
-    if x > 1:
-        A7view = TwoView("Swing Staff", "Go back")
-
-        await interaction.followup.send(
-            "\n\nYou approach the pile of loose rocks.\n\nThere seems to be a pathway behind the rocks, but they’re too heavy to move. A blast of energy might help clear it.\n\n...", view=A7view, ephemeral=True)
-
-        await A7view.wait()
-
-        if A7view.timeout == True:
-          await interaction.followup.send("Timed out... Don't you know how to click buttons?!", ephemeral=True)
-          return
-
-        elif A7view.choice == 1:
-            y = y + 3
-            await A8_room(interaction, x, y, p, l, client)
-
-        elif A7view.choice == 2:
-            await A5back_room(interaction, x, y, p, l, client)
-
-    else:
-        A7view = OneView("Go back")
-
-        await interaction.followup.send(
-            "\n\nYou approach the pile of loose rocks.\n\nThere seems to be a pathway behind the rocks, but they’re too heavy to move. A blast of energy might help clear it.\n\n...", view=A7view, ephemeral=True)
-
-        await A7view.wait()
-
-        if A7view.timeout == True:
-          await interaction.followup.send("Timed out... Don't you know how to click buttons?!", ephemeral=True)
-          return
-
-        await A5back_room(interaction, x, y, p, l, client)
-
-
-async def A7back_room(interaction, x, y, p, l, client):
-    A7backview = TwoView("Go back", "Crawl through")
-    await interaction.followup.send(
-        "\n\nYou approach the small entrance. You can see a large room behind it. Will you crawl through, or go back to the fork in the cave?",view=A7backview,
-        ephemeral=True)
-
-    await A7backview.wait()
-
-    if A7backview.timeout == True:
-          await interaction.followup.send("Timed out... Don't you know how to click buttons?!", ephemeral=True)
-          return
-
-    elif A7backview.choice == 1:
-        await A5back_room(interaction, x, y, p, l, client)
-    elif A7backview.choice == 2:
-        await A8back_room(interaction, x, y, p, l, client)
-
-
-async def A8_room(interaction, x, y, p, l, client):
-    l = l + 3
-    # some prompts
-    A8view = FourView("Chest", "Tapestry", "Sit in throne", "Go back")
-    await interaction.followup.send(
-        "\n\nYou swing the staff, loosing a blast of energy. The energy forcefully slams into the rocks, sending them flying through the cave, scraping you on the way by.\n\n You stumble and fall back from the force. As the dust settles, you see that the pathway has been cleared enough to wriggle your way through.\n\nYou crawl through the opening and find yourself in a large regal room. This must be where the guild met before they disappeared. A 6-foot round table sits in the middle, surrounded by chairs.\n\n You wonder how they got the table into the cave until you remember, “magic!” Makes sense.\n\nIn the corner you see a locked treasure chest. \n\nYou also notice a tapestry near where you entered the room, adorned with decorations and a tree behind several images of freaks. \n\nAt the opposite end of the room near the table is a gold throne. None of the other chairs are thrones, this one is clearly special.\n\nWhat will you do? You can approach the chest, examine the tapestry, or sit in the throne",view=A8view,
-        ephemeral=True)
-
-    await A8view.wait()
-
-    if A8view.timeout == True:
-          await interaction.followup.send("Timed out... Don't you know how to click buttons?!", ephemeral=True)
-          return
-
-    elif A8view.choice == 1:
-        await A11_room(interaction, x, y, p, l, client)
-    elif A8view.choice == 2:
-        await A9_room(interaction, x, y, p, l, client)
-    elif A8view.choice == 3:
-        await A10_room(interaction, x, y, p, l, client)
-    elif A8view.choice == 4:
-        await A7back_room(interaction, x, y, p, l, client)
-
-
-async def A8back_room(interaction, x, y, p, l, client):
-    A8backview = FourView("Chest", "Tapestry", "Sit in throne", "Go back")
-    await interaction.followup.send(
-        "\n\nYou’re in a large regal room. A 6-foot round table sits in the middle, surrounded by chairs. In the corner you see a locked treasure chest.\n\n You also notice a tapestry near where you entered the room, adorned with decorations and a tree behind several images of freaks.\n\n. At the opposite end of the room near the table is a gold throne. None of the other chairs are thrones, this one is clearly special.\n\nWhat will you do? You can approach the chest, examine the tapestry, or sit in the throne.",view=A8backview,
-        ephemeral=True)
-
-    await A8backview.wait()
-
-    if A8backview.timeout == True:
-          await interaction.followup.send("Timed out... Don't you know how to click buttons?!", ephemeral=True)
-          return
-
-    elif A8backview.choice == 1:
-        await A11_room(interaction, x, y, p, l, client)
-    elif A8backview.choice == 2:
-        await A9_room(interaction, x, y, p, l, client)
-    elif A8backview.choice == 3:
-        await A10_room(interaction, x, y, p, l, client)
-    elif A8backview.choice == 4:
-        await A7back_room(interaction, x, y, p, l, client)
-
-
-async def A9_room(interaction, x, y, p, l, client):
-    gobackview6 = OneView("Go back")
-
-    await interaction.followup.send(
-        "\n\nYou move closer to the tapestry. It looks almost like a family tree, except inscribed on the top is “The Golden Guild” Apparently, it’s a guild tree.\n\n7 large branches extend from the base. Each branch features more than 20 freaks, made up of different races. You recognize some freaks from your memories, and a few ogres are featured as well – you recognize them from earlier in the day since the snot dribbling from their nose is unmistakable.\n\nWhat looks to be elves are on some of the branches, amidst some other mysterious freaks. Most of them are creatures you’ve never seen before, at least that’s what you remember.\n\nYour eyes scan the tree looking for more information. 7 names are scribbled into the branches of the tree. From left to right, you read: Chad the Chiseled, Missy the Inaccurate, Clair the Clairvoyant, Satoshi the Wise, Wanda the Witch, Vlad the Game Stopper, and Kaiju the Nifty.\n\nSatisfied, you don’t think staring at this tapestry will get you any closer to the rune you seek.", view=gobackview6,
-        ephemeral=True)
-
-    await gobackview6.wait()
-
-    if gobackview6.timeout == True:
-          await interaction.followup.send("Timed out... Don't you know how to click buttons?!", ephemeral=True)
-          return
-
-    await A8back_room(interaction, x, y, p, l, client)
-
-
-async def A10_room(interaction, x, y, p, l, client):
-    gobackview7 = OneView("Go back")
-
-    await interaction.followup.send("\n...\n\nFit for a king, isn’t it? You plop your undeserving fat ass down on the throne, feeling the soft velvet smush under your weight. It’s the armor weighing you down, obviously.\n\n You don’t look fat in it. Seriously.\n\nYou can see the whole room from this view. The tapestry hangs regally from the wall, and you can hear drips of water splash in the corner. It’s damp. Wonder why the table hasn’t warped yet… oh yeah, magic, you remember.\n\nThe other 6 chairs around the table form a circle. It seems like many decisions have been argued over in this room. You bang your hand on the table, acting as if you’re in an argument. The edge of the table begins to glow, spreading a light film over the table. \n\nYou can see a pattern of cubes encircling the table, bound by a chain. In front of you, a crown is inscribed into the table, with the word ‘wise’ on it.\n\nThe glow dissipates. Satisfied, you know it’s time to rise. This is no time to sit on your ass.", view=gobackview7, ephemeral=True)
-
-    await gobackview7.wait()
-
-    if gobackview7.timeout == True:
-          await interaction.followup.send("Timed out... Don't you know how to click buttons?!", ephemeral=True)
-          return
-
-    await A8back_room(interaction, x, y, p, l, client)
-
-
-async def A11_room(interaction, x, y, p, l, client):
-    dropdownview = DropdownView()
-
-    await interaction.followup.send(
-        "\n\nYou approach the chest in the corner. It’s adorned in gold and jewels. A crown is visible near the lock. An inscription on the chest reads 'To find the private key, Speak aloud the owner’s name'.\n\nChoose the owner's name correctly or you will have to restart.",
-        view=dropdownview,
-        ephemeral=True)
-
-    await dropdownview.wait()
-
-    if dropdownview.timeout == True:
-          await interaction.followup.send("Timed out... Don't you know how to click buttons?!", ephemeral=True)
-          return
-
-    elif dropdownview.win == 2:
-
-        walletembed = discord.Embed(description="Congratulations on completing the quest! The first 50 people to complete will be added to the free mint whitelist and the next 300 will be whitelisted. You will gain a role for completing this quest and we will manually assign the roles for the winners! Please send your wallet address here! (Make sure to send only your wallet address and no extra random text!)", color=0x000ff)
-        walletembed.set_footer(text="Freaks N' Guilds",
-                              icon_url=client.user.avatar.url)
-
-        dmmessage = await interaction.user.send(embed=walletembed)
-
-        await interaction.followup.send(embed=discord.Embed(description=f"Congratulations on completing the quest! The first 50 people to complete will be added to the free mint whitelist and the next 300 will be whitelisted. You will gain a role for completing this quest and we will manually assign the roles for the winners! Please [check your DMs]({dmmessage.jump_url}) and send your wallet address there! (Make sure to send only your wallet address and no extra random text!)", color=0x000ff),
-            ephemeral=True)
-
-        walletaddress = (await client.wait_for('message', check=lambda message: message.author == interaction.user and isinstance(message.channel, PrivateChannel))).content
-
-        await interaction.user.send("Got it! I've stored your wallet address.")
-
-        f = open("walletaddresses.txt", "a")
-        f.write(f"{interaction.user.name}#{interaction.user.discriminator}:{walletaddress},\n")
-        f.close()
-
-        knightsrole = interaction.guild.get_role(902795625253449759)
-        await interaction.user.add_roles(knightsrole)
-
-    elif dropdownview.win == 1:
-        await A8_room(interaction, x, y, p, l, client)
-
-    elif dropdownview.win == 0:
-        startoverview = OneView("Start over")
-
-        await interaction.followup.send(embed=discord.Embed(
-            description=
-            "**Welp, looks like you got it wrong. Now you have to start over...**",
-            color=0x000ff), view=startoverview, ephemeral=True)
-
-        await startoverview.wait()
-
-        if startoverview.timeout == True:
-              await interaction.followup.send("Timed out... Don't you know how to click buttons?!", ephemeral=True)
-              return
-
-        await intro_room(interaction, x, y, p, l, client)
+        view = A8BackRoomView(self.x, self.y, self.p, self.l, self.client)
+
+        await interaction.response.send_message("\n\nYou’re in a large regal room. A 6-foot round table sits in the middle, surrounded by chairs. In the corner you see a locked treasure chest.\n\n You also notice a tapestry near where you entered the room, adorned with decorations and a tree behind several images of freaks.\n\n. At the opposite end of the room near the table is a gold throne. None of the other chairs are thrones, this one is clearly special.\n\nWhat will you do? You can approach the chest, examine the tapestry, or sit in the throne.", view=view, ephemeral=True)
+
+class DropdownView(discord.ui.View):
+    def __init__(self, x, y, p, l, client):
+        super().__init__(timeout=None)
+        self.client = client
+        self.x = x
+        self.y = y
+        self.p = p
+        self.l = l
+
+        self.add_item(Dropdown(self.x, self.y, self.p, self.l, self.client))
+        self.add_item(OneButton("Go back", self.x, self.y, self.p, self.l, self.client))
 
 class ChallengeView1(discord.ui.View):
     def __init__(self, client):
@@ -693,36 +564,22 @@ class ChallengeView1(discord.ui.View):
     @discord.ui.button(label='Begin Challenge',
                        style=discord.ButtonStyle.blurple,
                        custom_id='persistent_view:challenge1')
-    async def challenge(self, button: discord.ui.Button,
-                        interaction: discord.Interaction):
+    async def challenge(self, button: discord.ui.Button, interaction: discord.Interaction):
+
         x = 0
         y = 0
         p = 0
         l = 0
 
-        await interaction.response.defer()
-
-        startembed = discord.Embed(
-            description=
-            f"These quests are a race to complete. The first 75 to complete each quest will be whitelisted for an allowed to mint 1 Celestial Key For FREE. The next 300 to finish will be whitelisted for the mint at a reduced price. When you have completed all the quests you will be DMed by {self.client.user.mention} and prompted to enter your wallet address. It will only ask for you wallet address - do not add random text!\n\nHow to play:\nRead the paragraph, and then type one of the prompted responses to move on.\nYou will have some obvious options available to you, so you will not have to guess or grasp at straws.\n\nIf you ever want to return to the place you just previously were, just click ‘go back’. You will always have the option ‘go back’ available to you.\n\nTo start, click the begin button. Look for hints, read carefully, and...\nGOOD LUCK!",
-            color=0x000ff)
+        startembed = discord.Embed(description=f"These quests are a race to complete. The first 75 to complete each quest will be whitelisted for an allowed to mint 1 Celestial Key For FREE. The next 300 to finish will be whitelisted for the mint at a reduced price. When you have completed all the quests you will be DMed by {self.client.user.mention} and prompted to enter your wallet address. It will only ask for you wallet address - do not add random text!\n\nHow to play:\nRead the paragraph, and then type one of the prompted responses to move on.\nYou will have some obvious options available to you, so you will not have to guess or grasp at straws.\n\nIf you ever want to return to the place you just previously were, just click ‘go back’. You will always have the option ‘go back’ available to you.\n\nTo start, click the begin button. Look for hints, read carefully, and...\nGOOD LUCK!", color=0x000ff)
         startembed.set_author(name="Challenge 1",
                               icon_url=interaction.guild.icon.url)
         startembed.set_footer(text="Freaks N' Guilds",
                               icon_url=interaction.guild.icon.url)
 
-        startview = OneView("Begin")
+        view = BeginView(x, y, p, l, self.client)
 
-        await interaction.followup.send(embed=startembed,
-                                        view=startview,
-                                        ephemeral=True)
-        await interaction.followup.send(interaction.user.mention,
-                                        ephemeral=True)
-
-        await startview.wait()
-
-        await intro_room(interaction, x, y, p, l, self.client)
-
+        await interaction.response.send_message(interaction.user.mention, embed=startembed, view=view, ephemeral=True)
 
 class Challenge1(commands.Cog):
     def __init__(self, client):
