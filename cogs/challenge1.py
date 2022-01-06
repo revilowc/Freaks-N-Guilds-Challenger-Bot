@@ -47,7 +47,7 @@ class DropdownView(discord.ui.View):
         # *_original_message methods can be used after the initial response,
         # available until the interaction's webhook expires
         self.stop()
-        self.timeout = True
+        self.timeout = False
 
 class OneButton(discord.ui.Button):
     def __init__(self, label):
@@ -71,7 +71,7 @@ class OneView(discord.ui.View):
         # *_original_message methods can be used after the initial response,
         # available until the interaction's webhook expires
         self.stop()
-        self.timeout = True
+        self.timeout = False
 
 
 class TwoButton(discord.ui.Button):
@@ -106,7 +106,7 @@ class TwoView(discord.ui.View):
         # *_original_message methods can be used after the initial response,
         # available until the interaction's webhook expires
         self.stop()
-        self.timeout = True
+        self.timeout = False
 
 
 class ThreeButton(discord.ui.Button):
@@ -145,7 +145,7 @@ class ThreeView(discord.ui.View):
         # *_original_message methods can be used after the initial response,
         # available until the interaction's webhook expires
         self.stop()
-        self.timeout = True
+        self.timeout = False
 
 
 class FourButton(discord.ui.Button):
@@ -188,7 +188,7 @@ class FourView(discord.ui.View):
         # *_original_message methods can be used after the initial response,
         # available until the interaction's webhook expires
         self.stop()
-        self.timeout = True
+        self.timeout = False
 
 
 async def intro_room(interaction, x, y, p, l, client):
