@@ -502,6 +502,8 @@ class Dropdown(discord.ui.Select):
                          options=options)
 
     async def callback(self, interaction: discord.Interaction):
+        self.view.stop()
+
         if self.values[0] == 'Satoshi the Wise':
           await interaction.response.defer()
 
@@ -509,7 +511,15 @@ class Dropdown(discord.ui.Select):
           walletembed.set_footer(text="Freaks N' Guilds",
                                 icon_url=self.client.user.avatar.url)
 
-          dmmessage = await interaction.user.send(embed=walletembed)
+          try:
+            dmmessage = await interaction.user.send(embed=walletembed)
+
+          except:
+            startoverview = BeginView(self.view.x, self.view.y, self.view.p, self.view.l, self.view.client)
+
+            await interaction.followup.send(embed=discord.Embed(description=f"**You don't have DMs turned on - now you have to start over and turn on DMs...**", color=0x000ff), view=startoverview,
+                ephemeral=True)
+            return
 
           await interaction.followup.send(embed=discord.Embed(description=f"Congratulations on completing the quest! The first 50 people to complete will be added to the free mint whitelist and the next 300 will be whitelisted. You will gain a role for completing this quest and we will manually assign the roles for the winners! Please [check your DMs]({dmmessage.jump_url}) and send your wallet address there! (Make sure to send only your wallet address and no extra random text!)", color=0x000ff),
               ephemeral=True)
@@ -525,7 +535,7 @@ class Dropdown(discord.ui.Select):
           knightsrole = interaction.guild.get_role(902795625253449759)
           await interaction.user.add_roles(knightsrole)
 
-        else:
+        elif self.values[0] != 'Satoshi the Wise':
           startoverview = BeginView(self.view.x, self.view.y, self.view.p, self.view.l, self.view.client)
 
           await interaction.response.send_message(embed=discord.Embed(description="**Welp, looks like you got it wrong. Now you have to start over...**", color=0x000ff), view=startoverview, ephemeral=True)
@@ -540,6 +550,8 @@ class OneButton(discord.ui.Button):
         self.l = l
 
     async def callback(self, interaction: discord.Interaction):
+        self.view.stop()
+
         view = A8BackRoomView(self.x, self.y, self.p, self.l, self.client)
 
         await interaction.response.send_message("\n\nYou’re in a large regal room. A 6-foot round table sits in the middle, surrounded by chairs. In the corner you see a locked treasure chest.\n\n You also notice a tapestry near where you entered the room, adorned with decorations and a tree behind several images of freaks.\n\n. At the opposite end of the room near the table is a gold throne. None of the other chairs are thrones, this one is clearly special.\n\nWhat will you do? You can approach the chest, examine the tapestry, or sit in the throne.", view=view, ephemeral=True)
