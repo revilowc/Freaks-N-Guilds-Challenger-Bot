@@ -3,6 +3,9 @@ import os
 import time
 from discord.ext import commands
 
+#Add bot token here 
+TOKEN = ""
+
 intents = discord.Intents.all()
 client = commands.Bot(
     command_prefix=commands.when_mentioned_or('!'),
@@ -52,4 +55,4 @@ for filename in os.listdir('./cogs'):
 	if filename.endswith('.py'):
 		client.load_extension(f'cogs.{filename[:-3]}')
 
-client.run('INSERT BOT TOKEN HERE')
+client.run(TOKEN)
