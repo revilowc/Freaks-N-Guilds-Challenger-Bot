@@ -507,33 +507,14 @@ class Dropdown(discord.ui.Select):
         if self.values[0] == 'Satoshi the Wise':
           await interaction.response.defer()
 
-          walletembed = discord.Embed(description="Congratulations on completing the quest! The first 50 people to complete will be added to the free mint whitelist and the next 300 will be whitelisted. You will gain a role for completing this quest and we will manually assign the roles for the winners! Please send your wallet address here! (Make sure to send only your wallet address and no extra random text!)", color=0x000ff)
-          walletembed.set_footer(text="Freaks N' Guilds",
-                                icon_url=self.client.user.avatar.url)
-
-          try:
-            dmmessage = await interaction.user.send(embed=walletembed)
-
-          except:
-            startoverview = BeginView(self.view.x, self.view.y, self.view.p, self.view.l, self.view.client)
-
-            await interaction.followup.send(embed=discord.Embed(description=f"**You don't have DMs turned on - now you have to start over and turn on DMs...**", color=0x000ff), view=startoverview,
-                ephemeral=True)
-            return
-
           await interaction.followup.send(embed=discord.Embed(description=f"Congratulations on completing the quest! The first 50 people to complete will be added to the free mint whitelist and the next 300 will be whitelisted. You will gain a role for completing this quest and we will manually assign the roles for the winners! Please [check your DMs]({dmmessage.jump_url}) and send your wallet address there! (Make sure to send only your wallet address and no extra random text!)", color=0x000ff),
               ephemeral=True)
 
-          walletaddress = (await self.client.wait_for('message', check=lambda message: message.author == interaction.user and isinstance(message.channel, PrivateChannel))).content
-
-          await interaction.user.send("Got it! I've stored your wallet address.")
-
-          f = open("walletaddresses.txt", "a")
-          f.write(f"{interaction.user.name}#{interaction.user.discriminator}:{walletaddress},\n")
-          f.close()
-
           knightsrole = interaction.guild.get_role(902795625253449759)
+          whitelistrole = interaction.guild.get_role(924152616114618378)
+
           await interaction.user.add_roles(knightsrole)
+          await interaction.user.add_roles(whitelistrole)
 
         elif self.values[0] != 'Satoshi the Wise':
           startoverview = BeginView(self.view.x, self.view.y, self.view.p, self.view.l, self.view.client)
