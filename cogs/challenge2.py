@@ -286,32 +286,15 @@ class B12(discord.ui.View):
               "Reinvigorated with a burst of energy, you crawl to your feet to see the valkyrie in all its glory. You follow it into the lush dark green forest. Just minutes later, you approach a circle of huge stones that are emitting a light orange glow. The Valkyrie motions you to go into the circle, then dashes away. You move to the center.\n\nThe sunlight intensifies. Brutal heat envelops you and the stones begin to shake and glow red. Beneath you, you can feel a rumbling. You step back just before a crystal with a rune on it bursts from the center of the circle, sending loose rocks flying. You got the second rune! You slip it into your pocket as the temperature continues to rise. The rocks burst into flame!",
               ephemeral=True)
 
-    walletembed = discord.Embed(description="Congratulations on completing the quest! The first 50 people to complete will be added to the free mint whitelist and the next 300 will be whitelisted. You will gain a role for completing this quest and we will manually assign the roles for the winners! Please send your wallet address here! (Make sure to send only your wallet address and no extra random text!)", color=0x000ff)
-    walletembed.set_footer(text="Freaks N' Guilds",
-                          icon_url=self.client.user.avatar.url)
-
-    try:
-      dmmessage = await interaction.user.send(embed=walletembed)
-    except:
-      startoverview = BeginView(self.alreadyb2, self.unlockedb12, self.unlockedb9, self.alreadyb1, self.unlockedb10, self.client)
-
-      await interaction.followup.send(embed=discord.Embed(description=f"**You don't have DMs turned on - now you have to start over and turn on DMs...**", color=0x000ff), view=startoverview,
-          ephemeral=True)
-      return
-
     await interaction.followup.send(embed=discord.Embed(description=f"Congratulations on completing the quest! The first 50 people to complete will be added to the free mint whitelist and the next 300 will be whitelisted. You will gain a role for completing this quest and we will manually assign the roles for the winners! Please [check your DMs]({dmmessage.jump_url}) and send your wallet address there! (Make sure to send only your wallet address and no extra random text!)", color=0x000ff),
         ephemeral=True)
 
-    walletaddress = (await self.client.wait_for('message', check=lambda message: message.author == interaction.user and isinstance(message.channel, PrivateChannel))).content
-
-    await interaction.user.send("Got it! I've stored your wallet address.")
-
-    f = open("walletaddresseschallenge2.txt", "a")
-    f.write(f"\n{interaction.user.name}#{interaction.user.discriminator}:{walletaddress},")
-    f.close()
-
     knightsrole = interaction.guild.get_role(902795625253449759)
+    whitelistrole = interaction.guild.get_role(924152616114618378)
+
     await interaction.user.add_roles(knightsrole)
+    await interaction.user.add_roles(whitelistrole)
+
 
 class B11Else(discord.ui.View):
   def __init__(self, alreadyb2, unlockedb12, unlockedb9, alreadyb1, unlockedb10, client):
