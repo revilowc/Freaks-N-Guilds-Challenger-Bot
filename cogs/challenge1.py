@@ -511,7 +511,7 @@ class Dropdown(discord.ui.Select):
           knightsrole = interaction.guild.get_role(902795625253449759)
           whitelistrole = interaction.guild.get_role(924152616114618378)
 
-          await interaction.user.add_roles(knightsrole, whitelistrole)
+          await interaction.user.add_roles(knightsrole, whitelistrole, reason="Member completed quest 1")
 
         elif self.values[0] != 'Satoshi the Wise':
           startoverview = BeginView(self.view.x, self.view.y, self.view.p, self.view.l, self.view.client)
@@ -594,11 +594,6 @@ class Challenge1(commands.Cog):
     @commands.Cog.listener()
     async def on_ready(self):
         if not self.persistent_views_added:
-            # Register the persistent view for listening here.
-            # Note that this does not send the view to any message.
-            # In order to do this you need to first send a message with the View, which is shown below.
-            # If you have the message_id you can also pass it as a keyword argument, but for this example
-            # we don't have one.
             self.client.add_view(ChallengeView1(self.client))
             self.persistent_views_added = True
 
