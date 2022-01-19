@@ -3,7 +3,7 @@ import os
 import time
 from discord.ext import commands
 
-#Add bot token here 
+#Add bot token here
 TOKEN = ""
 
 intents = discord.Intents.all()
@@ -21,7 +21,22 @@ async def on_ready():
 	print(client.user.id)
 	print('------')
 
-#@commands.is_owner()
+@client.event
+async def on_message(message):
+    enlistedchannel = client.get_channel(925268802718027796)
+    godrole = message.guild.get_role(896504910152089653)
+
+    if message.content[:2].lower() == "0x" and message.channel == enlistedchannel:
+        with open("walletaddresses.txt", "a") as f:
+            f.write(f"\n{message.author.name}#{message.author.discriminator}:{message.content},")
+
+        await message.delete()
+        await message.channel.send(f"Got it! {message.author.mention}'s wallet address has been stored as `'{message.content}'`!")
+
+    elif message.channel == enlistedchannel and message.content[:2].lower() != "0x" and message.author != client.user and godrole not in message.author.roles:
+        await message.channel.send("Please refrain from talking in this channel. Only wallet addresses should be sent here!")
+
+@commands.is_owner()
 @client.command(pass_context=True)
 async def load(ctx, extension):
 	client.load_extension(f'cogs.{extension}')
@@ -30,7 +45,7 @@ async def load(ctx, extension):
 	time.sleep(1)
 	await ctx.channel.purge(limit=2)
 
-#@commands.is_owner()
+@commands.is_owner()
 @client.command(pass_context=True)
 async def unload(ctx, extension):
 	client.unload_extension(f'cogs.{extension}')
@@ -40,7 +55,7 @@ async def unload(ctx, extension):
 	time.sleep(1)
 	await ctx.channel.purge(limit=2)
 
-#@commands.is_owner()
+@commands.is_owner()
 @client.command(pass_context=True)
 async def reload(ctx, extension):
 	client.unload_extension(f'cogs.{extension}')
