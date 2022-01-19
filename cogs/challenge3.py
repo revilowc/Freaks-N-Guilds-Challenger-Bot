@@ -363,15 +363,14 @@ class C18(discord.ui.View):
   @discord.ui.button(label='FINISH HIM!!!', style=discord.ButtonStyle.blurple)
   async def button1(self, button: discord.ui.Button, interaction: discord.Interaction):
     self.stop()
-
     await interaction.response.send_message(
-        "You leap towards the other head, dagger drawn and ready. You land, stabbing straight down with the dagger, lodging it next to the first dagger.\n\nYou grip both, each with one hand and yank in opposite directions, sending the head of the lizard flying while releasing the daggers.\n\nTriumphant against your foe, you let out a deep breath. A blinding light erupts from beneath your feet, and after a few moments of stunned glory, a voice calls out: KO!!!\n\nThe rune materializes before your eyes as a championship belt. Congratulations! You are a worthy Illuvar!\n\n\nCongratulations on completing the quest! The first 50 people to complete will be added to the free mint whitelist and the next 300 will be whitelisted. You will gain a role for completing this quest and we will manually assign the roles for the winners! Please [check your DMs]({dmmessage.jump_url}) and send your wallet address there! (Make sure to send only your wallet address and no extra random text!)",
+        "You leap towards the other head, dagger drawn and ready. You land, stabbing straight down with the dagger, lodging it next to the first dagger.\n\nYou grip both, each with one hand and yank in opposite directions, sending the head of the lizard flying while releasing the daggers.\n\nTriumphant against your foe, you let out a deep breath. A blinding light erupts from beneath your feet, and after a few moments of stunned glory, a voice calls out: KO!!!\n\nThe rune materializes before your eyes as a championship belt. Congratulations! You are a worthy Illuvar!\n\n\nCongratulations on completing the quest! You will gain a the knight role and whitelisted role for completing this quest. Please go to the enlisted chat and send your wallet address there! Please do not spam that chat otherwise.",
         ephemeral=True)
 
     knightsrole = interaction.guild.get_role(902795625253449759)
     whitelistrole = interaction.guild.get_role(924152616114618378)
 
-    await interaction.user.add_roles(knightsrole, whitelistrole, reason="Member finished quest 3")
+    await interaction.user.add_roles(knightsrole, whitelistrole, reason="Member completed quest 3")
 
 class C11(discord.ui.View):
   def __init__(self, c8shortcut, c9times, unlockedc18, unlockedc13, unlockedc17, c16goback, c17goback, client):
@@ -892,7 +891,7 @@ class ChallengeView3(discord.ui.View):
 
         startembed = discord.Embed(
             description=
-            "A grind where mistakes mean death...\n\nHow to play:\n\nRead the paragraph, and then click on one of the prompted responses to move on.\nYou will have some obvious options available to you, so you will not have to guess or grasp at straws.To start, click the begin button. Look for hints, read carefully, and...\nGOOD LUCK!",
+            "A grind where mistakes mean death...\n\nThese quests are a journey to whitelist. Everyone who properly completes the quest while it is open will recieve a whitelist.\n\nHow to play:\nRead the paragraph, and then click one of the prompted responses to move on.\nYou will have some obvious options available to you, so you will not have to guess or grasp at straws.\n\nIf you ever want to return to the place you just previously were, just click ‘go back’. You will always have the option ‘go back’ available to you.\n\nTo start, click the begin button. Look for hints, read carefully, and...\nGOOD LUCK!",
             color=0x000ff)
         startembed.set_author(name="Challenge 3",
                               icon_url=interaction.guild.icon.url)
