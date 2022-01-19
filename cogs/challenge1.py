@@ -505,16 +505,13 @@ class Dropdown(discord.ui.Select):
         self.view.stop()
 
         if self.values[0] == 'Satoshi the Wise':
-          await interaction.response.defer()
-
-          await interaction.followup.send(embed=discord.Embed(description=f"Congratulations on completing the quest! The first 50 people to complete will be added to the free mint whitelist and the next 300 will be whitelisted. You will gain a role for completing this quest and we will manually assign the roles for the winners! Please [check your DMs]({dmmessage.jump_url}) and send your wallet address there! (Make sure to send only your wallet address and no extra random text!)", color=0x000ff),
+          await interaction.response.send_message(embed=discord.Embed(description=f"Congratulations on completing the quest! You will gain a the knight role and whitelisted role for completing this quest. Please go to the enlisted chat and send your wallet address there! Please do not spam that chat otherwise.", color=0x000ff),
               ephemeral=True)
 
           knightsrole = interaction.guild.get_role(902795625253449759)
           whitelistrole = interaction.guild.get_role(924152616114618378)
 
-          await interaction.user.add_roles(knightsrole)
-          await interaction.user.add_roles(whitelistrole)
+          await interaction.user.add_roles(knightsrole, whitelistrole)
 
         elif self.values[0] != 'Satoshi the Wise':
           startoverview = BeginView(self.view.x, self.view.y, self.view.p, self.view.l, self.view.client)
@@ -564,7 +561,7 @@ class ChallengeView1(discord.ui.View):
         p = 0
         l = 0
 
-        startembed = discord.Embed(description=f"These quests are a race to complete. The first 75 to complete each quest will be whitelisted for an allowed to mint 1 Celestial Key For FREE. The next 300 to finish will be whitelisted for the mint at a reduced price. When you have completed all the quests you will be DMed by {self.client.user.mention} and prompted to enter your wallet address. It will only ask for you wallet address - do not add random text!\n\nHow to play:\nRead the paragraph, and then type one of the prompted responses to move on.\nYou will have some obvious options available to you, so you will not have to guess or grasp at straws.\n\nIf you ever want to return to the place you just previously were, just click ‘go back’. You will always have the option ‘go back’ available to you.\n\nTo start, click the begin button. Look for hints, read carefully, and...\nGOOD LUCK!", color=0x000ff)
+        startembed = discord.Embed(description=f"These quests are a journey to whitelist. Everyone who properly completes the quest while it is open will recieve a whitelist.\n\nHow to play:\nRead the paragraph, and then click one of the prompted responses to move on.\nYou will have some obvious options available to you, so you will not have to guess or grasp at straws.\n\nIf you ever want to return to the place you just previously were, just click ‘go back’. You will always have the option ‘go back’ available to you.\n\nTo start, click the begin button. Look for hints, read carefully, and...\nGOOD LUCK!", color=0x000ff)
         startembed.set_author(name="Challenge 1",
                               icon_url=interaction.guild.icon.url)
         startembed.set_footer(text="Freaks N' Guilds",
