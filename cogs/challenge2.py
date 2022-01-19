@@ -479,8 +479,6 @@ class ChallengeView2(discord.ui.View):
         alreadyb1 = False
         unlockedb10 = False
 
-        await interaction.response.defer()
-
         startembed = discord.Embed(
             description=
             "\n   How to play:\n\nRead the paragraph, and then click on one of the prompted responses to move on.\nYou will have some obvious options available to you, so you will not have to guess or grasp at straws.To start, click the begin button. Look for hints, read carefully, and...\nGOOD LUCK!",
@@ -492,7 +490,7 @@ class ChallengeView2(discord.ui.View):
 
         startview = BeginView(alreadyb2, unlockedb12, unlockedb9, alreadyb1, unlockedb10, self.client)
 
-        await interaction.followup.send(interaction.user.mention, embed=startembed,
+        await interaction.response.send_message(interaction.user.mention, embed=startembed,
                                         view=startview,
                                         ephemeral=True)
 
