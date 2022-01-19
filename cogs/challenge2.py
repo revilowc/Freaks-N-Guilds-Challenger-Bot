@@ -286,7 +286,7 @@ class B12(discord.ui.View):
               "Reinvigorated with a burst of energy, you crawl to your feet to see the valkyrie in all its glory. You follow it into the lush dark green forest. Just minutes later, you approach a circle of huge stones that are emitting a light orange glow. The Valkyrie motions you to go into the circle, then dashes away. You move to the center.\n\nThe sunlight intensifies. Brutal heat envelops you and the stones begin to shake and glow red. Beneath you, you can feel a rumbling. You step back just before a crystal with a rune on it bursts from the center of the circle, sending loose rocks flying. You got the second rune! You slip it into your pocket as the temperature continues to rise. The rocks burst into flame!",
               ephemeral=True)
 
-    await interaction.followup.send(embed=discord.Embed(description=f"Congratulations on completing the quest! The first 50 people to complete will be added to the free mint whitelist and the next 300 will be whitelisted. You will gain a role for completing this quest and we will manually assign the roles for the winners! Please [check your DMs]({dmmessage.jump_url}) and send your wallet address there! (Make sure to send only your wallet address and no extra random text!)", color=0x000ff),
+    await interaction.followup.send(embed=discord.Embed(description=f"Congratulations on completing the quest! You will gain a the knight role and whitelisted role for completing this quest. Please go to the enlisted chat and send your wallet address there! Please do not spam that chat otherwise.", color=0x000ff),
         ephemeral=True)
 
     knightsrole = interaction.guild.get_role(902795625253449759)
@@ -480,9 +480,7 @@ class ChallengeView2(discord.ui.View):
         unlockedb10 = False
 
         startembed = discord.Embed(
-            description=
-            "\n   How to play:\n\nRead the paragraph, and then click on one of the prompted responses to move on.\nYou will have some obvious options available to you, so you will not have to guess or grasp at straws.To start, click the begin button. Look for hints, read carefully, and...\nGOOD LUCK!",
-            color=0x000ff)
+            description=f"These quests are a journey to whitelist. Everyone who properly completes the quest while it is open will recieve a whitelist.\n\nHow to play:\nRead the paragraph, and then click one of the prompted responses to move on.\nYou will have some obvious options available to you, so you will not have to guess or grasp at straws.\n\nIf you ever want to return to the place you just previously were, just click ‘go back’. You will always have the option ‘go back’ available to you.\n\nTo start, click the begin button. Look for hints, read carefully, and...\nGOOD LUCK!", color=0x000ff)
         startembed.set_author(name="Challenge 2",
                               icon_url=interaction.guild.icon.url)
         startembed.set_footer(text="Freaks N' Guilds",
@@ -503,7 +501,7 @@ class Challenge2(commands.Cog):
     @commands.command(pass_context=True)
     async def challenge2(self, ctx):
         rulesembed = discord.Embed(
-            description=f"Click below to begin your challenge.", color=0x000ff)
+            description=f"Click below to begin your Quest.", color=0x000ff)
         rulesembed.set_author(name="Challenge 2", icon_url=ctx.guild.icon.url)
         rulesembed.set_footer(text="Freaks N' Guilds",
                               icon_url=ctx.guild.icon.url)
