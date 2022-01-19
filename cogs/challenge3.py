@@ -364,20 +364,14 @@ class C18(discord.ui.View):
   async def button1(self, button: discord.ui.Button, interaction: discord.Interaction):
     self.stop()
 
-    await interaction.response.defer()
-
-    await interaction.followup.send(
-        "You leap towards the other head, dagger drawn and ready. You land, stabbing straight down with the dagger, lodging it next to the first dagger.\n\nYou grip both, each with one hand and yank in opposite directions, sending the head of the lizard flying while releasing the daggers.\n\nTriumphant against your foe, you let out a deep breath. A blinding light erupts from beneath your feet, and after a few moments of stunned glory, a voice calls out: KO!!!\n\nThe rune materializes before your eyes as a championship belt. Congratulations! You are a worthy Illuvar!",
-        ephemeral=True)
-
-    await interaction.followup.send(embed=discord.Embed(description=f"Congratulations on completing the quest! The first 50 people to complete will be added to the free mint whitelist and the next 300 will be whitelisted. You will gain a role for completing this quest and we will manually assign the roles for the winners! Please [check your DMs]({dmmessage.jump_url}) and send your wallet address there! (Make sure to send only your wallet address and no extra random text!)", color=0x000ff),
+    await interaction.response.send_message(
+        "You leap towards the other head, dagger drawn and ready. You land, stabbing straight down with the dagger, lodging it next to the first dagger.\n\nYou grip both, each with one hand and yank in opposite directions, sending the head of the lizard flying while releasing the daggers.\n\nTriumphant against your foe, you let out a deep breath. A blinding light erupts from beneath your feet, and after a few moments of stunned glory, a voice calls out: KO!!!\n\nThe rune materializes before your eyes as a championship belt. Congratulations! You are a worthy Illuvar!\n\n\nCongratulations on completing the quest! The first 50 people to complete will be added to the free mint whitelist and the next 300 will be whitelisted. You will gain a role for completing this quest and we will manually assign the roles for the winners! Please [check your DMs]({dmmessage.jump_url}) and send your wallet address there! (Make sure to send only your wallet address and no extra random text!)",
         ephemeral=True)
 
     knightsrole = interaction.guild.get_role(902795625253449759)
     whitelistrole = interaction.guild.get_role(924152616114618378)
 
-    await interaction.user.add_roles(knightsrole)
-    await interaction.user.add_roles(whitelistrole)
+    await interaction.user.add_roles(knightsrole, whitelistrole, reason="Member finished quest 3")
 
 class C11(discord.ui.View):
   def __init__(self, c8shortcut, c9times, unlockedc18, unlockedc13, unlockedc17, c16goback, c17goback, client):
