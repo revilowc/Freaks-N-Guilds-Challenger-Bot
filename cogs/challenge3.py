@@ -369,7 +369,9 @@ class C18(discord.ui.View):
 
     knightsrole = interaction.guild.get_role(902795625253449759)
     whitelistrole = interaction.guild.get_role(924152616114618378)
+    peasantrole = interaction.guild.get_role(902788640571277312)
 
+    await interaction.user.remove_roles(peasantrole, reason="Member completed quest 3")
     await interaction.user.add_roles(knightsrole, whitelistrole, reason="Member completed quest 3")
 
 class C11(discord.ui.View):
