@@ -36,6 +36,8 @@ async def on_message(message):
     elif message.channel == enlistedchannel and message.content[:2].lower() != "0x" and message.author != client.user and godrole not in message.author.roles:
         await message.reply("Please refrain from talking in this channel. Only wallet addresses should be sent here!")
 
+    await client.process_commands(message)
+
 @commands.is_owner()
 @client.command(pass_context=True)
 async def load(ctx, extension):
