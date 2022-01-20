@@ -511,7 +511,9 @@ class Dropdown(discord.ui.Select):
           knightsrole = interaction.guild.get_role(902795625253449759)
           whitelistrole = interaction.guild.get_role(924152616114618378)
           peasantrole = interaction.guild.get_role(902788640571277312)
+          enlistedchannel = self.client.get_channel(925268802718027796)
 
+          await enlistedchannel.send(f"{interaction.user.mention} Congratulations on completing quest 1! Please send your wallet address here and I will store it for you.")
           await interaction.user.remove_roles(peasantrole, reason="Member completed quest 1")
           await interaction.user.add_roles(knightsrole, whitelistrole, reason="Member completed quest 1")
 
