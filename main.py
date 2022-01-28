@@ -34,7 +34,7 @@ async def on_message(message):
         await message.channel.send(f"Got it! {message.author.mention}'s wallet address has been stored as `'{message.content}'`!")
 
     elif message.channel == enlistedchannel and message.content[:2].lower() != "0x" and godrole not in message.author.roles and not message.author.bot:
-        await message.reply("Please refrain from talking in this channel. Only wallet addresses should be sent here!")
+        await message.reply("Please refrain from talking in this channel. Only wallet addresses should be sent here! If you would like to submit your wallet address, just copy and paste it - no command required!!")
 
     await client.process_commands(message)
 
