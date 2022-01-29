@@ -364,17 +364,8 @@ class C18(discord.ui.View):
   async def button1(self, button: discord.ui.Button, interaction: discord.Interaction):
     self.stop()
     await interaction.response.send_message(
-        "You leap towards the other head, dagger drawn and ready. You land, stabbing straight down with the dagger, lodging it next to the first dagger.\n\nYou grip both, each with one hand and yank in opposite directions, sending the head of the lizard flying while releasing the daggers.\n\nTriumphant against your foe, you let out a deep breath. A blinding light erupts from beneath your feet, and after a few moments of stunned glory, a voice calls out: KO!!!\n\nThe rune materializes before your eyes as a championship belt. Congratulations! You are a worthy Illuvar!\n\n\nCongratulations on completing the quest! You will gain a the knight role and whitelisted role for completing this quest. Please go to the enlisted chat and send your wallet address there! Please do not spam that chat otherwise.",
+        "You leap towards the other head, dagger drawn and ready. You land, stabbing straight down with the dagger, lodging it next to the first dagger.\n\nYou grip both, each with one hand and yank in opposite directions, sending the head of the lizard flying while releasing the daggers.\n\nTriumphant against your foe, you let out a deep breath. A blinding light erupts from beneath your feet, and after a few moments of stunned glory, a voice calls out: KO!!!\n\nThe rune materializes before your eyes as a championship belt. Congratulations! You are a worthy Illuvar!\n\n\nCongratulations on completing the quest!",
         ephemeral=True)
-
-    knightsrole = interaction.guild.get_role(902795625253449759)
-    whitelistrole = interaction.guild.get_role(924152616114618378)
-    peasantrole = interaction.guild.get_role(902788640571277312)
-    enlistedchannel = self.client.get_channel(925268802718027796)
-
-    await enlistedchannel.send(f"{interaction.user.mention} Congratulations on completing quest 3! Please send your wallet address here and I will store it for you.")
-    await interaction.user.remove_roles(peasantrole, reason="Member completed quest 3")
-    await interaction.user.add_roles(knightsrole, whitelistrole, reason="Member completed quest 3")
 
 class C11(discord.ui.View):
   def __init__(self, c8shortcut, c9times, unlockedc18, unlockedc13, unlockedc17, c16goback, c17goback, client):
