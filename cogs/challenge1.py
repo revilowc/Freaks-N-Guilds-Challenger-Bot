@@ -505,17 +505,8 @@ class Dropdown(discord.ui.Select):
         self.view.stop()
 
         if self.values[0] == 'Satoshi the Wise':
-          await interaction.response.send_message(embed=discord.Embed(description=f"Congratulations on completing the quest! You will gain a the knight role and whitelisted role for completing this quest. Please go to the enlisted chat and send your wallet address there! Please do not spam that chat otherwise.", color=0x000ff),
+          await interaction.response.send_message(embed=discord.Embed(description=f"Congratulations on completing the quest!", color=0x000ff),
               ephemeral=True)
-
-          knightsrole = interaction.guild.get_role(902795625253449759)
-          whitelistrole = interaction.guild.get_role(924152616114618378)
-          peasantrole = interaction.guild.get_role(902788640571277312)
-          enlistedchannel = self.client.get_channel(925268802718027796)
-
-          await enlistedchannel.send(f"{interaction.user.mention} Congratulations on completing quest 1! Please send your wallet address here and I will store it for you.")
-          await interaction.user.remove_roles(peasantrole, reason="Member completed quest 1")
-          await interaction.user.add_roles(knightsrole, whitelistrole, reason="Member completed quest 1")
 
         elif self.values[0] != 'Satoshi the Wise':
           startoverview = BeginView(self.view.x, self.view.y, self.view.p, self.view.l, self.view.client)
