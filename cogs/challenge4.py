@@ -1268,7 +1268,8 @@ class Challenge4(commands.Cog):
 
         await ctx.interaction.followup.send(embed=discord.Embed(description="**Finished collecting all wallet addresses and separated by quests and other methods for whitelist!**", color=embedcolor), ephemeral=True)
 
-    @slash_command(guild_ids=guildIDs, description="Create quest 4")
+    @slash_command(guild_ids=guildIDs, description="Create quest 4", default_permission=False)
+    @permissions.has_role(godroleid)
     async def quest4(self, ctx):
         rulesembed = discord.Embed(description=f"Click below to begin the quest.", color=embedcolor)
         rulesembed.set_author(name="Quest 4", icon_url=ctx.guild.icon.url)
