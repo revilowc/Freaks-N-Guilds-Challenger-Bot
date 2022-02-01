@@ -1,10 +1,12 @@
 import discord
-import os
-import time
 from discord.ext import commands
 
-#Add bot token here
-TOKEN = ""
+import os
+import time
+from dotenv import load_dotenv
+
+load_dotenv()
+TOKEN = os.getenv('bottoken')
 
 intents = discord.Intents.all()
 client = commands.Bot(
