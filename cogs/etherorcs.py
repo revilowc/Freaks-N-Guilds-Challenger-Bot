@@ -1146,7 +1146,8 @@ class Etherorcs(commands.Cog):
             check = payload.member.guild.get_role(916144076296945704)
             await payload.member.add_roles(check)
 
-    @slash_command(guild_ids=guildIDs, description="Creates EtherOrcs Quest")
+    @slash_command(guild_ids=guildIDs, description="Creates EtherOrcs Quest", default_permission=False)
+    @permissions.has_role(godroleid)
     async def etherorcsquest(self, ctx):
         rulesembed = discord.Embed(description=f"Click below to begin the quest.", color=embedcolor)
         rulesembed.set_author(name="EtherOrcs Quest", icon_url=ctx.guild.icon.url)
