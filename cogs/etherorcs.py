@@ -1061,17 +1061,7 @@ class Dropdown(discord.ui.Select):
         if self.values[0] == "E":
             await interaction.response.send_message("""Using your finger, you traced the letter E into the empty grid, showing where the orbs resided. The bioluminescent bacteria around you begins to swirl around the podium, slowly at first but getting faster.
 
-You can hear clanging in the background. In a flash, the glowing bioluminescent lights coalesce around the gold orb to form the legendary skull you have been seeking!
-
-Congratulations on completing the quest! You will gain a the knight role and whitelisted role for completing this quest. Please go to the enlisted chat and send your wallet address there! Please do not spam that chat otherwise.""", ephemeral=True)
-
-            knightsrole = interaction.guild.get_role(knightroleid)
-            whitelistrole = interaction.guild.get_role(whitelistroleid)
-            peasantrole = interaction.guild.get_role(peasantroleid)
-
-            await enlistedchannel.send(f"{interaction.user.mention} Congratulations on completing the EtherOrcs Quest! Please send your wallet address here and I will store it for you.")
-            await interaction.user.remove_roles(peasantrole, reason="Member completed EtherOrcs Quest")
-            await interaction.user.add_roles(knightsrole, whitelistrole, reason="Member completed EtherOrcs Quest")
+You can hear clanging in the background. In a flash, the glowing bioluminescent lights coalesce around the gold orb to form the legendary skull you have been seeking! Congratulations on completing the quest!""", ephemeral=True)
 
         else:
             view = RestartView()
