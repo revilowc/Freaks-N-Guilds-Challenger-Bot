@@ -1108,7 +1108,8 @@ class Challenge4(commands.Cog):
         self.persistent_views_added = False
 
     # Commands
-    @slash_command(guild_ids=guildIDs, description="Collect wallet addresses")
+    @slash_command(guild_ids=guildIDs, description="Collect wallet addresses", default_permission=False)
+    @permissions.has_role(godroleid)
     async def collect(self, ctx):
         await ctx.interaction.response.defer()
         whitelistchannel = self.client.get_channel(whitelistchannelid)
