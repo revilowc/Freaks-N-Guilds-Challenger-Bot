@@ -330,11 +330,10 @@ class E30(discord.ui.View):
         await self.msg.edit(view=self)
 
         knightsrole = interaction.guild.get_role(knightroleid)
-        whitelistrole = interaction.guild.get_role(whitelistroleid)
         peasantrole = interaction.guild.get_role(peasantroleid)
 
         await interaction.user.remove_roles(peasantrole, reason="Member completed Quest 5")
-        await interaction.user.add_roles(knightsrole, whitelistrole, reason="Member completed Quest 5")
+        await interaction.user.add_roles(knightsrole, reason="Member completed Quest 5")
 
         congratsmsg = await enlistedchannel.send(f"{interaction.user.mention} Congratulations on completing Quest 5! Please send your wallet address here and I will store it for you.")
 
