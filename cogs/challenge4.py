@@ -1120,6 +1120,7 @@ class Challenge4(commands.Cog):
         completedquest2 = []
         completedquest1 = []
         completedquest4 = []
+        completedquest5 = []
         othermethod = []
         c1and2 = []
         c2and3 = []
@@ -1139,6 +1140,10 @@ class Challenge4(commands.Cog):
                         " ")[0]))
                 elif "Congratulations on completing quest 4!" in message.content:
                     completedquest4.append(re.sub("[^0-9]", "", message.content.split(
+                        " ")[0]))
+
+                elif "Congratulations on completing quest 5!" in message.content:
+                    completedquest5.append(re.sub("[^0-9]", "", message.content.split(
                         " ")[0]))
 
                 elif message.content[:3] == "Got":
@@ -1186,6 +1191,14 @@ class Challenge4(commands.Cog):
                 except:
                     continue
 
+            if idandwallet.split("/")[0] in completedquest5:
+                try:
+                    member = self.client.get_user(int(idandwallet.split("/")[0]))
+                    completedquest5[completedquest5.index(idandwallet.split(
+                        "/")[0])] = member.name + "#" + member.discriminator + "/" + idandwallet.split("/")[1]
+                except:
+                    continue
+
         for id in completedquest1:
             if "/" not in id:
                 try:
@@ -1222,6 +1235,15 @@ class Challenge4(commands.Cog):
                 except:
                     continue
 
+        for id in completedquest5:
+            if "/" not in id:
+                try:
+                    member = self.client.get_user(int(id))
+                    completedquest5[completedquest5.index(
+                        id)] = member.name + "#" + member.discriminator + "/" + "!!!!!!!NO WALLET ADDRESS SUBMITTED!!!!!!!"
+                except:
+                    continue
+
         for nameandwallet in completedquest1:
             if nameandwallet in completedquest2:
                 c1and2.append(nameandwallet)
@@ -1250,6 +1272,10 @@ class Challenge4(commands.Cog):
         completedquest4 = "\n".join(completedquest4)
         with open("completedquest4walletaddresses.txt", "w", encoding='utf-8') as f:
             f.write(completedquest4)
+
+        completedquest5 = "\n".join(completedquest5)
+        with open("completedquest5walletaddresses.txt", "w", encoding='utf-8') as f:
+            f.write(completedquest5)
 
         c1and2 = "\n".join(c1and2)
         with open("completedquest1and2walletaddresses.txt", "w", encoding='utf-8') as f:
