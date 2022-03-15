@@ -140,7 +140,7 @@ class E1(discord.ui.View):
         self.msg = None
         self.starttime = starttime
 
-    @discord.ui.button(label='Enter Sanctuary', style=discord.ButtonStyle.blurple)
+    @discord.ui.button(label='Enter the Fractured Reality', style=discord.ButtonStyle.blurple)
     async def button1(self, button: discord.ui.Button, interaction: discord.Interaction):
         self.stop()
         self.clear_items()
