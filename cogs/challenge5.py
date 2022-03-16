@@ -344,7 +344,7 @@ The fractured reality snaps out of existence. You and Anorak stare into each oth
 The world has forever changed
 But your love will never change, forever.
 
-[Congratulations you have completed Quest 5]({congratsmsg.jump_url}), go to {enlistedchannel.mention} and submit your wallet address there! To submit your wallet address, just copy and paste it directly into the chat. NO COMMAND REQUIRED!!! Please do not spam that chat otherwise. Well done!
+Congratulations you have completed Quest 5. Well done!
             """, ephemeral=True)
 
     async def on_timeout(self):
