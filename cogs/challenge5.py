@@ -66,7 +66,7 @@ But there’s no time to waste. It’s time to begin your quest. Or is all time 
 
             view = RestartView()
             await self.msg.edit(
-                """
+                f"""{self.msg.content}\n\n**- - - - - - - - - - - - - - - - - - - - - - - - - - - - GAME OVER - - - - - - - - - - - - - - - - - - - - - - - - - - - -**\n
 “I CAN’T HOLD IT ANY LONGER” Anorak screams in your head telepathically.
 
 The fractured reality that could be seen in the sky shatters into a billion possibilities as the massive fist of the World Maker pummels down through the air.
@@ -121,7 +121,7 @@ But there’s no time to waste. It’s time to begin your quest. Or is all time 
 
             view = RestartView()
             await self.msg.edit(
-                """
+                f"""{self.msg.content}\n\n**- - - - - - - - - - - - - - - - - - - - - - - - - - - - GAME OVER - - - - - - - - - - - - - - - - - - - - - - - - - - - -**\n
 “I CAN’T HOLD IT ANY LONGER” Anorak screams in your head telepathically.
 
 The fractured reality that could be seen in the sky shatters into a billion possibilities as the massive fist of the World Maker pummels down through the air.
@@ -180,7 +180,7 @@ Deeper and deeper you go into the fractal tunnel, until you realize you’re com
 
             view = RestartView()
             await self.msg.edit(
-                """
+                f"""{self.msg.content}\n\n**- - - - - - - - - - - - - - - - - - - - - - - - - - - - GAME OVER - - - - - - - - - - - - - - - - - - - - - - - - - - - -**\n
 “I CAN’T HOLD IT ANY LONGER” Anorak screams in your head telepathically.
 
 The fractured reality that could be seen in the sky shatters into a billion possibilities as the massive fist of the World Maker pummels down through the air.
@@ -247,7 +247,7 @@ With Anorak in your arms you loose a blast of power at the window, shattering th
 
             view = RestartView()
             await self.msg.edit(
-                """
+                f"""{self.msg.content}\n\n**- - - - - - - - - - - - - - - - - - - - - - - - - - - - GAME OVER - - - - - - - - - - - - - - - - - - - - - - - - - - - -**\n
 “I CAN’T HOLD IT ANY LONGER” Anorak screams in your head telepathically.
 
 The fractured reality that could be seen in the sky shatters into a billion possibilities as the massive fist of the World Maker pummels down through the air.
@@ -298,7 +298,7 @@ class E29(discord.ui.View):
 
             view = RestartView()
             await self.msg.edit(
-                """
+                f"""{self.msg.content}\n\n**- - - - - - - - - - - - - - - - - - - - - - - - - - - - GAME OVER - - - - - - - - - - - - - - - - - - - - - - - - - - - -**\n
 “I CAN’T HOLD IT ANY LONGER” Anorak screams in your head telepathically.
 
 The fractured reality that could be seen in the sky shatters into a billion possibilities as the massive fist of the World Maker pummels down through the air.
@@ -352,7 +352,7 @@ But your love will never change, forever.
 
             view = RestartView()
             await self.msg.edit(
-                """
+                f"""{self.msg.content}\n\n**- - - - - - - - - - - - - - - - - - - - - - - - - - - - GAME OVER - - - - - - - - - - - - - - - - - - - - - - - - - - - -**\n
 “I CAN’T HOLD IT ANY LONGER” Anorak screams in your head telepathically.
 
 The fractured reality that could be seen in the sky shatters into a billion possibilities as the massive fist of the World Maker pummels down through the air.
@@ -515,7 +515,7 @@ So cold. So tired. Sleep by the fire?
 
             view = RestartView()
             await self.msg.edit(
-                """
+                f"""{self.msg.content}\n\n**- - - - - - - - - - - - - - - - - - - - - - - - - - - - GAME OVER - - - - - - - - - - - - - - - - - - - - - - - - - - - -**\n
 “I CAN’T HOLD IT ANY LONGER” Anorak screams in your head telepathically.
 
 The fractured reality that could be seen in the sky shatters into a billion possibilities as the massive fist of the World Maker pummels down through the air.
@@ -590,7 +590,7 @@ You notice a large mural on the wall. It looks like a forest in Autumn. But oddl
 
             view = RestartView()
             await self.msg.edit(
-                """
+                f"""{self.msg.content}\n\n**- - - - - - - - - - - - - - - - - - - - - - - - - - - - GAME OVER - - - - - - - - - - - - - - - - - - - - - - - - - - - -**\n
 “I CAN’T HOLD IT ANY LONGER” Anorak screams in your head telepathically.
 
 The fractured reality that could be seen in the sky shatters into a billion possibilities as the massive fist of the World Maker pummels down through the air.
@@ -661,7 +661,7 @@ A seed appears. And then another. And another. The seedlings begin to bloom, sho
 
             view = RestartView()
             await self.msg.edit(
-                """
+                f"""{self.msg.content}\n\n**- - - - - - - - - - - - - - - - - - - - - - - - - - - - GAME OVER - - - - - - - - - - - - - - - - - - - - - - - - - - - -**\n
 “I CAN’T HOLD IT ANY LONGER” Anorak screams in your head telepathically.
 
 The fractured reality that could be seen in the sky shatters into a billion possibilities as the massive fist of the World Maker pummels down through the air.
@@ -736,7 +736,7 @@ You make your way downstairs to find a feast set out on the table, illuminated b
 
             view = RestartView()
             await self.msg.edit(
-                """
+                f"""{self.msg.content}\n\n**- - - - - - - - - - - - - - - - - - - - - - - - - - - - GAME OVER - - - - - - - - - - - - - - - - - - - - - - - - - - - -**\n
 “I CAN’T HOLD IT ANY LONGER” Anorak screams in your head telepathically.
 
 The fractured reality that could be seen in the sky shatters into a billion possibilities as the massive fist of the World Maker pummels down through the air.
@@ -809,7 +809,7 @@ You start running towards the tropical beach near the volcano, you’re drawn th
 
             view = RestartView()
             await self.msg.edit(
-                """
+                f"""{self.msg.content}\n\n**- - - - - - - - - - - - - - - - - - - - - - - - - - - - GAME OVER - - - - - - - - - - - - - - - - - - - - - - - - - - - -**\n
 “I CAN’T HOLD IT ANY LONGER” Anorak screams in your head telepathically.
 
 The fractured reality that could be seen in the sky shatters into a billion possibilities as the massive fist of the World Maker pummels down through the air.
@@ -882,7 +882,7 @@ You hope his message was meant for you at this time. The longer you’re here th
 
             view = RestartView()
             await self.msg.edit(
-                """
+                f"""{self.msg.content}\n\n**- - - - - - - - - - - - - - - - - - - - - - - - - - - - GAME OVER - - - - - - - - - - - - - - - - - - - - - - - - - - - -**\n
 “I CAN’T HOLD IT ANY LONGER” Anorak screams in your head telepathically.
 
 The fractured reality that could be seen in the sky shatters into a billion possibilities as the massive fist of the World Maker pummels down through the air.
@@ -955,7 +955,7 @@ You reach out to the turtle. As you do, the turtle rapidly grows in size and ope
 
             view = RestartView()
             await self.msg.edit(
-                """
+                f"""{self.msg.content}\n\n**- - - - - - - - - - - - - - - - - - - - - - - - - - - - GAME OVER - - - - - - - - - - - - - - - - - - - - - - - - - - - -**\n
 “I CAN’T HOLD IT ANY LONGER” Anorak screams in your head telepathically.
 
 The fractured reality that could be seen in the sky shatters into a billion possibilities as the massive fist of the World Maker pummels down through the air.
@@ -1030,7 +1030,7 @@ You reach out to the turtle. As you do, the turtle rapidly grows in size and ope
 
             view = RestartView()
             await self.msg.edit(
-                """
+                f"""{self.msg.content}\n\n**- - - - - - - - - - - - - - - - - - - - - - - - - - - - GAME OVER - - - - - - - - - - - - - - - - - - - - - - - - - - - -**\n
 “I CAN’T HOLD IT ANY LONGER” Anorak screams in your head telepathically.
 
 The fractured reality that could be seen in the sky shatters into a billion possibilities as the massive fist of the World Maker pummels down through the air.
@@ -1081,7 +1081,7 @@ A small light appears nearby. It begins to sparkle and flash, growing in a crack
 
             view = RestartView()
             await self.msg.edit(
-                """
+                f"""{self.msg.content}\n\n**- - - - - - - - - - - - - - - - - - - - - - - - - - - - GAME OVER - - - - - - - - - - - - - - - - - - - - - - - - - - - -**\n
 “I CAN’T HOLD IT ANY LONGER” Anorak screams in your head telepathically.
 
 The fractured reality that could be seen in the sky shatters into a billion possibilities as the massive fist of the World Maker pummels down through the air.
@@ -1156,7 +1156,7 @@ You turn back to the stream which could be described as anything but. The ‘str
 
             view = RestartView()
             await self.msg.edit(
-                """
+                f"""{self.msg.content}\n\n**- - - - - - - - - - - - - - - - - - - - - - - - - - - - GAME OVER - - - - - - - - - - - - - - - - - - - - - - - - - - - -**\n
 “I CAN’T HOLD IT ANY LONGER” Anorak screams in your head telepathically.
 
 The fractured reality that could be seen in the sky shatters into a billion possibilities as the massive fist of the World Maker pummels down through the air.
@@ -1231,7 +1231,7 @@ You reach out to the turtle. As you do, the turtle rapidly grows in size and ope
 
             view = RestartView()
             await self.msg.edit(
-                """
+                f"""{self.msg.content}\n\n**- - - - - - - - - - - - - - - - - - - - - - - - - - - - GAME OVER - - - - - - - - - - - - - - - - - - - - - - - - - - - -**\n
 “I CAN’T HOLD IT ANY LONGER” Anorak screams in your head telepathically.
 
 The fractured reality that could be seen in the sky shatters into a billion possibilities as the massive fist of the World Maker pummels down through the air.
@@ -1282,7 +1282,7 @@ You turn back to the stream which could be described as anything but. The ‘str
 
             view = RestartView()
             await self.msg.edit(
-                """
+                f"""{self.msg.content}\n\n**- - - - - - - - - - - - - - - - - - - - - - - - - - - - GAME OVER - - - - - - - - - - - - - - - - - - - - - - - - - - - -**\n
 “I CAN’T HOLD IT ANY LONGER” Anorak screams in your head telepathically.
 
 The fractured reality that could be seen in the sky shatters into a billion possibilities as the massive fist of the World Maker pummels down through the air.
@@ -1359,7 +1359,7 @@ To your left you spot a tunnel covered in moss and greenery, but what caught you
 
             view = RestartView()
             await self.msg.edit(
-                """
+                f"""{self.msg.content}\n\n**- - - - - - - - - - - - - - - - - - - - - - - - - - - - GAME OVER - - - - - - - - - - - - - - - - - - - - - - - - - - - -**\n
 “I CAN’T HOLD IT ANY LONGER” Anorak screams in your head telepathically.
 
 The fractured reality that could be seen in the sky shatters into a billion possibilities as the massive fist of the World Maker pummels down through the air.
@@ -1436,7 +1436,7 @@ A seed appears. And then another. And another. The seedlings begin to bloom, sho
 
             view = RestartView()
             await self.msg.edit(
-                """
+                f"""{self.msg.content}\n\n**- - - - - - - - - - - - - - - - - - - - - - - - - - - - GAME OVER - - - - - - - - - - - - - - - - - - - - - - - - - - - -**\n
 “I CAN’T HOLD IT ANY LONGER” Anorak screams in your head telepathically.
 
 The fractured reality that could be seen in the sky shatters into a billion possibilities as the massive fist of the World Maker pummels down through the air.
@@ -1491,7 +1491,7 @@ To your left you spot a tunnel covered in moss and greenery, but what caught you
 
             view = RestartView()
             await self.msg.edit(
-                """
+                f"""{self.msg.content}\n\n**- - - - - - - - - - - - - - - - - - - - - - - - - - - - GAME OVER - - - - - - - - - - - - - - - - - - - - - - - - - - - -**\n
 “I CAN’T HOLD IT ANY LONGER” Anorak screams in your head telepathically.
 
 The fractured reality that could be seen in the sky shatters into a billion possibilities as the massive fist of the World Maker pummels down through the air.
@@ -1564,7 +1564,7 @@ You trip, much to the amusement of the ghosts. You see an elemental crack just w
 
             view = RestartView()
             await self.msg.edit(
-                """
+                f"""{self.msg.content}\n\n**- - - - - - - - - - - - - - - - - - - - - - - - - - - - GAME OVER - - - - - - - - - - - - - - - - - - - - - - - - - - - -**\n
 “I CAN’T HOLD IT ANY LONGER” Anorak screams in your head telepathically.
 
 The fractured reality that could be seen in the sky shatters into a billion possibilities as the massive fist of the World Maker pummels down through the air.
@@ -1639,7 +1639,7 @@ A seed appears. And then another. And another. The seedlings begin to bloom, sho
 
             view = RestartView()
             await self.msg.edit(
-                """
+                f"""{self.msg.content}\n\n**- - - - - - - - - - - - - - - - - - - - - - - - - - - - GAME OVER - - - - - - - - - - - - - - - - - - - - - - - - - - - -**\n
 “I CAN’T HOLD IT ANY LONGER” Anorak screams in your head telepathically.
 
 The fractured reality that could be seen in the sky shatters into a billion possibilities as the massive fist of the World Maker pummels down through the air.
@@ -1692,7 +1692,7 @@ You trip, much to the amusement of the ghosts. You see an elemental crack just w
 
             view = RestartView()
             await self.msg.edit(
-                """
+                f"""{self.msg.content}\n\n**- - - - - - - - - - - - - - - - - - - - - - - - - - - - GAME OVER - - - - - - - - - - - - - - - - - - - - - - - - - - - -**\n
 “I CAN’T HOLD IT ANY LONGER” Anorak screams in your head telepathically.
 
 The fractured reality that could be seen in the sky shatters into a billion possibilities as the massive fist of the World Maker pummels down through the air.
@@ -1765,7 +1765,7 @@ Your annoyance is short lived though, molten rock is shooting towards you at rap
 
             view = RestartView()
             await self.msg.edit(
-                """
+                f"""{self.msg.content}\n\n**- - - - - - - - - - - - - - - - - - - - - - - - - - - - GAME OVER - - - - - - - - - - - - - - - - - - - - - - - - - - - -**\n
 “I CAN’T HOLD IT ANY LONGER” Anorak screams in your head telepathically.
 
 The fractured reality that could be seen in the sky shatters into a billion possibilities as the massive fist of the World Maker pummels down through the air.
@@ -1838,7 +1838,7 @@ You start running towards the tropical beach near the volcano, you’re drawn th
 
             view = RestartView()
             await self.msg.edit(
-                """
+                f"""{self.msg.content}\n\n**- - - - - - - - - - - - - - - - - - - - - - - - - - - - GAME OVER - - - - - - - - - - - - - - - - - - - - - - - - - - - -**\n
 “I CAN’T HOLD IT ANY LONGER” Anorak screams in your head telepathically.
 
 The fractured reality that could be seen in the sky shatters into a billion possibilities as the massive fist of the World Maker pummels down through the air.
@@ -1889,7 +1889,7 @@ Your annoyance is short lived though, molten rock is shooting towards you at rap
 
             view = RestartView()
             await self.msg.edit(
-                """
+                f"""{self.msg.content}\n\n**- - - - - - - - - - - - - - - - - - - - - - - - - - - - GAME OVER - - - - - - - - - - - - - - - - - - - - - - - - - - - -**\n
 “I CAN’T HOLD IT ANY LONGER” Anorak screams in your head telepathically.
 
 The fractured reality that could be seen in the sky shatters into a billion possibilities as the massive fist of the World Maker pummels down through the air.
@@ -1964,7 +1964,7 @@ You notice a large mural on the wall. It looks like a forest in Autumn. But oddl
 
             view = RestartView()
             await self.msg.edit(
-                """
+                f"""{self.msg.content}\n\n**- - - - - - - - - - - - - - - - - - - - - - - - - - - - GAME OVER - - - - - - - - - - - - - - - - - - - - - - - - - - - -**\n
 “I CAN’T HOLD IT ANY LONGER” Anorak screams in your head telepathically.
 
 The fractured reality that could be seen in the sky shatters into a billion possibilities as the massive fist of the World Maker pummels down through the air.
@@ -2039,7 +2039,7 @@ You start running towards the tropical beach near the volcano, you’re drawn th
 
             view = RestartView()
             await self.msg.edit(
-                """
+                f"""{self.msg.content}\n\n**- - - - - - - - - - - - - - - - - - - - - - - - - - - - GAME OVER - - - - - - - - - - - - - - - - - - - - - - - - - - - -**\n
 “I CAN’T HOLD IT ANY LONGER” Anorak screams in your head telepathically.
 
 The fractured reality that could be seen in the sky shatters into a billion possibilities as the massive fist of the World Maker pummels down through the air.
@@ -2092,7 +2092,7 @@ You’re sitting on an icy slope. The only light here comes from the fire.
 
             view = RestartView()
             await self.msg.edit(
-                """
+                f"""{self.msg.content}\n\n**- - - - - - - - - - - - - - - - - - - - - - - - - - - - GAME OVER - - - - - - - - - - - - - - - - - - - - - - - - - - - -**\n
 “I CAN’T HOLD IT ANY LONGER” Anorak screams in your head telepathically.
 
 The fractured reality that could be seen in the sky shatters into a billion possibilities as the massive fist of the World Maker pummels down through the air.
@@ -2161,7 +2161,7 @@ A huge feathered hawk-looking creature screeches above you. You orient yourself 
 
             view = RestartView()
             await self.msg.edit(
-                """
+                f"""{self.msg.content}\n\n**- - - - - - - - - - - - - - - - - - - - - - - - - - - - GAME OVER - - - - - - - - - - - - - - - - - - - - - - - - - - - -**\n
 “I CAN’T HOLD IT ANY LONGER” Anorak screams in your head telepathically.
 
 The fractured reality that could be seen in the sky shatters into a billion possibilities as the massive fist of the World Maker pummels down through the air.
