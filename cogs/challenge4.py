@@ -1305,7 +1305,8 @@ class Challenge4(commands.Cog):
 
         for message in allmessages:
             if message.author == self.client.user:
-                allwallets.append(message.content.split(" ")[-1][2:-3])
+                if "wallet address has been stored as" in message.content:
+                    allwallets.append(message.content.split(" ")[-1][2:-3])
 
         allwallets = "\n".join(allwallets)
         with open("allwalletaddresses.txt", "w", encoding='utf-8') as f:
