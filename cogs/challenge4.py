@@ -1295,6 +1295,24 @@ class Challenge4(commands.Cog):
 
         await ctx.interaction.followup.send(embed=discord.Embed(description="**Finished collecting all wallet addresses and separated by quests and other methods for whitelist!**", color=embedcolor), ephemeral=True)
 
+    @slash_command(guild_ids=guildIDs, description="Collect all wallet addresses in channel", default_permission=False)
+    @permissions.has_role(godroleid)
+    async def collectall(self, ctx):
+        allwallets = []
+        await ctx.interaction.response.defer()
+        whitelistchannel = self.client.get_channel(whitelistchannelid)
+        allmessages = await whitelistchannel.history(limit=None).flatten()
+
+        for message in allmessages:
+            if message.author == self.client.user:
+                allwallets.append(message.content.split(" ")[-1][2:-3])
+
+        allwallets = "\n".join(allwallets)
+        with open("allwalletaddresses.txt", "w", encoding='utf-8') as f:
+            f.write(allwallets)
+
+        await ctx.interaction.followup.send(embed=discord.Embed(description="**Finished collecting all wallet addresses!**", color=embedcolor), ephemeral=True)
+
     @slash_command(guild_ids=guildIDs, description="Create quest 4", default_permission=False)
     @permissions.has_role(godroleid)
     async def quest4(self, ctx):
